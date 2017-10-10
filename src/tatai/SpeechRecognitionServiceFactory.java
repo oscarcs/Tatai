@@ -1,6 +1,6 @@
 package tatai;
 
-import processBuilder.ServiceFactory;
+import processes.ServiceFactory;
 
 /**
  * Object that abstracts HTK framework

@@ -5,14 +5,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import tatai.views.mainContainer.MainContainerView;
+import views.mainContainer.MainContainerView;
 
 public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = (Parent) new MainContainerView().view();
-		primaryStage.setTitle("Taatai!");
+		primaryStage.setTitle("Tātai!");
 		primaryStage.setScene(new Scene(root));
 
 		//Load the icon.
