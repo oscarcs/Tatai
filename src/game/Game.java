@@ -1,19 +1,20 @@
-package tatai;
+package game;
 
-import javafx.concurrent.Service;
-import javafx.concurrent.WorkerStateEvent;
-import javafx.event.EventHandler;
-import processes.ProcessOutput;
-import numbers.Equation;
-import numbers.EquationFactory;
-import numbers.Pronunciation;
-import views.level.Level;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javafx.concurrent.Service;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
+
+import processes.ProcessOutput;
+import numbers.Equation;
+import numbers.EquationFactory;
+import numbers.Pronunciation;
+import views.level.Level;
 
 /**
  * Class that is the object that represents a Game Model (with respect to MVC).

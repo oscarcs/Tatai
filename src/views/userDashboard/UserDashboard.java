@@ -14,8 +14,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import tatai.GameData;
-import tatai.User;
+
+import game.GameData;
+import game.User;
 import views.gameInfo.GameInfo;
 import views.gameInfo.GameInfoView;
 import views.mainContainer.MainContainer;

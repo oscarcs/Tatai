@@ -11,5 +11,4 @@ public class MainContainerView extends View {
     public MainContainerView() {
         super(MainContainer.class.getResource("mainContainer.fxml"));
     }
-
 }

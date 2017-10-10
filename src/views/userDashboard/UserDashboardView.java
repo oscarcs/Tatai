@@ -11,7 +11,4 @@ public class UserDashboardView extends View{
 	public UserDashboardView() {
 		super(UserDashboard.class.getResource("userDashboard.fxml"));
 	}
-
-	
-	
 }

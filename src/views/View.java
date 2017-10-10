@@ -1,10 +1,9 @@
 package views;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-
 import java.io.IOException;
 import java.net.URL;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 
 /**
  * Interface for abstraction of FXMLLoader
@@ -14,10 +13,10 @@ public abstract class View {
 
     /**
      * Constructor
-     * @param url Takes the URL of a FXML file to be parsed.
+     * @param viewXML Takes the URL of a FXML file to be parsed.
      */
-    public View(URL url) {
-        loader = new FXMLLoader(url);
+    public View(URL viewXML) {
+        loader = new FXMLLoader(viewXML);
     }
 
     /**
@@ -27,8 +26,7 @@ public abstract class View {
     public Node view() {
         try {
             return loader.load();
-        } 
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return null;

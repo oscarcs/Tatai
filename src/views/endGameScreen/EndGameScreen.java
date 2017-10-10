@@ -1,5 +1,7 @@
 package views.endGameScreen;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -8,12 +10,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
-import tatai.Game;
-import tatai.RoundData;
-import views.mainContainer.MainContainer;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import game.Game;
+import game.RoundData;
+import views.mainContainer.MainContainer;
 
 /**
  * Controller for the EndGameScreenView, is used at the end of a game showing the user how they did.

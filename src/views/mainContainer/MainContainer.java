@@ -5,13 +5,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.BorderPane;
-import tatai.GameData;
+
+import game.GameData;
+import game.User;
 import views.View;
 import views.gameMenu.GameMenuView;
 import views.help.HelpView;
 import views.loginPage.LoginPage;
 import views.loginPage.LoginPageView;
-import tatai.User;
 import views.userDashboard.UserDashboardView;
 
 

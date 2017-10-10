@@ -1,16 +1,16 @@
 package views.level;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
-import tatai.Game;
+
+import game.Game;
 import views.endGameScreen.EndGameScreen;
 import views.endGameScreen.EndGameScreenView;
 import views.mainContainer.MainContainer;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 /**
  * Methods that represents a level of the game. Controller for the level view.

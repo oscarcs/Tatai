@@ -1,4 +1,4 @@
-package tatai;
+package game;
 
 import java.io.Serializable;
 

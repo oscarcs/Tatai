@@ -1,5 +1,7 @@
 package views.gameInfo;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -8,12 +10,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
-import tatai.GameData;
-import tatai.RoundData;
+
+import game.GameData;
+import game.RoundData;
 import views.mainContainer.MainContainer;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 
 /**
  * Controller of the GameInfo View, it is called when a user double clicks on a game on the user dashboard to see it's details.

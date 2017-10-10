@@ -1,13 +1,12 @@
-package tatai;
-
-import tatai.GameData;
-import views.mainContainer.MainContainer;
+package game;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import views.mainContainer.MainContainer;
 
 /**
  * Object represents a User

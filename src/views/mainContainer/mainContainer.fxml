@@ -22,9 +22,9 @@
          <children>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
                <children>
-                  <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Taatai!">
+                  <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Tātai!">
                      <font>
-                        <Font name="System Bold Italic" size="25.0" />
+                        <Font name="System Bold" size="25.0" />
                      </font>
                   </Text>
                </children>
