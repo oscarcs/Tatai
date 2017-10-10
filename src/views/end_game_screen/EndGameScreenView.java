@@ -1,4 +1,4 @@
-package views.endGameScreen;
+package views.end_game_screen;
 
 import views.View;
 

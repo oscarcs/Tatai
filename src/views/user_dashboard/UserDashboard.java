@@ -1,4 +1,4 @@
-package views.userDashboard;
+package views.user_dashboard;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -17,9 +17,9 @@ import javafx.stage.Stage;
 
 import game.GameData;
 import game.User;
-import views.gameInfo.GameInfo;
-import views.gameInfo.GameInfoView;
-import views.mainContainer.MainContainer;
+import views.game_info.GameInfo;
+import views.game_info.GameInfoView;
+import views.main_container.MainContainer;
 
 
 import java.time.LocalDate;
@@ -95,7 +95,7 @@ public class UserDashboard {
 					stage.setTitle("Game on " + gameData.getTime());
 					stage.setScene(gameInfoScene);
 					stage.show();
-					stage.getIcons().add(new Image("resources/images/maori.png"));
+					stage.getIcons().add(new Image("resources/maori.png"));
 				}
 			});
 			return row;

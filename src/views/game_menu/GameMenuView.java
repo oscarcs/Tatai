@@ -1,4 +1,4 @@
-package views.gameMenu;
+package views.game_menu;
 
 import views.View;
 /**

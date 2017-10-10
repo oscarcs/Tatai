@@ -1,4 +1,4 @@
-package views.gameInfo;
+package views.game_info;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,7 +13,7 @@ import javafx.scene.text.Text;
 
 import game.GameData;
 import game.RoundData;
-import views.mainContainer.MainContainer;
+import views.main_container.MainContainer;
 
 
 /**

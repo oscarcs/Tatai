@@ -1,4 +1,4 @@
-package views.loginPage;
+package views.login_page;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,7 +18,7 @@ import javafx.scene.control.TextInputDialog;
 
 import game.Game;
 import game.User;
-import views.mainContainer.MainContainer;
+import views.main_container.MainContainer;
 
 
 public class LoginPage implements Initializable {

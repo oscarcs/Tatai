@@ -1,4 +1,4 @@
-package views.mainContainer;
+package views.main_container;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -9,11 +9,11 @@ import javafx.scene.layout.BorderPane;
 import game.GameData;
 import game.User;
 import views.View;
-import views.gameMenu.GameMenuView;
+import views.game_menu.GameMenuView;
 import views.help.HelpView;
-import views.loginPage.LoginPage;
-import views.loginPage.LoginPageView;
-import views.userDashboard.UserDashboardView;
+import views.login_page.LoginPage;
+import views.login_page.LoginPageView;
+import views.user_dashboard.UserDashboardView;
 
 
 import java.util.ArrayList;

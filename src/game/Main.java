@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import views.mainContainer.MainContainerView;
+import views.main_container.MainContainerView;
 
 public class Main extends Application {
 
@@ -17,7 +17,7 @@ public class Main extends Application {
 		primaryStage.setScene(new Scene(root));
 
 		// Load the icon.
-		primaryStage.getIcons().add(new Image("resources/images/maori.png"));
+		primaryStage.getIcons().add(new Image("resources/maori.png"));
 		primaryStage.show();
 	}
 

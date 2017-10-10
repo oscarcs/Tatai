@@ -1,4 +1,4 @@
-package views.loginPage;
+package views.login_page;
 
 import views.View;
 

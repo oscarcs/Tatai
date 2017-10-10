@@ -1,4 +1,4 @@
-package views.gameMenu;
+package views.game_menu;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -11,7 +11,7 @@ import numbers.SimpleEquationFactory;
 import numbers.SingleNumberEquationFactory;
 import views.level.Level;
 import views.level.LevelView;
-import views.mainContainer.MainContainer;
+import views.main_container.MainContainer;
 
 import java.util.ArrayList;
 import java.util.HashMap;

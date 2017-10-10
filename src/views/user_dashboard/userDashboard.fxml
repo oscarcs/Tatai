@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="500.0" prefWidth="575.0" styleClass="normalBackground" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.userDashboard.UserDashboard">
+<BorderPane prefHeight="500.0" prefWidth="575.0" styleClass="normalBackground" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.user_dashboard.UserDashboard">
    <stylesheets>
       <URL value="@../style.css" />
       <URL value="@userDashboard.css" />

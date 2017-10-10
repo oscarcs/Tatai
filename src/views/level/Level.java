@@ -8,9 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
 import game.Game;
-import views.endGameScreen.EndGameScreen;
-import views.endGameScreen.EndGameScreenView;
-import views.mainContainer.MainContainer;
+import views.end_game_screen.EndGameScreen;
+import views.end_game_screen.EndGameScreenView;
+import views.main_container.MainContainer;
 
 /**
  * Methods that represents a level of the game. Controller for the level view.

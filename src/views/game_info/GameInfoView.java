@@ -1,4 +1,4 @@
-package views.gameInfo;
+package views.game_info;
 
 import views.View;
 

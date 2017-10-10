@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import views.mainContainer.MainContainer;
+import views.main_container.MainContainer;
 
 /**
  * Object represents a User

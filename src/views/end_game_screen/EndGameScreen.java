@@ -1,4 +1,4 @@
-package views.endGameScreen;
+package views.end_game_screen;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,7 +13,7 @@ import javafx.scene.text.Text;
 
 import game.Game;
 import game.RoundData;
-import views.mainContainer.MainContainer;
+import views.main_container.MainContainer;
 
 /**
  * Controller for the EndGameScreenView, is used at the end of a game showing the user how they did.

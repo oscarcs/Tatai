@@ -1,4 +1,4 @@
-package views.mainContainer;
+package views.main_container;
 
 import views.View;
 

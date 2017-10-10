@@ -1,4 +1,4 @@
-package views.userDashboard;
+package views.user_dashboard;
 
 import views.View;
 
