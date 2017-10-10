@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="575.0" styleClass="normalBackground" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.speechHelp.SpeechHelp">
+   <children>
+      <Label layoutX="48.0" layoutY="31.0" text="Maori number pronunciation rules" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="81.0" prefHeight="314.0" prefWidth="161.0" text="1 ---------- tahi&#10;2 ---------- rua&#10;3 ---------- toru&#10;4 ---------- wha&#10;5 ---------- rima&#10;6 ---------- ono&#10;7 ---------- whitu&#10;8 ---------- waru&#10;9 ---------- iwa&#10;10 --------- tekau" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="209.0" layoutY="81.0" prefHeight="341.0" prefWidth="351.0" text="All numbers from 11 will now follow a &#10;basic pattern.&#10;For example to say twenty-two, simple&#10;say rua tekau, which means 20 and then&#10;mā rua, Rua tekau mā rua. &#10;So all you have to do is learn the numbers&#10;from 1 - 10 and then the words for 10, 20,&#10;30, 40 and so on.&#10;examples:&#10;30 ---------- toru tekau&#10;55 ---------- rima tekau ma rima" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="help" layoutX="450.0" layoutY="437.0" mnemonicParsing="false" onAction="#helpHit" prefHeight="35.0" prefWidth="80.0" text="Help">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+   <stylesheets>
+      <URL value="@../style.css" />
+      <URL value="@../help/help.css" />
+   </stylesheets>
+</AnchorPane>
