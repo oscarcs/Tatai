@@ -13,7 +13,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = (Parent) new MainContainerView().view();
-		primaryStage.setTitle("TƒÅtai!");
+		primaryStage.setTitle("T®°tai!");
 		primaryStage.setScene(new Scene(root));
 
 		// Load the icon.

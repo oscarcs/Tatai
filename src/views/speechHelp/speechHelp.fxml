@@ -13,12 +13,12 @@
             <Font name="System Bold" size="28.0" />
          </font>
       </Label>
-      <Label layoutX="48.0" layoutY="81.0" prefHeight="314.0" prefWidth="161.0" text="1 ---------- tahi&#10;2 ---------- rua&#10;3 ---------- toru&#10;4 ---------- wha&#10;5 ---------- rima&#10;6 ---------- ono&#10;7 ---------- whitu&#10;8 ---------- waru&#10;9 ---------- iwa&#10;10 --------- tekau" textFill="WHITE">
+      <Label layoutX="48.0" layoutY="81.0" prefHeight="314.0" prefWidth="161.0" text="1 ---------- tahi&#10;2 ---------- rua&#10;3 ---------- toru&#10;4 ---------- whā&#10;5 ---------- rima&#10;6 ---------- ono&#10;7 ---------- whitu&#10;8 ---------- waru&#10;9 ---------- iwa&#10;10 --------- tekau" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="209.0" layoutY="81.0" prefHeight="341.0" prefWidth="351.0" text="All numbers from 11 will now follow a &#10;basic pattern.&#10;For example to say twenty-two, simple&#10;say rua tekau, which means 20 and then&#10;mā rua, Rua tekau mā rua. &#10;So all you have to do is learn the numbers&#10;from 1 - 10 and then the words for 10, 20,&#10;30, 40 and so on.&#10;examples:&#10;30 ---------- toru tekau&#10;55 ---------- rima tekau ma rima" textFill="WHITE">
+      <Label layoutX="209.0" layoutY="81.0" prefHeight="341.0" prefWidth="351.0" text="All numbers from 11 will now follow a &#10;basic pattern.&#10;For example to say twenty-two, simple&#10;say rua tekau, which means 20 and then&#10;mā rua, Rua tekau mā rua. &#10;So all you have to do is learn the numbers&#10;from 1 - 10 and then the words for 10, 20,&#10;30, 40 and so on.&#10;examples:&#10;30 ---------- toru tekau&#10;55 ---------- rima tekau mā rima" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
