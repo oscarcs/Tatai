@@ -161,6 +161,7 @@ public class Game {
         score++;
         gameData.addRound(currentRound, true, receivedAnswer + "", pronunciation.getPronunciation(currentEquation.answer())+ "", currentEquation.toString(), currentAttempt);
         level.answerCorrect();
+        level.setRoundColour(true);
         endRound();
 
     }
@@ -171,6 +172,7 @@ public class Game {
     private void loseRound() {
         gameData.addRound(currentRound, false, receivedAnswer + "", pronunciation.getPronunciation(currentEquation.answer())+ "", currentEquation.toString(), currentAttempt);
         level.answerWrong();
+        level.setRoundColour(false);
         endRound();
     }
 

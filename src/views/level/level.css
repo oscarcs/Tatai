@@ -9,3 +9,9 @@
 .button:hover {
     -fx-background-color: #161f2b;
 }
+
+
+.progressBar{
+	-fx-fill: #014b78;
+	
+}
