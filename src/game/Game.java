@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import javafx.concurrent.Service;
 import javafx.concurrent.WorkerStateEvent;
@@ -35,6 +36,7 @@ public class Game {
     private String receivedAnswer;
     private SpeechRecognitionServiceFactory serviceFactory;
     private int currentAttempt;
+    public HashMap<Integer, Boolean> roundCorrect;
 
     /**
      * Constructor, it takes the equationFactory that will be used and how many rounds the game will be.
@@ -50,6 +52,7 @@ public class Game {
         pronunciation = new Pronunciation();
         currentEquation = equationFactory.generate();
         serviceFactory = new SpeechRecognitionServiceFactory();
+        this.roundCorrect = new HashMap<Integer, Boolean>();
     }
 
     /**
@@ -161,7 +164,7 @@ public class Game {
         score++;
         gameData.addRound(currentRound, true, receivedAnswer + "", pronunciation.getPronunciation(currentEquation.answer())+ "", currentEquation.toString(), currentAttempt);
         level.answerCorrect();
-        level.setRoundColour(true);
+        roundCorrect.put(currentRound, true);
         endRound();
 
     }
@@ -172,7 +175,7 @@ public class Game {
     private void loseRound() {
         gameData.addRound(currentRound, false, receivedAnswer + "", pronunciation.getPronunciation(currentEquation.answer())+ "", currentEquation.toString(), currentAttempt);
         level.answerWrong();
-        level.setRoundColour(false);
+        roundCorrect.put(currentRound, false);
         endRound();
     }
 
@@ -183,12 +186,23 @@ public class Game {
         currentAttempt = 1;
         currentRound++;
         currentEquation = equationFactory.generate();
+        level.setRoundColour(roundCorrect);
         if (currentRound <= totalRounds) {
             level.nextLevel();
         } else {
             level.endGame();
         }
     }
+    
+    public HashMap<Integer,Boolean> getRoundData(){
+    	return roundCorrect;
+    }
+    
+    public void setColour() {
+    	level.setRoundColour(roundCorrect);
+    }
+    
+    
 
     /**
      * Gets the current round number.

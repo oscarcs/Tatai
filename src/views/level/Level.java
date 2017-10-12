@@ -2,15 +2,18 @@ package views.level;
 
 import java.net.URL;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import game.Game;
+import game.GameData;
 import views.end_game_screen.EndGameScreen;
 import views.end_game_screen.EndGameScreenView;
 import views.main_container.MainContainer;
@@ -22,8 +25,9 @@ public class Level implements Initializable {
 
 	private HashMap<Integer, Rectangle> progressBar;
 
-	@FXML
-	Rectangle r1, r2, r3, r4, r5, r6, r7, r8, r9, r10;
+	 @FXML
+	 Rectangle r1, r2, r3, r4, r5, r6, r7, r8, r9, r10;
+
 
 	@FXML
 	Button continueButton, recordButton;
@@ -35,6 +39,8 @@ public class Level implements Initializable {
 	Text attemptText, roundText;
 
 	private Game game;
+	
+	private HashMap<Integer, Boolean> roundData;
 
 	/**
 	 * Method that is called to set the game model to this level.
@@ -45,11 +51,19 @@ public class Level implements Initializable {
 		this.game = game;
 		game.setLevel(this);
 		equationText.setText(game.equationText());
-		//roundText.setText("Round " + game.getCurrentRound());
 		recordStatus.setText("Press the button to record...");
 		attemptText.setText("Attempt " + game.getCurrentAttempt());
 		answerStatus.setText("");
 		receivedAnswerText.setText("We received: ");
+		
+		
+		roundData = game.getRoundData();
+		setRoundColour(roundData);
+		
+		//setRoundColour(game.roundCorrect);
+		System.out.println(game.getCurrentRound());
+		System.out.println(game.roundCorrect.size() + "elements");
+		
 	}
 
 	/**
@@ -61,19 +75,9 @@ public class Level implements Initializable {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
 		continueButton.setDisable(true);
 
-		r1 = new Rectangle();
-		r2 = new Rectangle();
-		r3 = new Rectangle();
-		r4 = new Rectangle();
-		r5 = new Rectangle();
-		r6 = new Rectangle();
-		r7 = new Rectangle();
-		r8 = new Rectangle();
-		r9 = new Rectangle();
-		r10 = new Rectangle();
-		
 		progressBar = new HashMap<Integer, Rectangle>();
 		progressBar.put(1, r1);
 		progressBar.put(2, r2);
@@ -85,16 +89,25 @@ public class Level implements Initializable {
 		progressBar.put(8, r8);
 		progressBar.put(9, r9);
 		progressBar.put(10, r10);
+		
+		
+
 	}
 
+
+	
 	/**
 	 * When the user presses the record button.
 	 */
 	@FXML
 	public void recordHit() {
+
 		recordButton.setDisable(true);
 		recordStatus.setText("recording....");
 		game.record();
+
+			
+	
 	}
 
 	/**
@@ -128,6 +141,7 @@ public class Level implements Initializable {
 	 */
 	public void answerCorrect() {
 		answerStatus.setText("Correct");
+		answerStatus.setFill(Color.GREEN);
 		receivedAnswerText.setText("We received: " + game.getReceivedAnswer());
 	}
 
@@ -136,6 +150,7 @@ public class Level implements Initializable {
 	 */
 	public void answerWrong() {
 		answerStatus.setText("Incorrect");
+		answerStatus.setFill(Color.RED);
 		receivedAnswerText.setText("We received: " + game.getReceivedAnswer());
 	}
 
@@ -169,15 +184,19 @@ public class Level implements Initializable {
 		endGameScreen.setGame(game);
 	}
 
-	public void setRoundColour( boolean correct) {
+	public void setRoundColour(HashMap<Integer, Boolean> data) {
+		for (int i = 1; i <= data.size(); i++) {
 		
-		if (correct) {
-			progressBar.get(game.getCurrentRound()).setFill(Color.web("#55c1ff"));
-
-		} else {
-			progressBar.get(game.getCurrentRound()).setFill(Color.web("#ff5b5b"));
-
+			
+			if (data.get(i)) {
+				progressBar.get(i).setFill(Color.web("#55c1ff"));
+				System.out.println("green");
+			} else {
+				progressBar.get(i).setFill(Color.web("#ff5b5b"));
+				System.out.println("red");
+			}
 		}
+
 	}
 
 }

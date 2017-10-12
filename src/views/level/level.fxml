@@ -118,9 +118,9 @@
       </VBox>
    </top>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" stylesheets="@level.css" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle fx:id="r1" arcHeight="5.0" arcWidth="5.0" fill="#404952" height="23.0" stroke="BLACK" strokeType="INSIDE" styleClass="progressBar" width="50.0" />
+            <Rectangle fx:id="r1" arcHeight="5.0" arcWidth="5.0" fill="#7d4c4c" height="23.0" stroke="WHITE" strokeType="INSIDE" styleClass="progressBar" width="50.0" />
             <Rectangle fx:id="r2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" stroke="BLACK" strokeType="INSIDE" styleClass="progressBar" width="50.0" />
             <Rectangle fx:id="r3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" stroke="BLACK" strokeType="INSIDE" styleClass="progressBar" width="50.0" />
             <Rectangle fx:id="r4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" stroke="BLACK" strokeType="INSIDE" styleClass="progressBar" width="50.0" />
