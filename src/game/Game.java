@@ -160,7 +160,7 @@ public class Game {
     /**
      * Method that is called when the user has gotten the correct answer.
      */
-    private void winRound() {
+    public void winRound() {
         score++;
         gameData.addRound(currentRound, true, receivedAnswer + "", pronunciation.getPronunciation(currentEquation.answer())+ "", currentEquation.toString(), currentAttempt);
         level.answerCorrect();

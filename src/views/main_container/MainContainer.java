@@ -24,6 +24,8 @@ public class MainContainer {
     private static MainContainer instance;
 
     public final static String USERS_DIRECTORY = "users/";
+    public final static String QUIZ_DIRECTORY = "quiz/";
+
 
     private ArrayList<Button> buttons;
     private User user;

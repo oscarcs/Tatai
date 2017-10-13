@@ -56,9 +56,12 @@ public class Level implements Initializable {
 		answerStatus.setText("");
 		receivedAnswerText.setText("We received: ");
 		
+		progressBar.get(3).setFill(Color.RED);
+		r1.setFill(Color.RED);
+		game.setColour();
 		
 		roundData = game.getRoundData();
-		setRoundColour(roundData);
+		this.setRoundColour(roundData);
 		
 		//setRoundColour(game.roundCorrect);
 		System.out.println(game.getCurrentRound());
@@ -90,8 +93,8 @@ public class Level implements Initializable {
 		progressBar.put(9, r9);
 		progressBar.put(10, r10);
 		
-		
 
+		
 	}
 
 
@@ -102,10 +105,12 @@ public class Level implements Initializable {
 	@FXML
 	public void recordHit() {
 
-		recordButton.setDisable(true);
-		recordStatus.setText("recording....");
-		game.record();
+//		recordButton.setDisable(true);
+//		recordStatus.setText("recording....");
+//		game.record();
 
+		game.winRound();
+		
 			
 	
 	}
@@ -164,6 +169,7 @@ public class Level implements Initializable {
 		MainContainer.instance().changeCenter(levelView);
 		Level level = (Level) levelView.controller();
 		level.setGame(game);
+		
 	}
 
 	/**
