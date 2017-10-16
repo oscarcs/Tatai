@@ -9,10 +9,12 @@ import javafx.scene.layout.BorderPane;
 import game.GameData;
 import game.User;
 import views.View;
+import views.customQuiz.CustomQuizView;
 import views.game_menu.GameMenuView;
 import views.help.HelpView;
 import views.login_page.LoginPage;
 import views.login_page.LoginPageView;
+import views.makeQuiz.MakeQuizView;
 import views.user_dashboard.UserDashboardView;
 
 
@@ -31,7 +33,7 @@ public class MainContainer {
     private User user;
 
     @FXML
-    Button playButton, helpButton, dashboardButton,logoutButton;
+    Button playButton, helpButton, dashboardButton,logoutButton, practiceButton, quizButton;
 
     @FXML
     BorderPane borderPane;
@@ -49,6 +51,11 @@ public class MainContainer {
     @FXML
     public void dashboardHit() {
         borderPane.setCenter(new UserDashboardView().view());
+    }
+    
+    @FXML
+    public void quizHit() {
+    	borderPane.setCenter(new MakeQuizView().view());
     }
     
     @FXML

@@ -23,7 +23,7 @@ import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
 import views.main_container.MainContainer;
 
-public class CustomeQuiz implements Initializable {
+public class CustomQuiz implements Initializable {
 
 	@FXML
 	Button playBtn, deleteBtn, newBtn;

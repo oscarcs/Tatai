@@ -40,6 +40,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Button fx:id="playButton" mnemonicParsing="false" onAction="#playHit" text="Play">
@@ -48,9 +49,10 @@
                               <String fx:value="topButton" />
                            </styleClass>
                         </Button>
-                        <Button fx:id="helpButton" mnemonicParsing="false" onAction="#helpHit" styleClass="menuButton" text="Help" GridPane.rowIndex="2" />
+                        <Button fx:id="helpButton" mnemonicParsing="false" onAction="#helpHit" styleClass="menuButton" text="Help" GridPane.rowIndex="3" />
                         <Button fx:id="dashboardButton" mnemonicParsing="false" onAction="#dashboardHit" styleClass="menuButton" text="Dashboard" GridPane.rowIndex="1" />
-                        <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutHit" prefHeight="118.0" prefWidth="125.0" styleClass="menuButton" text="Logout" GridPane.rowIndex="3" />
+                        <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutHit" prefHeight="118.0" prefWidth="125.0" styleClass="menuButton" text="Logout" GridPane.rowIndex="4" />
+                        <Button fx:id="quizButton" mnemonicParsing="false" onAction="#quizHit" styleClass="menuButton" text="Quiz" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>
