@@ -3,6 +3,10 @@ package views.makeQuiz;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -18,6 +22,16 @@ public class MakeQuiz implements Initializable {
 
 	@FXML
 	TextField firstNum, secNum, operation;
+	
+	@FXML
+	public void nextHit() {
+		if(checkValid()) {
+			System.out.println("true");
+		}else {
+			System.out.println("false");
+		}
+	}
+	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -51,10 +65,10 @@ public class MakeQuiz implements Initializable {
 			}
 
 		});
-		
-		setTextLimit(firstNum,2);
-		setTextLimit(secNum,2);
-		setTextLimit(operation,1);
+
+		setTextLimit(firstNum, 2);
+		setTextLimit(secNum, 2);
+		setTextLimit(operation, 1);
 
 		firstNum.setFont(Font.font("System", 40));
 		secNum.setFont(Font.font("System", 40));
@@ -66,12 +80,45 @@ public class MakeQuiz implements Initializable {
 		textfield.textProperty().addListener(new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-				if (textfield.getText().length()>length) {
+				if (textfield.getText().length() > length) {
 					textfield.setText(textfield.getText().substring(0, length));
 				}
 			}
 
 		});
+	}
+
+	private boolean checkValid() {
+		int first = Integer.parseInt(firstNum.getText());
+		int second = Integer.parseInt(secNum.getText());
+		
+		System.out.println(firstNum.getText() + operation.getText() + secNum.getText());
+		
+		
+	    
+		if (operation.getText().equals("/")) {
+			if(first % second != 0) {
+				return false;
+			}else {
+				return true;
+			}
+		} else {
+			ScriptEngineManager mgr = new ScriptEngineManager();
+			ScriptEngine engine = mgr.getEngineByName("JavaScript");
+			int result = 0;
+			try {
+				result = (int)engine.eval(first + operation.getText() + second);
+			} catch (ScriptException e) {
+				e.printStackTrace();
+			}
+			if (result > 99 || result <= 0) {
+				return false;
+			}	else {
+				return true;
+			}
+		}
+		
+		
 	}
 
 }
