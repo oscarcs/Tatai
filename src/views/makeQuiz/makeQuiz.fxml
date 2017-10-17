@@ -40,7 +40,7 @@
       </Label>
       <Label layoutX="100.0" layoutY="143.0" prefHeight="28.0" prefWidth="117.0" text="Label" textFill="WHITE" />
       <Button fx:id="nextBtn" layoutX="449.0" layoutY="420.0" mnemonicParsing="false" onAction="#nextHit" text="Next" />
-      <Label layoutX="211.0" layoutY="338.0" prefHeight="47.0" prefWidth="153.0" text="Label" textFill="WHITE">
+      <Label fx:id="valid" alignment="CENTER" layoutX="211.0" layoutY="347.0" prefHeight="47.0" prefWidth="153.0" text="Label" textFill="WHITE">
          <font>
             <Font size="32.0" />
          </font>

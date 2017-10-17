@@ -12,8 +12,10 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
+import numbers.Equation;
 
 public class MakeQuiz implements Initializable {
 
@@ -22,16 +24,20 @@ public class MakeQuiz implements Initializable {
 
 	@FXML
 	TextField firstNum, secNum, operation;
-	
+
+	@FXML
+	Label questionNum, valid;
+
 	@FXML
 	public void nextHit() {
-		if(checkValid()) {
-			System.out.println("true");
-		}else {
-			System.out.println("false");
+		if (checkValid()) {
+			valid.setText("Valid!");
+			Equation equation = getEquation();
+
+		} else {
+			valid.setText("Invalid!");
 		}
 	}
-	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -74,6 +80,8 @@ public class MakeQuiz implements Initializable {
 		secNum.setFont(Font.font("System", 40));
 		operation.setFont(Font.font("System", 40));
 
+		valid.setText("");
+
 	}
 
 	private void setTextLimit(TextField textfield, int length) {
@@ -91,15 +99,13 @@ public class MakeQuiz implements Initializable {
 	private boolean checkValid() {
 		int first = Integer.parseInt(firstNum.getText());
 		int second = Integer.parseInt(secNum.getText());
-		
+
 		System.out.println(firstNum.getText() + operation.getText() + secNum.getText());
-		
-		
-	    
+
 		if (operation.getText().equals("/")) {
-			if(first % second != 0) {
+			if (first % second != 0) {
 				return false;
-			}else {
+			} else {
 				return true;
 			}
 		} else {
@@ -107,17 +113,35 @@ public class MakeQuiz implements Initializable {
 			ScriptEngine engine = mgr.getEngineByName("JavaScript");
 			int result = 0;
 			try {
-				result = (int)engine.eval(first + operation.getText() + second);
+				result = (int) engine.eval(first + operation.getText() + second);
 			} catch (ScriptException e) {
 				e.printStackTrace();
 			}
 			if (result > 99 || result <= 0) {
 				return false;
-			}	else {
+			} else {
 				return true;
 			}
 		}
+
+	}
+	
+	private Equation getEquation() {
+		int first = Integer.parseInt(firstNum.getText());
+		int second = Integer.parseInt(secNum.getText());
 		
+		ScriptEngineManager mgr = new ScriptEngineManager();
+		ScriptEngine engine = mgr.getEngineByName("JavaScript");
+		int result = 0;
+		try {
+			result = (int) engine.eval(first + operation.getText() + second);
+		} catch (ScriptException e) {
+			e.printStackTrace();
+		}
+		
+		Equation equation = new Equation(first + operation.getText() + second, result);
+
+		return equation;
 		
 	}
 
