@@ -1,32 +1,51 @@
 package game;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.HashSet;
 
-import numbers.Equation;
+import views.main_container.MainContainer;
 
-public class QuizData implements Serializable{
-	
-	
-	private HashSet<Equation> question;
+public class QuizData implements Serializable {
+
+	private String name;
+	private HashSet<SingleQuiz> question;
 	private int totalQues;
-	
-	public QuizData(int questions) {
-		totalQues = questions;
-		question = new HashSet<Equation>();
-		
+
+	public QuizData(String name) {
+		this.name = name;
+		totalQues = 10;
+		question = new HashSet<SingleQuiz>();
+
 	}
-	
-	public void addQues(String equation, int answer) {
-		question.add(new Equation(equation, answer));
+
+	public void addQues(SingleQuiz quiz) {
+		question.add(quiz);
 	}
-	
-	 public HashSet<Equation> getQuestion() {
-	        return question;
-	    }
-	 
-	 public int getTotalQues() {
-		 return totalQues;
-	 }
-	
+
+	public HashSet<SingleQuiz> getQuestion() {
+		return question;
+	}
+
+	public int getTotalQues() {
+		return totalQues;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void save() {
+		try {
+			ObjectOutputStream objectOutputStream = new ObjectOutputStream(
+					new FileOutputStream(MainContainer.QUIZ_DIRECTORY + name));
+			objectOutputStream.writeObject(this);
+			objectOutputStream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

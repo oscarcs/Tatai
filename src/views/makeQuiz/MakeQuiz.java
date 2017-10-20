@@ -7,6 +7,8 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
+import game.Quiz;
+import game.SingleQuiz;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -16,8 +18,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
 import numbers.Equation;
+import views.endQuiz.EndQuiz;
+import views.endQuiz.EndQuizView;
+import views.main_container.MainContainer;
 
 public class MakeQuiz implements Initializable {
+
+	private Quiz quiz;
 
 	@FXML
 	Button previousBtn, nextBtn;
@@ -30,13 +37,28 @@ public class MakeQuiz implements Initializable {
 
 	@FXML
 	public void nextHit() {
-		if (checkValid()) {
-			valid.setText("Valid!");
-			Equation equation = getEquation();
-
+		int first = Integer.parseInt(firstNum.getText());
+		int second = Integer.parseInt(secNum.getText());
+		String operate = operation.getText();
+		if (quiz.checkValid(first, second, operate)) {
+			quiz.addQuiz(quiz.getEquation(first, second, operate));
+			valid.setText("Valid");
+			if (quiz.getCurrentQuizNum() < 3) {
+				quiz.nextQuizNum();
+				MakeQuizView quizView = new MakeQuizView();
+				MainContainer.instance().changeCenter(quizView);
+				MakeQuiz makeQuiz = (MakeQuiz) quizView.controller();
+				makeQuiz.setQuiz(quiz);
+			} else {
+				EndQuizView endView = new EndQuizView();
+				MainContainer.instance().changeCenter(endView);
+				EndQuiz endQuiz = (EndQuiz) endView.controller();
+				endQuiz.setQuiz(quiz);
+			}
 		} else {
-			valid.setText("Invalid!");
+			valid.setText("Invalid");
 		}
+
 	}
 
 	@Override
@@ -96,53 +118,9 @@ public class MakeQuiz implements Initializable {
 		});
 	}
 
-	private boolean checkValid() {
-		int first = Integer.parseInt(firstNum.getText());
-		int second = Integer.parseInt(secNum.getText());
-
-		System.out.println(firstNum.getText() + operation.getText() + secNum.getText());
-
-		if (operation.getText().equals("/")) {
-			if (first % second != 0) {
-				return false;
-			} else {
-				return true;
-			}
-		} else {
-			ScriptEngineManager mgr = new ScriptEngineManager();
-			ScriptEngine engine = mgr.getEngineByName("JavaScript");
-			int result = 0;
-			try {
-				result = (int) engine.eval(first + operation.getText() + second);
-			} catch (ScriptException e) {
-				e.printStackTrace();
-			}
-			if (result > 99 || result <= 0) {
-				return false;
-			} else {
-				return true;
-			}
-		}
-
-	}
-	
-	private Equation getEquation() {
-		int first = Integer.parseInt(firstNum.getText());
-		int second = Integer.parseInt(secNum.getText());
-		
-		ScriptEngineManager mgr = new ScriptEngineManager();
-		ScriptEngine engine = mgr.getEngineByName("JavaScript");
-		int result = 0;
-		try {
-			result = (int) engine.eval(first + operation.getText() + second);
-		} catch (ScriptException e) {
-			e.printStackTrace();
-		}
-		
-		Equation equation = new Equation(first + operation.getText() + second, result);
-
-		return equation;
-		
+	public void setQuiz(Quiz quiz) {
+		this.quiz = quiz;
+		questionNum.setText("Question" + quiz.getCurrentQuizNum());
 	}
 
 }

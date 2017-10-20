@@ -7,6 +7,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.layout.BorderPane;
 
 import game.GameData;
+import game.QuizData;
 import game.User;
 import views.View;
 import views.customQuiz.CustomQuizView;
@@ -14,7 +15,6 @@ import views.game_menu.GameMenuView;
 import views.help.HelpView;
 import views.login_page.LoginPage;
 import views.login_page.LoginPageView;
-import views.makeQuiz.MakeQuizView;
 import views.user_dashboard.UserDashboardView;
 
 
@@ -55,7 +55,7 @@ public class MainContainer {
     
     @FXML
     public void quizHit() {
-    	borderPane.setCenter(new MakeQuizView().view());
+    	borderPane.setCenter(new CustomQuizView().view());
     }
     
     @FXML
@@ -120,6 +120,8 @@ public class MainContainer {
         user.addGame(gameData);
         user.save();
     }
+    
+
 
     /**
      * Change the current view of the game.
@@ -141,6 +143,7 @@ public class MainContainer {
         buttons.add(helpButton);
         buttons.add(dashboardButton);
         buttons.add(logoutButton);
+        buttons.add(quizButton);
         disableButtons();
         LoginPageView loginPageView = new LoginPageView();
         borderPane.setCenter(loginPageView.view());

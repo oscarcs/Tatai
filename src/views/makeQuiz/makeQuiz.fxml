@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="575.0" styleClass="normalBackground" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.makeQuiz.MakeQuiz">
    <children>
       <HBox alignment="CENTER" layoutX="100.0" layoutY="200.0" prefHeight="100.0" prefWidth="375.0" spacing="20.0">
@@ -38,7 +37,7 @@
             <Font name="System Bold" size="33.0" />
          </font>
       </Label>
-      <Label layoutX="100.0" layoutY="143.0" prefHeight="28.0" prefWidth="117.0" text="Label" textFill="WHITE" />
+      <Label fx:id="questionNum" layoutX="100.0" layoutY="143.0" prefHeight="28.0" prefWidth="117.0" text="Label" textFill="WHITE" />
       <Button fx:id="nextBtn" layoutX="449.0" layoutY="420.0" mnemonicParsing="false" onAction="#nextHit" text="Next" />
       <Label fx:id="valid" alignment="CENTER" layoutX="211.0" layoutY="347.0" prefHeight="47.0" prefWidth="153.0" text="Label" textFill="WHITE">
          <font>

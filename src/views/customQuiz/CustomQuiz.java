@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import game.Quiz;
+import game.QuizData;
+import game.User;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -19,12 +22,18 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
 import views.main_container.MainContainer;
+import views.makeQuiz.MakeQuiz;
+import views.makeQuiz.MakeQuizView;
 
 public class CustomQuiz implements Initializable {
 
+	private QuizData quizData;
+	private Quiz quiz;
+	
 	@FXML
 	Button playBtn, deleteBtn, newBtn;
 
@@ -34,70 +43,37 @@ public class CustomQuiz implements Initializable {
 
 	@FXML
 	public void newBtnHit() {
-		Dialog<Pair<String, String>> dialog = new Dialog<>();
-		dialog.setTitle("TestName");
+		TextInputDialog dialog = new TextInputDialog();
+		dialog.setTitle("Quiz");
+		dialog.setHeaderText("Creating new Quiz");
+		dialog.setContentText("Please enter the name of the Quiz:");
 
-		// Set the button types.
-		ButtonType CreateBtnType = new ButtonType("OK", ButtonData.OK_DONE);
-		dialog.getDialogPane().getButtonTypes().addAll(CreateBtnType, ButtonType.CANCEL);
-
-		GridPane gridPane = new GridPane();
-		gridPane.setHgap(10);
-		gridPane.setVgap(10);
-		// gridPane.setPadding(new Insets(20, 150, 10, 10));
-
-		TextField name = new TextField();
-		name.setPromptText("Name of the Quiz");
-		TextField number = new TextField();
-		number.setPromptText("Number of Questions");
-
-		// force the field to be numeric only
-		number.textProperty().addListener(new ChangeListener<String>() {
-
-			@Override
-			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-				// TODO Auto-generated method stub
-				if (!newValue.matches("\\d*")) {
-					dialog.getDialogPane().lookupButton(CreateBtnType).setDisable(true);
-				}
-			}
-		});
-
-		gridPane.add(new Label("Please enter the name of the Quiz"), 0, 0);
-		gridPane.add(name, 0, 1);
-		gridPane.add(new Label("number of Questions"), 0, 2);
-		gridPane.add(number, 1, 2);
-		gridPane.add(new Label("the maximum number of question is 20"), 0, 2);
-
-		dialog.getDialogPane().setContent(gridPane);
-
-		// Request focus on the username field by default.
-		Platform.runLater(() -> name.requestFocus());
-
-		// Convert the result to a username-password-pair when the login button is
-		// clicked.
-		dialog.setResultConverter(dialogButton -> {
-			if (dialogButton == CreateBtnType) {
-				return new Pair<>(name.getText(), number.getText());
-			}
-			return null;
-		});
-
-		Optional<Pair<String, String>> result = dialog.showAndWait();
-
-		result.ifPresent(pair -> {
-
-			if (quizList.contains(pair.getKey()) || pair.getKey().equals("")) {
+		// Traditional way to get the response value.
+		Optional<String> result = dialog.showAndWait();
+		if (result.isPresent()) {
+			if (quizList.contains(result.get()) || result.get().equals("")) {
 				Alert alert = new Alert(Alert.AlertType.WARNING);
-				alert.setTitle("Name invalid!");
-				alert.setHeaderText("Please enter a different name!");
+				alert.setTitle("Quiz name invalid!");
+				alert.setHeaderText("Please enter a different Quiz name!");
 				alert.setContentText("This name already exists or the box is empty, please enter a different one!");
 				alert.showAndWait();
 				return;
 			}
+			// If there has been a string passed in (user didn't cancel) then pass the user to the mainContainer.
+			quizData = new QuizData(result.get());
+			quiz = new Quiz(result.get());
+			//quiz.getQuizData().save();
+			MakeQuizView quizView = new MakeQuizView();
+			MainContainer.instance().changeCenter(quizView);
+			MakeQuiz makeQuiz = (MakeQuiz)quizView.controller();
+			quiz.setQuiz(makeQuiz);
+			quiz.setQuizfile(quizData);
+			makeQuiz.setQuiz(quiz);
+		}
 
-			System.out.println("From=" + pair.getKey() + ", To=" + pair.getValue());
-		});
+		
+
+		
 	}
 
 	@FXML
