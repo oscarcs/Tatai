@@ -4,8 +4,8 @@ package numbers;
  * Class that represents a question for the game.
  */
 public class Equation {
-	String representation;
-	int answer;
+	protected String representation;
+	protected int answer;
 
 	/**
 	 * @param representation

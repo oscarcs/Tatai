@@ -12,11 +12,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import numbers.Equation;
+import views.customQuiz.CustomQuizView;
+import views.main_container.MainContainer;
 
 public class EndQuiz implements Initializable {
 
@@ -24,7 +27,16 @@ public class EndQuiz implements Initializable {
 
 	@FXML
 	Label name;
+	
+	@FXML
+	Button save;
 
+	@FXML
+	public void saveHit() {
+		this.quiz.getQuizData().save();
+		MainContainer.instance().changeCenter(new CustomQuizView());
+	}
+	
 	@FXML
 	TableView<SingleQuiz> table;
 
@@ -32,23 +44,23 @@ public class EndQuiz implements Initializable {
 		this.quiz = quiz;
 		name.setText(quiz.getQuizData().getName());
 
-		TableColumn<SingleQuiz, Integer> quizNumberColumn = new TableColumn<>("Quiz Number");
+		TableColumn<SingleQuiz, Integer> quizNumberColumn = new TableColumn<SingleQuiz, Integer>("Quiz Number");
 		quizNumberColumn.setMinWidth(100);
-		quizNumberColumn.setCellValueFactory(new PropertyValueFactory<>("quizNum"));
+		quizNumberColumn.setCellValueFactory(new PropertyValueFactory<SingleQuiz, Integer>("quizNum"));
 
-		TableColumn<SingleQuiz, String> equationColumn = new TableColumn<>("Equation");
+		TableColumn<SingleQuiz, String> equationColumn = new TableColumn<SingleQuiz, String>("Equation");
 		equationColumn.setMinWidth(100);
-		equationColumn.setCellValueFactory(new PropertyValueFactory<>("representation"));
+		equationColumn.setCellValueFactory(new PropertyValueFactory<SingleQuiz, String>("representation"));
 
-		TableColumn<SingleQuiz, Integer> answerColumn = new TableColumn<>("Answer");
+		TableColumn<SingleQuiz, Integer> answerColumn = new TableColumn<SingleQuiz, Integer>("Answer");
 		answerColumn.setMinWidth(100);
-		answerColumn.setCellValueFactory(new PropertyValueFactory<>("answer"));
+		answerColumn.setCellValueFactory(new PropertyValueFactory<SingleQuiz, Integer>("answer"));
 
 		table.setItems(quizs());
 		table.getColumns().addAll(quizNumberColumn, equationColumn, answerColumn);
 
 		table.getSortOrder().add(quizNumberColumn);
-		this.quiz.getQuizData().save();
+		
 	}
 
 	private ObservableList<SingleQuiz> quizs() {

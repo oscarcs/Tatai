@@ -43,7 +43,7 @@ public class Quiz {
 
 	public SingleQuiz getTheQuiz(int num) {
 		for (SingleQuiz q : data.getQuestion()) {
-			if (q.quizNumber() == num) {
+			if (q.getQuizNum() == num) {
 				return q;
 			}
 		}
