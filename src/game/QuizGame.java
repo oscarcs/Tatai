@@ -23,7 +23,7 @@ public class QuizGame {
 	    public static final String SOUND_DIR = ".";
 	    private int currentRound;
 	    private Pronunciation pronunciation;
-	    private Equation currentEquation;
+	    private SingleQuiz currentQuiz;
 	    private int score = 0;
 	    private PlayQuiz playQuiz;
 	    private int totalRounds;
@@ -45,7 +45,7 @@ public class QuizGame {
 	        this.totalRounds = data.getTotalQues();
 	        this.gameData = new GameData("Quiz: " + data.getName(), data.getTotalQues());
 	        pronunciation = new Pronunciation();
-	        currentEquation = data.getTheQuiz(currentRound);
+	        currentQuiz = data.getTheQuiz(currentRound);
 	        serviceFactory = new SpeechRecognitionServiceFactory();
 	        this.roundCorrect = new HashMap<Integer, Boolean>();
 	    }
@@ -143,7 +143,7 @@ public class QuizGame {
 	            System.out.println(line);
 	        }
 	        receivedAnswer = userAnswer;
-	        String answer = pronunciation.getPronunciation(currentEquation.answer());
+	        String answer = pronunciation.getPronunciation(currentQuiz.getAnswer());
 	        List<String> answers = Arrays.asList(answer.split(" "));
 	        if (lines.containsAll(answers)) {
 	            return true;
@@ -157,7 +157,7 @@ public class QuizGame {
 	     */
 	    public void winRound() {
 	        score++;
-	        gameData.addRound(currentRound, true, receivedAnswer + "", pronunciation.getPronunciation(currentEquation.answer())+ "", currentEquation.toString(), currentAttempt);
+	        gameData.addRound(currentRound, true, receivedAnswer + "", pronunciation.getPronunciation(currentQuiz.getAnswer())+ "", currentQuiz.getRepresentation(), currentAttempt);
 	        playQuiz.answerCorrect();
 	        roundCorrect.put(currentRound, true);
 	        endRound();
@@ -168,7 +168,7 @@ public class QuizGame {
 	     * Method that is called when the user has gotten the wrong answer twice.
 	     */
 	    private void loseRound() {
-	        gameData.addRound(currentRound, false, receivedAnswer + "", pronunciation.getPronunciation(currentEquation.answer())+ "", currentEquation.toString(), currentAttempt);
+	        gameData.addRound(currentRound, false, receivedAnswer + "", pronunciation.getPronunciation(currentQuiz.getAnswer())+ "", currentQuiz.getRepresentation(), currentAttempt);
 	        playQuiz.answerWrong();
 	        roundCorrect.put(currentRound, false);
 	        endRound();
@@ -180,7 +180,7 @@ public class QuizGame {
 	    private void endRound() {
 	        currentAttempt = 1;
 	        currentRound++;
-	        currentEquation = data.getTheQuiz(currentRound);
+	        currentQuiz = data.getTheQuiz(currentRound);
 	        playQuiz.setRoundColour(roundCorrect);
 	        if (currentRound <= totalRounds) {
 	            playQuiz.nextQuiz();
@@ -268,7 +268,7 @@ public class QuizGame {
 	     * @return
 	     */
 	    public String equationText() {
-	        return currentEquation.toString();
+	        return currentQuiz.getRepresentation();
 	    }
 	
 }

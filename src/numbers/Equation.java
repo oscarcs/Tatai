@@ -7,6 +7,8 @@ public class Equation {
 	protected String representation;
 	protected int answer;
 
+	
+	
 	/**
 	 * @param representation
 	 *            This is the string that will be shown on the GUI

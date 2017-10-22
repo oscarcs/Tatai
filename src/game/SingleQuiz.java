@@ -4,9 +4,11 @@ import java.io.Serializable;
 
 import numbers.Equation;
 
-public class SingleQuiz extends Equation implements Comparable<SingleQuiz>, Serializable{
+public class SingleQuiz implements Comparable<SingleQuiz>, Serializable{
 	
 	private int quizNum;
+	private String representation;
+	private int answer;
 
 	
 	   @Override
@@ -21,8 +23,10 @@ public class SingleQuiz extends Equation implements Comparable<SingleQuiz>, Seri
 	    }
 	
 	public SingleQuiz(int quizNum, String representation, int answer) {
-		super(representation, answer);
+		
 		this.quizNum = quizNum;
+		this.representation = representation;
+		this.answer = answer;
 		
 	}
 
