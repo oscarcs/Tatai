@@ -1,12 +1,24 @@
+/* 
+    New colour scheme:
+    Dark: #232021
+    Red: #FF544F
+    Yellow: #F7FF58
+    Blue: #A9CBB7
+    Light: #EFECCA
+
+
+    
 /* Overall background for the app */
 .normalBackground {
-    -fx-background-color: #29363f;
+    -fx-background-color: #232021;
 }
 
 /* Background color for the right-hand menu */ 
 .menuBackground {
-    -fx-background-color: #1D2939;
+    -fx-background-color: #232021;
     /* -fx-background-color: green; */
+    -fx-border-width: 0 1 0 0;
+    -fx-border-color: #d8d8d8;
 }
 
 .lightGrayBorder {
@@ -15,12 +27,12 @@
 }
 
 .lightGreenBorder {
-    -fx-border-color: #448cb6;
+    -fx-border-color: #A9CBB7;
     -fx-border-width: 1px;
 }
 
 .normalBackWithPic {
-	-fx-background-color: #29363f;
+	-fx-background-color: #232021;
 	-fx-background-image: url("/resources/tatai_background.png");
     -fx-background-position: center center;	
     -fx-background-size: 575 500;
@@ -29,7 +41,12 @@
 
 .numberBtn {
 
-    
+}
+
+.titleText {
+    -fx-fill: #FF322B;
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
 }
 
 /* Button in the right-hand main menu */
@@ -37,10 +54,12 @@
    -fx-pref-width: 200;
    -fx-pref-height: 50;
    -fx-background-radius: 0px;
-   -fx-border-width: 0 0 1 0;
-   -fx-border-color: #d8d8d8;
-   -fx-background-color: #1D2939;
-   -fx-text-fill: #FFFFFF;
+   -fx-background-color: #232021 !important;
+   -fx-text-fill: #FF322B !important;
+}
+
+.menuButton:hover {
+    -fx-background-color: #161f2b;
 }
 
 /* Top button of the buttons in the right-hand menu */
@@ -48,6 +67,80 @@
     -fx-border-width: 1 0 1 0;
 }
 
-.menuButton:hover {
+/* Main button class */
+.button {
+    -fx-background-radius: 0px;
+    -fx-background-color: #A9CBB7;
+    -fx-text-fill: #232021;
+}
+
+.button:hover {
     -fx-background-color: #161f2b;
+}
+
+/* ___________________________ COMBO BOX RULES ___________________________ */
+
+.combo-box .list-cell
+{
+    -fx-background-color: #232021;
+    -fx-text-fill: white;
+    -fx-padding: 3 0 2 7;
+    -fx-cell-size: 2em;
+}
+
+.combo-box-popup .list-view
+{
+    -fx-background-color: #232021;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
+}
+
+.combo-box-popup .list-view .list-cell
+{
+    -fx-padding: 4 0 4 5;
+
+    /* No alternate highlighting */
+    -fx-background-color: #232021;
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected, 
+.combo-box-popup .list-view .list-cell:filled:selected:hover
+{
+    -fx-background: -fx-accent;
+    -fx-background-color: #232021;
+    -fx-text-fill: #A9CBB7;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover
+{
+    -fx-background-color: #232021;
+    -fx-text-fill: #A9CBB7;
+}
+
+.combo-box-base
+{
+    -fx-background-color: #A9CBB7;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-padding: 0;
+}
+
+.combo-box-base:hover
+{
+    -fx-background-color: #232021;
+}
+
+.combo-box-base:showing
+{
+    -fx-background-color: #232021;
+}
+
+.combo-box-base:focused {
+    -fx-background-color: #A9CBB7;
+    -fx-background-radius: 0;
+    -fx-background-insets: -1.4, 0, 1, 2;
+}
+
+.combo-box-base:disabled {
+    -fx-opacity: .4;
 }
