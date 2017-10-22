@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Collections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -25,8 +26,8 @@ public class Level implements Initializable {
 
 	private HashMap<Integer, Rectangle> progressBar;
 
-	 @FXML
-	 Rectangle r1, r2, r3, r4, r5, r6, r7, r8, r9, r10;
+	@FXML
+	Rectangle r1, r2, r3, r4, r5, r6, r7, r8, r9, r10;
 
 
 	@FXML
@@ -48,6 +49,9 @@ public class Level implements Initializable {
 	 * @param game
 	 */
 	public void setGame(Game game) {
+		
+		System.out.println("Game Set!");
+
 		this.game = game;
 		game.setLevel(this);
 		equationText.setText(game.equationText());
@@ -65,8 +69,7 @@ public class Level implements Initializable {
 		
 		//setRoundColour(game.roundCorrect);
 		System.out.println(game.getCurrentRound());
-		System.out.println(game.roundCorrect.size() + "elements");
-		
+		System.out.println(game.roundCorrect.size() + " elements");
 	}
 
 	/**
@@ -78,6 +81,9 @@ public class Level implements Initializable {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
+		System.out.println("Initialized!");
+
 
 		continueButton.setDisable(true);
 
@@ -91,32 +97,19 @@ public class Level implements Initializable {
 		progressBar.put(7, r7);
 		progressBar.put(8, r8);
 		progressBar.put(9, r9);
-		progressBar.put(10, r10);
-		
-
-		
+		progressBar.put(10, r10);	
 	}
-
-
 	
 	/**
 	 * When the user presses the record button.
 	 */
 	@FXML
 	public void recordHit() {
-
 //		recordButton.setDisable(true);
 //		recordStatus.setText("recording....");
 //		game.record();
 		
-		
-		//sfas
-		
-
 		game.winRound();
-		
-			
-	
 	}
 
 	/**
@@ -194,14 +187,16 @@ public class Level implements Initializable {
 		endGameScreen.setGame(game);
 	}
 
-	public void setRoundColour(HashMap<Integer, Boolean> data) {
+	public void setRoundColour(HashMap<Integer,Boolean> data) {
+
+	    System.out.println(Collections.singletonList(data));
+
 		for (int i = 1; i <= data.size(); i++) {
-		
-			
 			if (data.get(i)) {
 				progressBar.get(i).setFill(Color.web("#55c1ff"));
 				System.out.println("green");
-			} else {
+			} 
+			else {
 				progressBar.get(i).setFill(Color.web("#ff5b5b"));
 				System.out.println("red");
 			}
