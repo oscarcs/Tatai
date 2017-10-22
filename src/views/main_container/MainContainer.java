@@ -10,12 +10,13 @@ import game.GameData;
 import game.QuizData;
 import game.User;
 import views.View;
-import views.customQuiz.CustomQuizView;
+import views.custom_quiz.CustomQuizView;
 import views.game_menu.GameMenuView;
 import views.help.HelpView;
 import views.login_page.LoginPage;
 import views.login_page.LoginPageView;
 import views.user_dashboard.UserDashboardView;
+import views.practice.PracticeView;
 
 
 import java.util.ArrayList;
@@ -32,10 +33,39 @@ public class MainContainer {
     private User user;
 
     @FXML
-    Button playButton, helpButton, dashboardButton,logoutButton, practiceButton, quizButton;
+    Button 
+        playButton, 
+        helpButton, 
+        dashboardButton,
+        logoutButton, 
+        practiceButton, 
+        quizButton;
 
     @FXML
     BorderPane borderPane;
+
+    /**
+     * Method called that the start of the initialization. Sets the singleton instance, and disables all buttons (enabled when user logs in).
+     */
+    @FXML
+    public void initialize() {
+        instance = this;
+
+        buttons = new ArrayList<>();
+        buttons.add(playButton);
+        buttons.add(dashboardButton);
+        buttons.add(quizButton);
+        buttons.add(practiceButton);
+        buttons.add(helpButton);
+        buttons.add(logoutButton);
+        
+        disableButtons();
+        
+        LoginPageView loginPageView = new LoginPageView();
+        borderPane.setCenter(loginPageView.view());
+        LoginPage loginPage = (LoginPage) loginPageView.controller();
+        loginPage.setMenu(this);
+    }
 
     @FXML
     public void playHit() {
@@ -43,20 +73,25 @@ public class MainContainer {
     }
 
     @FXML
-    public void helpHit() {
-    	borderPane.setCenter(new HelpView().view());
-    }
-
-    @FXML
     public void dashboardHit() {
         borderPane.setCenter(new UserDashboardView().view());
     }
-    
+
     @FXML
     public void quizHit() {
     	borderPane.setCenter(new CustomQuizView().view());
     }
-    
+
+    @FXML
+    public void practiceHit() {
+    	borderPane.setCenter(new PracticeView().view());
+    }
+
+    @FXML
+    public void helpHit() {
+    	borderPane.setCenter(new HelpView().view());
+    }
+
     @FXML
     public void logoutHit() {
         // Confirm that the user wants to go back to login screen if he does.
@@ -66,10 +101,10 @@ public class MainContainer {
         alert.setContentText("Are you sure you would like to log out?");
 
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK){
+        if (result.get() == ButtonType.OK) {
             LoginPageView loginPageView = new LoginPageView();
             borderPane.setCenter(loginPageView.view());
-            LoginPage loginPage = (LoginPage)loginPageView.controller();
+            LoginPage loginPage = (LoginPage) loginPageView.controller();
             loginPage.setMenu(this);
             disableButtons();
         }
@@ -119,8 +154,6 @@ public class MainContainer {
         user.addGame(gameData);
         user.save();
     }
-    
-
 
     /**
      * Change the current view of the game.
@@ -128,26 +161,6 @@ public class MainContainer {
      */
     public void changeCenter(View view) {
         borderPane.setCenter(view.view());
-    }
-
-
-    /**
-     * Method called that the start of the initialization. Sets the singleton instance, and disables all buttons (enabled when user logs in).
-     */
-    @FXML
-    public void initialize() {
-        instance = this;
-        buttons = new ArrayList<>();
-        buttons.add(playButton);
-        buttons.add(helpButton);
-        buttons.add(dashboardButton);
-        buttons.add(logoutButton);
-        buttons.add(quizButton);
-        disableButtons();
-        LoginPageView loginPageView = new LoginPageView();
-        borderPane.setCenter(loginPageView.view());
-        LoginPage loginPage = (LoginPage)loginPageView.controller();
-        loginPage.setMenu(this);
     }
 
     private void disableButtons() {

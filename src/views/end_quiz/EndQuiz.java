@@ -18,7 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import numbers.Equation;
-import views.customQuiz.CustomQuizView;
+import views.custom_quiz.CustomQuizView;
 import views.main_container.MainContainer;
 
 public class EndQuiz implements Initializable {

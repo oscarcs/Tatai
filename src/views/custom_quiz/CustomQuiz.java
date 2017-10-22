@@ -1,4 +1,4 @@
-package views.customQuiz;
+package views.custom_quiz;
 
 import java.io.File;
 import java.io.FileInputStream;

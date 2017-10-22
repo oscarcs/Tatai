@@ -5,5 +5,6 @@ cd src &&
 find . -name '*.css' -exec cp --parents \{\} ../bin \; &&
 find . -name '*.fxml' -exec cp --parents \{\} ../bin \; &&
 find . -name '*.png' -exec cp --parents \{\} ../bin \; &&
+find . -name '*.jpg' -exec cp --parents \{\} ../bin \; &&
 cd .. &&
 java -ea -cp bin game.Main

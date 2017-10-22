@@ -9,9 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class Practice implements Initializable{
-
-
+public class Practice implements Initializable {
 	@FXML
 	Label correctText, numberText;
 	
@@ -21,12 +19,8 @@ public class Practice implements Initializable{
 	@FXML
 	TextField numText;
 	
-	
-	
-	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		
 	}
 

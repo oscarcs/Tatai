@@ -5,15 +5,14 @@
     Yellow: #F7FF58
     Blue: #A9CBB7
     Light: #EFECCA
-
-
+*/
     
 /* Overall background for the app */
 .normalBackground {
     -fx-background-color: #232021;
 }
 
-/* Background color for the right-hand menu */ 
+/* Background color for the left-hand menu */ 
 .menuBackground {
     -fx-background-color: #232021;
     /* -fx-background-color: green; */
@@ -33,7 +32,7 @@
 
 .normalBackWithPic {
 	-fx-background-color: #232021;
-	-fx-background-image: url("/resources/tatai_background.png");
+	/* -fx-background-image: url("/resources/tatai_background.jpg"); */
     -fx-background-position: center center;	
     -fx-background-size: 575 500;
   	-fx-background-repeat: stretch;   
@@ -49,20 +48,21 @@
     -fx-font-weight: bold;
 }
 
-/* Button in the right-hand main menu */
+/* Button in the left-hand main menu */
 .menuButton {
    -fx-pref-width: 200;
    -fx-pref-height: 50;
    -fx-background-radius: 0px;
    -fx-background-color: #232021 !important;
    -fx-text-fill: #FF322B !important;
+   -fx-font-size: 16px !important;
 }
 
 .menuButton:hover {
     -fx-background-color: #161f2b;
 }
 
-/* Top button of the buttons in the right-hand menu */
+/* Top button of the buttons in the left-hand menu */
 .topButton {
     -fx-border-width: 1 0 1 0;
 }

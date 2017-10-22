@@ -64,6 +64,8 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
 
                             <children>
@@ -89,17 +91,24 @@
                                     text="Quiz"
                                 /> 
                                 <Button 
+                                    fx:id="practiceButton"
+                                    onAction="#practiceHit" 
+                                    styleClass="menuButton" 
+                                    GridPane.rowIndex="3" 
+                                    text="Practice"
+                                /> 
+                                <Button 
                                     fx:id="helpButton" 
                                     onAction="#helpHit" 
                                     styleClass="menuButton" 
-                                    GridPane.rowIndex="3"
+                                    GridPane.rowIndex="4"
                                     text="Help" 
                                 />
                                 <Button 
                                     fx:id="logoutButton" 
                                     onAction="#logoutHit"
                                     styleClass="menuButton" 
-                                    GridPane.rowIndex="4"
+                                    GridPane.rowIndex="5"
                                     text="Logout" 
                                 />
                             </children>
