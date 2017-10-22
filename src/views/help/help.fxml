@@ -35,7 +35,7 @@
             <Button fx:id="gameLevel" mnemonicParsing="false" onAction="#gameLevelHit" text="Game Level" />
             <Button fx:id="gameType" mnemonicParsing="false" onAction="#gameTypeHit" text="Game Type" />
             <Button fx:id="dashBoard" mnemonicParsing="false" onAction="#dashBoardHit" text="DashBoard" />
-            <Button mnemonicParsing="false" text="Quiz" />
+            <Button fx:id="quiz" mnemonicParsing="false" onAction="#quizHit" text="Quiz" />
          </children>
       </VBox>
       <Text fx:id="text" fill="WHITE" layoutX="190.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="339.47003173828125">
