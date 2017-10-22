@@ -17,7 +17,7 @@
       </Label>
       <HBox alignment="CENTER" layoutX="125.0" layoutY="270.0" prefHeight="100.0" prefWidth="327.0" spacing="20.0">
          <children>
-            <Button fx:id="playBtn" mnemonicParsing="false" prefWidth="80.0" text="Play" />
+            <Button fx:id="playBtn" mnemonicParsing="false" onAction="#playHit" prefWidth="80.0" text="Play" />
             <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#deleteHit" prefWidth="80.0" text="Delete" />
             <Button fx:id="newBtn" mnemonicParsing="false" onAction="#newBtnHit" prefWidth="80.0" text="New" />
          </children>

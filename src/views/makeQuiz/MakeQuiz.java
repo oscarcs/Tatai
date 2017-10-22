@@ -43,7 +43,7 @@ public class MakeQuiz implements Initializable {
 		if (quiz.checkValid(first, second, operate)) {
 			quiz.addQuiz(quiz.getEquation(first, second, operate));
 			valid.setText("Valid");
-			if (quiz.getCurrentQuizNum() < 3) {
+			if (quiz.getCurrentQuizNum() < quiz.getQuizData().getTotalQues()) {
 				quiz.nextQuizNum();
 				MakeQuizView quizView = new MakeQuizView();
 				MainContainer.instance().changeCenter(quizView);

@@ -41,14 +41,7 @@ public class Quiz {
 		data.addQues(equation);
 	}
 
-	public SingleQuiz getTheQuiz(int num) {
-		for (SingleQuiz q : data.getQuestion()) {
-			if (q.getQuizNum() == num) {
-				return q;
-			}
-		}
-		return null;
-	}
+	
 
 	public int getCurrentQuizNum() {
 		return currentQuestion;

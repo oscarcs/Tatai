@@ -29,6 +29,16 @@ public class QuizData implements Serializable {
 		return question;
 	}
 
+	public SingleQuiz getTheQuiz(int num) {
+		for (SingleQuiz q : getQuestion()) {
+			if (q.getQuizNum() == num) {
+				return q;
+			}
+		}
+		return null;
+	}
+	
+	
 	public int getTotalQues() {
 		return totalQues;
 	}

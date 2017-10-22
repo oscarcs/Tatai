@@ -1,6 +1,9 @@
 package views.customQuiz;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -8,6 +11,7 @@ import java.util.ResourceBundle;
 
 import game.Quiz;
 import game.QuizData;
+import game.QuizGame;
 import game.User;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -28,12 +32,14 @@ import javafx.util.Pair;
 import views.main_container.MainContainer;
 import views.makeQuiz.MakeQuiz;
 import views.makeQuiz.MakeQuizView;
+import views.playQuiz.PlayQuiz;
+import views.playQuiz.PlayQuizView;
 
 public class CustomQuiz implements Initializable {
 
 	private QuizData quizData;
 	private Quiz quiz;
-	
+
 	@FXML
 	Button playBtn, deleteBtn, newBtn;
 
@@ -59,21 +65,54 @@ public class CustomQuiz implements Initializable {
 				alert.showAndWait();
 				return;
 			}
-			// If there has been a string passed in (user didn't cancel) then pass the user to the mainContainer.
+			// If there has been a string passed in (user didn't cancel) then pass the user
+			// to the mainContainer.
 			quizData = new QuizData(result.get());
 			quiz = new Quiz(result.get());
-			//quiz.getQuizData().save();
+			// quiz.getQuizData().save();
 			MakeQuizView quizView = new MakeQuizView();
 			MainContainer.instance().changeCenter(quizView);
-			MakeQuiz makeQuiz = (MakeQuiz)quizView.controller();
+			MakeQuiz makeQuiz = (MakeQuiz) quizView.controller();
 			quiz.setQuiz(makeQuiz);
 			quiz.setQuizfile(quizData);
 			makeQuiz.setQuiz(quiz);
 		}
 
-		
+	}
 
+	@FXML
+	public void playHit() {
+
+		if (quizBox.getSelectionModel().getSelectedItem() == null
+				|| quizBox.getSelectionModel().getSelectedItem().equals("")) {
+			Alert alert = new Alert(Alert.AlertType.WARNING);
+			alert.setTitle("No quiz selected!");
+			alert.setHeaderText("Please select a quiz!");
+			alert.setContentText("You not selected a quiz, please either select a quiz or create one.");
+			alert.showAndWait();
+			return;
+						
+		}
 		
+		String quizName = quizBox.getSelectionModel().getSelectedItem();
+		QuizData quizData = null;
+		try {
+			ObjectInputStream objectInputStream = new ObjectInputStream(
+					new FileInputStream(MainContainer.QUIZ_DIRECTORY + quizName));
+			quizData = (QuizData) objectInputStream.readObject();
+			objectInputStream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		QuizGame quizGame = new QuizGame(quizData);
+		
+		PlayQuizView quizView = new PlayQuizView();
+		MainContainer.instance().changeCenter(quizView);
+		PlayQuiz playQuiz = (PlayQuiz)quizView.controller();
+		playQuiz.setQuizGame(quizGame);
+		quizGame.setPlayQuiz(playQuiz);
 	}
 
 	@FXML
