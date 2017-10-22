@@ -7,7 +7,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import numbers.Equation;
-import views.makeQuiz.MakeQuiz;
+import views.make_quiz.MakeQuiz;
 
 public class Quiz {
 

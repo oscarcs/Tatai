@@ -1,4 +1,4 @@
-package views.makeQuiz;
+package views.make_quiz;
 
 import java.net.URL;
 import java.util.ResourceBundle;

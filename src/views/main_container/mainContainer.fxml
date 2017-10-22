@@ -12,51 +12,106 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" styleClass="normalBackground" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.main_container.MainContainer">
-   <stylesheets>
-      <URL value="@mainContainer.css" />
-      <URL value="@../style.css" />
-   </stylesheets>
-   <left>
-      <VBox prefHeight="200.0" prefWidth="125.0" styleClass="menuBackground" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
-               <children>
-                  <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Tātai!">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Text>
-               </children>
-            </HBox>
-            <HBox prefHeight="187.0" prefWidth="125.0">
-               <children>
-                  <GridPane prefHeight="173.0" prefWidth="125.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Button fx:id="playButton" mnemonicParsing="false" onAction="#playHit" text="Play">
-                           <styleClass>
-                              <String fx:value="menuButton" />
-                              <String fx:value="topButton" />
-                           </styleClass>
-                        </Button>
-                        <Button fx:id="helpButton" mnemonicParsing="false" onAction="#helpHit" styleClass="menuButton" text="Help" GridPane.rowIndex="3" />
-                        <Button fx:id="dashboardButton" mnemonicParsing="false" onAction="#dashboardHit" styleClass="menuButton" text="Dashboard" GridPane.rowIndex="1" />
-                        <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutHit" prefHeight="118.0" prefWidth="125.0" styleClass="menuButton" text="Logout" GridPane.rowIndex="4" />
-                        <Button fx:id="quizButton" mnemonicParsing="false" onAction="#quizHit" styleClass="menuButton" text="Quiz" GridPane.rowIndex="2" />
-                     </children>
-                  </GridPane>
-               </children>
-            </HBox>
-         </children></VBox>
-   </left>
+<BorderPane 
+    fx:id="borderPane" 
+    maxHeight="-Infinity" 
+    maxWidth="-Infinity" 
+    minHeight="-Infinity" 
+    minWidth="-Infinity" 
+    prefHeight="500.0" 
+    prefWidth="700.0" 
+    styleClass="normalBackground" 
+    xmlns="http://javafx.com/javafx/8.0.111" 
+    xmlns:fx="http://javafx.com/fxml/1" 
+    fx:controller="views.main_container.MainContainer"
+>
+    <stylesheets>
+        <URL value="@../style.css" />
+    </stylesheets>
+    
+    <left>
+        <VBox 
+            prefHeight="200.0" 
+            prefWidth="125.0" 
+            styleClass="menuBackground" 
+            BorderPane.alignment="CENTER"
+        >
+            <children>
+                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                    <children>
+                        <Text 
+                            fill="RED" 
+                            strokeType="OUTSIDE" 
+                            strokeWidth="0.0" 
+                            text="Tātai!"
+                        >
+                            <font>
+                                <Font name="System Bold" size="25.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </HBox>
+                <HBox prefHeight="187.0" prefWidth="125.0">
+                    <children>
+                        <GridPane prefHeight="173.0" prefWidth="125.0">
+                            
+                            <columnConstraints>
+                                <ColumnConstraints 
+                                    hgrow="SOMETIMES" 
+                                    minWidth="10.0" 
+                                    prefWidth="100.0" 
+                                />
+                            </columnConstraints>
+                            
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+
+                            <children>
+                                <Button 
+                                    fx:id="playButton" 
+                                    onAction="#playHit" 
+                                    styleClass="menuButton, topButton" 
+                                    GridPane.rowIndex="0"
+                                    text="Play"
+                                />
+                                <Button 
+                                    fx:id="dashboardButton" 
+                                    onAction="#dashboardHit" 
+                                    styleClass="menuButton" 
+                                    GridPane.rowIndex="1"
+                                    text="Dashboard" 
+                                />
+                                <Button 
+                                    fx:id="quizButton"
+                                    onAction="#quizHit" 
+                                    styleClass="menuButton" 
+                                    GridPane.rowIndex="2" 
+                                    text="Quiz"
+                                /> 
+                                <Button 
+                                    fx:id="helpButton" 
+                                    onAction="#helpHit" 
+                                    styleClass="menuButton" 
+                                    GridPane.rowIndex="3"
+                                    text="Help" 
+                                />
+                                
+                                <Button 
+                                    fx:id="logoutButton" 
+                                    onAction="#logoutHit"
+                                    styleClass="menuButton" 
+                                    GridPane.rowIndex="4"
+                                    text="Logout" 
+                                />
+                            </children>
+                        </GridPane>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </left>
 </BorderPane>

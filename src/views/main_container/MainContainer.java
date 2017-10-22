@@ -28,7 +28,6 @@ public class MainContainer {
     public final static String USERS_DIRECTORY = "users/";
     public final static String QUIZ_DIRECTORY = "quiz/";
 
-
     private ArrayList<Button> buttons;
     private User user;
 

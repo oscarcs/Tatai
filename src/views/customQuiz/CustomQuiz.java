@@ -30,10 +30,10 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
 import views.main_container.MainContainer;
-import views.makeQuiz.MakeQuiz;
-import views.makeQuiz.MakeQuizView;
-import views.playQuiz.PlayQuiz;
-import views.playQuiz.PlayQuizView;
+import views.make_quiz.MakeQuiz;
+import views.make_quiz.MakeQuizView;
+import views.play_quiz.PlayQuiz;
+import views.play_quiz.PlayQuizView;
 
 public class CustomQuiz implements Initializable {
 

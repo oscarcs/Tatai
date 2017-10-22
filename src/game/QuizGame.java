@@ -14,7 +14,7 @@ import javafx.event.EventHandler;
 import numbers.Equation;
 import numbers.Pronunciation;
 import processes.ProcessOutput;
-import views.playQuiz.PlayQuiz;
+import views.play_quiz.PlayQuiz;
 
 public class QuizGame {
 

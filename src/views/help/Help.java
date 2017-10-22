@@ -1,12 +1,12 @@
 package views.help;
 
 import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+
 import views.main_container.MainContainer;
-import views.speechHelp.SpeechHelpView;
+import views.speech_help.SpeechHelpView;
 
 public class Help implements Initializable {
 
@@ -20,8 +20,6 @@ public class Help implements Initializable {
 
 	@Override
 	public void initialize(java.net.URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 
 	}
-
 }

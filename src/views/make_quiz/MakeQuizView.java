@@ -1,4 +1,4 @@
-package views.makeQuiz;
+package views.make_quiz;
 
 import views.View;
 
