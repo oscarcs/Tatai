@@ -40,15 +40,11 @@
                 <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
                     <children>
                         <Text 
-                            fill="RED" 
+                            styleClass="titleText" 
                             strokeType="OUTSIDE" 
                             strokeWidth="0.0" 
                             text="Tātai!"
-                        >
-                            <font>
-                                <Font name="System Bold" size="25.0" />
-                            </font>
-                        </Text>
+                        />
                     </children>
                 </HBox>
                 <HBox prefHeight="187.0" prefWidth="125.0">
@@ -99,7 +95,6 @@
                                     GridPane.rowIndex="3"
                                     text="Help" 
                                 />
-                                
                                 <Button 
                                     fx:id="logoutButton" 
                                     onAction="#logoutHit"

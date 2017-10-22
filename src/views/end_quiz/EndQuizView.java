@@ -1,4 +1,4 @@
-package views.endQuiz;
+package views.end_quiz;
 
 import views.View;
 
