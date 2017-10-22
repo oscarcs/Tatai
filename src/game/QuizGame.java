@@ -268,7 +268,7 @@ public class QuizGame {
 	     * @return
 	     */
 	    public String equationText() {
-	        return currentQuiz.toString();
+	        return currentQuiz.getRepresentation();
 	    }
 	
 }
