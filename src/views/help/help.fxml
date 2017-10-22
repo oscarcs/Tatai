@@ -4,20 +4,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane 
-    maxHeight="-Infinity" 
-    maxWidth="-Infinity" 
-    minHeight="-Infinity" 
-    minWidth="-Infinity" 
-    prefHeight="500.0" 
-    prefWidth="575.0" 
-    styleClass="normalBackground" 
-    xmlns="http://javafx.com/javafx/8.0.111" 
-    xmlns:fx="http://javafx.com/fxml/1" 
-    fx:controller="views.help.Help"
->
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="575.0" styleClass="normalBackground" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.help.Help">
     <stylesheets>
         <URL value="@../style.css" />
     </stylesheets>
@@ -26,16 +17,6 @@
         <Label layoutX="248.0" layoutY="31.0" text="Help" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="36.0" />
-            </font>
-        </Label>
-        <Label 
-            layoutX="48.0" 
-            layoutY="84.0" 
-            prefHeight="366.0" 
-            prefWidth="480.0" 
-            text="This software helps you learn Maori numbers.&#10;&#10;Press &quot;Play&quot; button to start the game.&#10;The game has 2 levels: &#10;      In level 1, you need to pronounce maori number from 1 to 9&#10;      In level 2, you need to pronounce maori number from 10 to 99&#10;      You can unlock level 2 if you pass level 1 with score of 8 or above&#10;      You will be prompted in the in game screen to tell you that you can&#10;      now play the second level.&#10;You can choose between two modes.&#10;      &quot;Single Number&quot;: the question would be just a number&#10;      &quot;Simple Equation&quot;: the question would a equation&#10;&#10;Each game contains 10 numbers you need to pronounce&#10;Press the &quot;Record&quot; button to start the recording, and you have 2 attempt&#10; for each number." textFill="WHITE">
-            <font>
-                <Font size="14.0" />
             </font>
         </Label>
         <Button fx:id="pronunciation" layoutX="422.0" layoutY="439.0" mnemonicParsing="false" onAction="#proHit" prefHeight="35.0" prefWidth="120.0" text="Pronunciation">
@@ -47,5 +28,20 @@
                 <URL value="@help.css" />
             </stylesheets>
         </Button>
+      <VBox alignment="CENTER" layoutX="43.0" layoutY="105.0" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+         <children>
+            <Button fx:id="overview" mnemonicParsing="false" onAction="#oveviewHit" text="Over View" />
+            <Button fx:id="play" mnemonicParsing="false" onAction="#playHit" text="Play" />
+            <Button fx:id="gameLevel" mnemonicParsing="false" onAction="#gameLevelHit" text="Game Level" />
+            <Button fx:id="gameType" mnemonicParsing="false" onAction="#gameTypeHit" text="Game Type" />
+            <Button fx:id="dashBoard" mnemonicParsing="false" onAction="#dashBoardHit" text="DashBoard" />
+            <Button mnemonicParsing="false" text="Quiz" />
+         </children>
+      </VBox>
+      <Text fx:id="text" fill="WHITE" layoutX="190.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="339.47003173828125">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>
