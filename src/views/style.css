@@ -1,5 +1,6 @@
 .normalBackground {
     -fx-background-color: #29363f;
+     
 }
 
 .lightGrayBorder {
@@ -13,3 +14,16 @@
     -fx-border-width: 1px;
 }
 
+.normalBackWithPic {
+	-fx-background-color: #29363f;
+	-fx-background-image: url("/resources/tatai_background.png");
+    -fx-background-position: center center;	
+    -fx-background-size: 575 500;
+  	-fx-background-repeat: stretch;   
+}
+
+
+
+.numberBtn{
+	
+}

@@ -19,6 +19,8 @@ import javafx.scene.control.TextInputDialog;
 import game.Game;
 import game.User;
 import views.main_container.MainContainer;
+import views.welcome.Welcome;
+import views.welcome.WelcomeView;
 
 
 public class LoginPage implements Initializable {
@@ -57,7 +59,13 @@ public class LoginPage implements Initializable {
 				return;
 			}
 			// If there has been a string passed in (user didn't cancel) then pass the user to the mainContainer.
-			mainContainer.setUser(new User(result.get()));
+			User user = new User(result.get());
+			mainContainer.setUser(user);
+			
+			WelcomeView welcomeView = new WelcomeView();
+			MainContainer.instance().changeCenter(welcomeView);
+			Welcome welcome = (Welcome)welcomeView.controller();
+			welcome.setUp(user);
 		}
 	}
 
@@ -93,6 +101,11 @@ public class LoginPage implements Initializable {
 		}
 		// Set the user in mainContainer
 		mainContainer.setUser(user);
+		
+		WelcomeView welcomeView = new WelcomeView();
+		MainContainer.instance().changeCenter(welcomeView);
+		Welcome welcome = (Welcome)welcomeView.controller();
+		welcome.setUp(user);
 	}
 
 	/**

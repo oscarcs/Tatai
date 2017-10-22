@@ -2,19 +2,16 @@ package views.level;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Collections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import game.Game;
-import game.GameData;
 import views.end_game_screen.EndGameScreen;
 import views.end_game_screen.EndGameScreenView;
 import views.main_container.MainContainer;
@@ -29,7 +26,6 @@ public class Level implements Initializable {
 	@FXML
 	Rectangle r1, r2, r3, r4, r5, r6, r7, r8, r9, r10;
 
-
 	@FXML
 	Button continueButton, recordButton;
 
@@ -40,7 +36,7 @@ public class Level implements Initializable {
 	Text attemptText, roundText;
 
 	private Game game;
-	
+
 	private HashMap<Integer, Boolean> roundData;
 
 	/**
@@ -59,15 +55,15 @@ public class Level implements Initializable {
 		attemptText.setText("Attempt " + game.getCurrentAttempt());
 		answerStatus.setText("");
 		receivedAnswerText.setText("We received: ");
-		
+
 		progressBar.get(3).setFill(Color.RED);
 		r1.setFill(Color.RED);
 		game.setColour();
-		
+
 		roundData = game.getRoundData();
 		this.setRoundColour(roundData);
-		
-		//setRoundColour(game.roundCorrect);
+
+		// setRoundColour(game.roundCorrect);
 		System.out.println(game.getCurrentRound());
 		System.out.println(game.roundCorrect.size() + " elements");
 	}
@@ -166,7 +162,7 @@ public class Level implements Initializable {
 		MainContainer.instance().changeCenter(levelView);
 		Level level = (Level) levelView.controller();
 		level.setGame(game);
-		
+
 	}
 
 	/**
