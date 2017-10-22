@@ -1,13 +1,12 @@
 /* Overall background for the app */
 .normalBackground {
     -fx-background-color: #29363f;
-     
 }
 
 /* Background color for the right-hand menu */ 
 .menuBackground {
-    /* -fx-background-color: #1D2939; */
-    -fx-background-color: green;
+    -fx-background-color: #1D2939;
+    /* -fx-background-color: green; */
 }
 
 .lightGrayBorder {
