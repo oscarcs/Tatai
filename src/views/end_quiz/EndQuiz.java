@@ -1,4 +1,4 @@
-package views.endQuiz;
+package views.end_quiz;
 
 import java.net.URL;
 import java.util.HashMap;

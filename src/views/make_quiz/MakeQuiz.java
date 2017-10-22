@@ -18,8 +18,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
 import numbers.Equation;
-import views.endQuiz.EndQuiz;
-import views.endQuiz.EndQuizView;
+import views.end_quiz.EndQuiz;
+import views.end_quiz.EndQuizView;
 import views.main_container.MainContainer;
 
 public class MakeQuiz implements Initializable {
