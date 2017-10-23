@@ -31,7 +31,7 @@ public class PlayQuiz implements Initializable{
 	Button continueButton, recordButton;
 
 	@FXML
-	Text equationText, answerStatus, recordStatus, receivedAnswerText;
+	Text questionText, answerStatus, recordStatus, receivedAnswerText;
 
 	@FXML
 	Text attemptText, roundText;
@@ -48,7 +48,7 @@ public class PlayQuiz implements Initializable{
 	public void setQuizGame(QuizGame quizGame) {
 		this.quizGame = quizGame;
 		quizGame.setPlayQuiz(this);
-		equationText.setText(quizGame.equationText());
+		questionText.setText(quizGame.questionText());
 		recordStatus.setText("Press the button to record...");
 		attemptText.setText("Attempt " + quizGame.getCurrentAttempt());
 		answerStatus.setText("");

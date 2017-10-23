@@ -6,9 +6,9 @@ import javafx.scene.control.*;
 import game.Game;
 import game.GameData;
 import game.User;
-import numbers.EquationFactory;
-import numbers.SimpleEquationFactory;
-import numbers.SingleNumberEquationFactory;
+import numbers.QuestionFactory;
+import numbers.SimpleQuestionFactory;
+import numbers.SingleNumberQuestionFactory;
 import views.level.Level;
 import views.level.LevelView;
 import views.main_container.MainContainer;
@@ -24,7 +24,7 @@ public class GameMenu {
     private int maxNumber = 9;
     private int minNumber = 1;
     private Game game;
-    private HashMap<String, EquationFactory> equationFactoryMap;
+    private HashMap<String, QuestionFactory> questionFactoryMap;
 
     @FXML
     RadioButton tenButton, hundredButton;
@@ -37,10 +37,10 @@ public class GameMenu {
      */
     @FXML
     public void playHit() {
-        EquationFactory equationFactory = equationFactoryMap.get(gameModeBox.getSelectionModel().getSelectedItem());
-        equationFactory.setMax(maxNumber);
-        equationFactory.setMin(minNumber);
-        game = new Game(equationFactory, 10);
+        QuestionFactory questionFactory = questionFactoryMap.get(gameModeBox.getSelectionModel().getSelectedItem());
+        questionFactory.setMax(maxNumber);
+        questionFactory.setMin(minNumber);
+        game = new Game(questionFactory, 10);
 
         // Create a new level and set it as the view.
         LevelView levelView = new LevelView();
@@ -56,11 +56,11 @@ public class GameMenu {
     @FXML
     public void initialize() {
         // Game Types
-        equationFactoryMap = new HashMap<>();
-        equationFactoryMap.put("Simple Equation", new SimpleEquationFactory());
-        equationFactoryMap.put("Single Number", new SingleNumberEquationFactory());
+        questionFactoryMap = new HashMap<>();
+        questionFactoryMap.put("Simple Question", new SimpleQuestionFactory());
+        questionFactoryMap.put("Single Number", new SingleNumberQuestionFactory());
 
-        gameModeBox.setItems(FXCollections.observableArrayList(equationFactoryMap.keySet()));
+        gameModeBox.setItems(FXCollections.observableArrayList(questionFactoryMap.keySet()));
         gameModeBox.getSelectionModel().select(0);
 
         // Radio Buttons
@@ -77,8 +77,8 @@ public class GameMenu {
      */
     private void updateSecondLevelStatus() {
         tenButton.setSelected(true);
-        EquationFactory equationFactory = equationFactoryMap.get(gameModeBox.getSelectionModel().getSelectedItem());
-        if (MainContainer.instance().getUser().canPlayLevelTwo(equationFactory.asString())) {
+        QuestionFactory questionFactory = questionFactoryMap.get(gameModeBox.getSelectionModel().getSelectedItem());
+        if (MainContainer.instance().getUser().canPlayLevelTwo(questionFactory.asString())) {
             hundredButton.setDisable(false);
         } else {
             hundredButton.setDisable(true);

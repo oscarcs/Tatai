@@ -2,9 +2,9 @@ package game;
 
 import java.io.Serializable;
 
-import numbers.Equation;
+import numbers.Question;
 
-public class SingleQuiz extends Equation implements Comparable<SingleQuiz>, Serializable{
+public class SingleQuiz extends Question implements Comparable<SingleQuiz>, Serializable {
 	
 	private int quizNum;
 

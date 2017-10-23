@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Class returns a unique simple equation genereted s
+ * Class returns a unique simple question genereted s
  */
-public class SimpleEquationFactory implements EquationFactory {
+public class SimpleQuestionFactory implements QuestionFactory {
 	private int firstNumber;
 	private int secondNumber;
 	private Operator operator;
@@ -15,16 +15,16 @@ public class SimpleEquationFactory implements EquationFactory {
 	private int min;
 
 	/**
-	 * return the string "Simple Equations"
+	 * return the string "Simple Questions"
 	 */
 	public String asString() {
-		return "Simple Equations";
+		return "Simple Questions";
 	}
 
 	/**
 	 * default constructor
 	 */
-	public SimpleEquationFactory() {
+	public SimpleQuestionFactory() {
 
 	}
 
@@ -32,11 +32,11 @@ public class SimpleEquationFactory implements EquationFactory {
 	 * constructor of the class
 	 * 
 	 * @param max
-	 *            the maximum value the equation would take
+	 *            the maximum value the question would take
 	 * @param firstNumber
 	 *            the value of the first number
 	 */
-	public SimpleEquationFactory(int max, int firstNumber) {
+	public SimpleQuestionFactory(int max, int firstNumber) {
 		this.firstNumber = firstNumber;
 		this.max = max;
 	}
@@ -47,10 +47,10 @@ public class SimpleEquationFactory implements EquationFactory {
 	}
 
 	/**
-	 * generate the unique equation, the operation it can take is add, divide,
+	 * generate the unique question, the operation it can take is add, divide,
 	 * minus, and multiply
 	 */
-	private void createEquation() {
+	private void createQuestion() {
 		operator = generateOperator();
 		if (operator == Operator.ADD) {
 			firstNumber = randomNumber(1, max);
@@ -76,15 +76,15 @@ public class SimpleEquationFactory implements EquationFactory {
 	}
 
 	/**
-	 * return a equation generated, in type Equation
+	 * return a question generated, in type Question
 	 */
-	public Equation generate() {
-		createEquation();
-		return new Equation(firstNumber + operator.toString() + secondNumber, answer);
+	public Question generate() {
+		createQuestion();
+		return new Question(firstNumber + operator.toString() + secondNumber, answer);
 	}
 
 	/**
-	 * randomly generate the operator used for the equation
+	 * randomly generate the operator used for the question
 	 * 
 	 * @return the operator
 	 */

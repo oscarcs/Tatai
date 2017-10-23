@@ -7,9 +7,10 @@ import java.util.Collections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Circle;
+import javafx.scene.paint.Color;
 
 import game.Game;
 import views.end_game_screen.EndGameScreen;
@@ -27,10 +28,13 @@ public class Level implements Initializable {
 	Rectangle r1, r2, r3, r4, r5, r6, r7, r8, r9, r10;
 
 	@FXML
-	Button continueButton, recordButton;
+	Circle circle;
 
 	@FXML
-	Text equationText, answerStatus, recordStatus, receivedAnswerText;
+	Button nextQuestionButton, recordButton;
+
+	@FXML
+	Text questionText, answerStatus, receivedAnswerText;
 
 	@FXML
 	Text attemptText, roundText;
@@ -45,13 +49,9 @@ public class Level implements Initializable {
 	 * @param game
 	 */
 	public void setGame(Game game) {
-		
-		System.out.println("Game Set!");
-
 		this.game = game;
 		game.setLevel(this);
-		equationText.setText(game.equationText());
-		recordStatus.setText("Press the button to record...");
+		questionText.setText(game.questionText());
 		attemptText.setText("Attempt " + game.getCurrentAttempt());
 		answerStatus.setText("");
 		receivedAnswerText.setText("We received: ");
@@ -69,19 +69,13 @@ public class Level implements Initializable {
 	}
 
 	/**
-	 * Things that are done when the page loads, currently this disables the
-	 * continueButton.
-	 * 
+	 * Initialize this scene.
 	 * @param location
 	 * @param resources
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
-		System.out.println("Initialized!");
-
-
-		continueButton.setDisable(true);
+		nextQuestionButton.setDisable(true);
 
 		progressBar = new HashMap<Integer, Rectangle>();
 		progressBar.put(1, r1);
@@ -101,10 +95,11 @@ public class Level implements Initializable {
 	 */
 	@FXML
 	public void recordHit() {
-//		recordButton.setDisable(true);
-//		recordStatus.setText("recording....");
-//		game.record();
+		recordButton.setDisable(true);
+		nextQuestionButton.setDisable(true);
 		
+		game.record();
+
 		game.winRound();
 	}
 
@@ -112,7 +107,9 @@ public class Level implements Initializable {
 	 * When the recording has completed this method is called.
 	 */
 	public void recordingDone() {
-		recordStatus.setText("processing...");
+
+		recordButton.setDisable(false);
+
 		game.process();
 	}
 
@@ -120,7 +117,6 @@ public class Level implements Initializable {
 	 * When processing is completed this method is called.
 	 */
 	public void processingDone() {
-		recordStatus.setText("Processing done.");
 	}
 
 	/**
@@ -130,7 +126,6 @@ public class Level implements Initializable {
 	public void failedAttempt() {
 		recordButton.setDisable(false);
 		attemptText.setText("Attempt: " + game.getCurrentAttempt());
-		recordStatus.setText("Press the button to record...");
 		answerWrong();
 	}
 
@@ -140,6 +135,7 @@ public class Level implements Initializable {
 	public void answerCorrect() {
 		answerStatus.setText("Correct");
 		answerStatus.setFill(Color.GREEN);
+		circle.setFill(Color.GREEN);
 		receivedAnswerText.setText("We received: " + game.getReceivedAnswer());
 	}
 
@@ -149,14 +145,15 @@ public class Level implements Initializable {
 	public void answerWrong() {
 		answerStatus.setText("Incorrect");
 		answerStatus.setFill(Color.RED);
+		circle.setFill(Color.RED);
 		receivedAnswerText.setText("We received: " + game.getReceivedAnswer());
 	}
 
 	/**
-	 * When the user hits continue this method is called.
+	 * Called when 'next question' button is pressed.
 	 */
 	@FXML
-	public void continueHit() {
+	public void nextQuestionHit() {
 		// Create a new level and pass the game into it.
 		LevelView levelView = new LevelView();
 		MainContainer.instance().changeCenter(levelView);
@@ -169,7 +166,7 @@ public class Level implements Initializable {
 	 * When the user is allowed to go on the next user this method is called.
 	 */
 	public void nextLevel() {
-		continueButton.setDisable(false);
+		nextQuestionButton.setDisable(false);
 	}
 
 	/**

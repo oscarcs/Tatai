@@ -17,7 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
-import numbers.Equation;
+import numbers.Question;
 import views.end_quiz.EndQuiz;
 import views.end_quiz.EndQuizView;
 import views.main_container.MainContainer;
@@ -41,7 +41,7 @@ public class MakeQuiz implements Initializable {
 		int second = Integer.parseInt(secNum.getText());
 		String operate = operation.getText();
 		if (quiz.checkValid(first, second, operate)) {
-			quiz.addQuiz(quiz.getEquation(first, second, operate));
+			quiz.addQuiz(quiz.getQuestion(first, second, operate));
 			valid.setText("Valid");
 			if (quiz.getCurrentQuizNum() < quiz.getQuizData().getTotalQues()) {
 				quiz.nextQuizNum();

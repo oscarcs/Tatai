@@ -11,7 +11,7 @@ public class RoundData implements Comparable<RoundData>, Serializable{
     private String userAnswer;
     private String correctAnswer;
     private int attempts;
-    private String equation;
+    private String question;
 
     /**
      * Constructor that includes all the parameters that are needed to comprehensively save all the data from a round.
@@ -19,15 +19,15 @@ public class RoundData implements Comparable<RoundData>, Serializable{
      * @param correct
      * @param userAnswer
      * @param correctAnswer
-     * @param equation
+     * @param question
      * @param attempts
      */
-    public RoundData(int roundNumber, boolean correct, String userAnswer, String correctAnswer, String equation, int attempts) {
+    public RoundData(int roundNumber, boolean correct, String userAnswer, String correctAnswer, String question, int attempts) {
         this.roundNumber = roundNumber;
         this.correct = correct;
         this.userAnswer = userAnswer;
         this.correctAnswer = correctAnswer;
-        this.equation = equation;
+        this.question = question;
         this.attempts = attempts;
 
     }
@@ -90,12 +90,12 @@ public class RoundData implements Comparable<RoundData>, Serializable{
         this.attempts = attempts;
     }
 
-    public String getEquation() {
-        return equation;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setEquation(String equation) {
-        this.equation = equation;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
 }

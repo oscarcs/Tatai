@@ -17,7 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import numbers.Equation;
+import numbers.Question;
 import views.custom_quiz.CustomQuizView;
 import views.main_container.MainContainer;
 
@@ -48,16 +48,16 @@ public class EndQuiz implements Initializable {
 		quizNumberColumn.setMinWidth(100);
 		quizNumberColumn.setCellValueFactory(new PropertyValueFactory<SingleQuiz, Integer>("quizNum"));
 
-		TableColumn<SingleQuiz, String> equationColumn = new TableColumn<SingleQuiz, String>("Equation");
-		equationColumn.setMinWidth(100);
-		equationColumn.setCellValueFactory(new PropertyValueFactory<SingleQuiz, String>("representation"));
+		TableColumn<SingleQuiz, String> questionColumn = new TableColumn<SingleQuiz, String>("Question");
+		questionColumn.setMinWidth(100);
+		questionColumn.setCellValueFactory(new PropertyValueFactory<SingleQuiz, String>("representation"));
 
 		TableColumn<SingleQuiz, Integer> answerColumn = new TableColumn<SingleQuiz, Integer>("Answer");
 		answerColumn.setMinWidth(100);
 		answerColumn.setCellValueFactory(new PropertyValueFactory<SingleQuiz, Integer>("answer"));
 
 		table.setItems(quizs());
-		table.getColumns().addAll(quizNumberColumn, equationColumn, answerColumn);
+		table.getColumns().addAll(quizNumberColumn, questionColumn, answerColumn);
 
 		table.getSortOrder().add(quizNumberColumn);
 		

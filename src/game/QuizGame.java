@@ -11,7 +11,7 @@ import java.util.List;
 import javafx.concurrent.Service;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
-import numbers.Equation;
+import numbers.Question;
 import numbers.Pronunciation;
 import processes.ProcessOutput;
 import views.play_quiz.PlayQuiz;
@@ -23,7 +23,7 @@ public class QuizGame {
 	    public static final String SOUND_DIR = ".";
 	    private int currentRound;
 	    private Pronunciation pronunciation;
-	    private Equation currentEquation;
+	    private Question currentQuestion;
 	    private int score = 0;
 	    private PlayQuiz playQuiz;
 	    private int totalRounds;
@@ -35,8 +35,8 @@ public class QuizGame {
 	    private QuizData data;
 
 	    /**
-	     * Constructor, it takes the equationFactory that will be used and how many rounds the game will be.
-	     * @param equationFactory
+	     * Constructor, it takes the questionFactory that will be used and how many rounds the game will be.
+	     * @param questionFactory
 	     * @param rounds
 	     */
 	    public QuizGame(QuizData data) {
@@ -45,7 +45,7 @@ public class QuizGame {
 	        this.totalRounds = data.getTotalQues();
 	        this.gameData = new GameData("Quiz: " + data.getName(), data.getTotalQues());
 	        pronunciation = new Pronunciation();
-	        currentEquation = data.getTheQuiz(currentRound);
+	        currentQuestion = data.getTheQuiz(currentRound);
 	        serviceFactory = new SpeechRecognitionServiceFactory();
 	        this.roundCorrect = new HashMap<Integer, Boolean>();
 	    }
@@ -143,7 +143,7 @@ public class QuizGame {
 	            System.out.println(line);
 	        }
 	        receivedAnswer = userAnswer;
-	        String answer = pronunciation.getPronunciation(currentEquation.answer());
+	        String answer = pronunciation.getPronunciation(currentQuestion.answer());
 	        List<String> answers = Arrays.asList(answer.split(" "));
 	        if (lines.containsAll(answers)) {
 	            return true;
@@ -157,7 +157,7 @@ public class QuizGame {
 	     */
 	    public void winRound() {
 	        score++;
-	        gameData.addRound(currentRound, true, receivedAnswer + "", pronunciation.getPronunciation(currentEquation.answer())+ "", currentEquation.toString(), currentAttempt);
+	        gameData.addRound(currentRound, true, receivedAnswer + "", pronunciation.getPronunciation(currentQuestion.answer())+ "", currentQuestion.toString(), currentAttempt);
 	        playQuiz.answerCorrect();
 	        roundCorrect.put(currentRound, true);
 	        endRound();
@@ -168,7 +168,7 @@ public class QuizGame {
 	     * Method that is called when the user has gotten the wrong answer twice.
 	     */
 	    private void loseRound() {
-	        gameData.addRound(currentRound, false, receivedAnswer + "", pronunciation.getPronunciation(currentEquation.answer())+ "", currentEquation.toString(), currentAttempt);
+	        gameData.addRound(currentRound, false, receivedAnswer + "", pronunciation.getPronunciation(currentQuestion.answer())+ "", currentQuestion.toString(), currentAttempt);
 	        playQuiz.answerWrong();
 	        roundCorrect.put(currentRound, false);
 	        endRound();
@@ -180,7 +180,7 @@ public class QuizGame {
 	    private void endRound() {
 	        currentAttempt = 1;
 	        currentRound++;
-	        currentEquation = data.getTheQuiz(currentRound);
+	        currentQuestion = data.getTheQuiz(currentRound);
 	        playQuiz.setRoundColour(roundCorrect);
 	        if (currentRound <= totalRounds) {
 	            playQuiz.nextQuiz();
@@ -232,7 +232,7 @@ public class QuizGame {
 	    }
 
 	    /**
-	     * Gets the game type essentially referring to which equation factory was used.
+	     * Gets the game type essentially referring to which question factory was used.
 	     * @return
 	     */
 	    public String gameTypeName() {
@@ -267,8 +267,8 @@ public class QuizGame {
 	     * Gets the question that the user will be asked in a String form.
 	     * @return
 	     */
-	    public String equationText() {
-	        return currentEquation.toString();
+	    public String questionText() {
+	        return currentQuestion.toString();
 	    }
 	
 }

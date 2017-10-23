@@ -144,3 +144,13 @@
 .combo-box-base:disabled {
     -fx-opacity: .4;
 }
+
+/* ___________________________ PROGRESS BAR RULES ___________________________ */
+
+.progressBar {
+	-fx-fill: #014b78;
+    -fx-arc-width: 5px;
+    -fx-arc-height: 5px;
+    -fx-stroke-type: inside;
+    -fx-stroke: #000000;
+}

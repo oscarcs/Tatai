@@ -6,12 +6,12 @@ import java.util.Random;
  * return a unique random number
  * 
  */
-public class SingleNumberEquationFactory implements EquationFactory {
+public class SingleNumberQuestionFactory implements QuestionFactory {
 
 	private int max;
 	private int min;
 
-	public SingleNumberEquationFactory() {
+	public SingleNumberQuestionFactory() {
 		max = 9;
 		min = 1;
 	}
@@ -22,9 +22,9 @@ public class SingleNumberEquationFactory implements EquationFactory {
 	}
 
 	@Override
-	public Equation generate() {
+	public Question generate() {
 		int number = randomNumber(min, max);
-		return new Equation(number + "", number);
+		return new Question(number + "", number);
 	}
 
 	@Override
@@ -33,18 +33,16 @@ public class SingleNumberEquationFactory implements EquationFactory {
 	}
 
 	/**
-	 * randomly generate the number between the limits
-	 * 
-	 * @param min
-	 *            the minimum number it can take
-	 * @param max
-	 *            the maximum number it can take
+	 * Randomly generate a question between 'min' and 'max'.
+	 * @param min lower limit
+	 * @param max upper limit
 	 * @return the number generated
 	 */
 	private int randomNumber(int min, int max) {
 		if (min > max) {
 			throw new IllegalArgumentException("max must be greater than min, max: " + max + "min :" + min);
-		} else if (min == max) {
+		} 
+		else if (min == max) {
 			return min;
 		}
 

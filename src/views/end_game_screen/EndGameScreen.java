@@ -56,7 +56,7 @@ public class EndGameScreen implements Initializable{
 
         TableColumn<RoundData, String> questionColumn = new TableColumn<>("Question: ");
         questionColumn.setMaxWidth(100);
-        questionColumn.setCellValueFactory(new PropertyValueFactory<>("equation"));
+        questionColumn.setCellValueFactory(new PropertyValueFactory<>("question"));
 
         TableColumn<RoundData, Integer> attemptsColumn = new TableColumn<>("Attempts");
         attemptsColumn.setMaxWidth(100);

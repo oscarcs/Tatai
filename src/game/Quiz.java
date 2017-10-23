@@ -6,7 +6,7 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-import numbers.Equation;
+import numbers.Question;
 import views.make_quiz.MakeQuiz;
 
 public class Quiz {
@@ -37,8 +37,8 @@ public class Quiz {
 		this.data = data;
 	}
 
-	public void addQuiz(SingleQuiz equation) {
-		data.addQues(equation);
+	public void addQuiz(SingleQuiz question) {
+		data.addQues(question);
 	}
 
 	
@@ -80,7 +80,7 @@ public class Quiz {
 
 	}
 
-	public SingleQuiz getEquation(int first, int second, String operation) {
+	public SingleQuiz getQuestion(int first, int second, String operation) {
 
 		ScriptEngineManager mgr = new ScriptEngineManager();
 		ScriptEngine engine = mgr.getEngineByName("JavaScript");

@@ -6,24 +6,24 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import numbers.Equation;
+import numbers.Question;
 import views.main_container.MainContainer;
 
 public class CustQuestions implements Serializable{
 	
 	String name;
-	ArrayList<Equation> questions;
+	ArrayList<Question> questions;
 	
 	public CustQuestions(String quesName) {
 		name = quesName;
-		questions = new ArrayList<Equation>();
+		questions = new ArrayList<Question>();
 	}
 	
-	public void addQuiz(Equation ques) {
+	public void addQuiz(Question ques) {
 		questions.add(ques);
 	}
 	
-	public ArrayList<Equation> getQuiz(){
+	public ArrayList<Question> getQuiz(){
 		return questions;
 	}
 	

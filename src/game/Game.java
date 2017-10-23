@@ -12,8 +12,8 @@ import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
 
 import processes.ProcessOutput;
-import numbers.Equation;
-import numbers.EquationFactory;
+import numbers.Question;
+import numbers.QuestionFactory;
 import numbers.Pronunciation;
 import views.level.Level;
 
@@ -25,10 +25,11 @@ public class Game {
     public static final String SOUND_FILE = "foo.wav";
     public static final String RECOUT_FILE = "recout.mlf";
     public static final String SOUND_DIR = ".";
-    private EquationFactory equationFactory;
+    
+    private QuestionFactory questionFactory;
     private int currentRound;
     private Pronunciation pronunciation;
-    private Equation currentEquation;
+    private Question currentQuestion;
     private int score = 0;
     private Level level;
     private int totalRounds;
@@ -39,20 +40,21 @@ public class Game {
     public HashMap<Integer, Boolean> roundCorrect;
 
     /**
-     * Constructor, it takes the equationFactory that will be used and how many rounds the game will be.
-     * @param equationFactory
-     * @param rounds
+     * Constructor.
+     * @param questionFactory
+     * @param rounds How many rounds the game will be.
      */
-    public Game(EquationFactory equationFactory, int rounds) {
-        this.equationFactory = equationFactory;
+    public Game(QuestionFactory questionFactory, int rounds) {
+        this.questionFactory = questionFactory;
         this.currentRound = 1;
         this.currentAttempt = 1;
         this.totalRounds = rounds;
-        this.gameData = new GameData(equationFactory.asString(), rounds);
-        pronunciation = new Pronunciation();
-        currentEquation = equationFactory.generate();
-        serviceFactory = new SpeechRecognitionServiceFactory();
+        this.gameData = new GameData(questionFactory.asString(), rounds);
         this.roundCorrect = new HashMap<Integer, Boolean>();
+        
+        pronunciation = new Pronunciation();
+        serviceFactory = new SpeechRecognitionServiceFactory();
+        currentQuestion = this.questionFactory.generate();
     }
 
     /**
@@ -110,8 +112,9 @@ public class Game {
     }
 
     /**
-     * Process that is called when processing (creation of MLF file) is finished. It checks the MLF file and decides on the next action based of whether
-     * the user answer the question correctly and the current state of the game.
+     * Process that is called when processing (creation of MLF file) is finished. 
+     * It checks the MLF file and decides on the next action based on whether the user 
+     * answered the question correctly and the current state of the game.
      */
     private void processingDone() {
         boolean answerCorrect = checkAnswer();
@@ -148,7 +151,7 @@ public class Game {
             System.out.println(line);
         }
         receivedAnswer = userAnswer;
-        String answer = pronunciation.getPronunciation(currentEquation.answer());
+        String answer = pronunciation.getPronunciation(currentQuestion.answer());
         List<String> answers = Arrays.asList(answer.split(" "));
         if (lines.containsAll(answers)) {
             return true;
@@ -162,7 +165,7 @@ public class Game {
      */
     public void winRound() {
         score++;
-        gameData.addRound(currentRound, true, receivedAnswer + "", pronunciation.getPronunciation(currentEquation.answer())+ "", currentEquation.toString(), currentAttempt);
+        gameData.addRound(currentRound, true, receivedAnswer + "", pronunciation.getPronunciation(currentQuestion.answer())+ "", currentQuestion.toString(), currentAttempt);
         level.answerCorrect();
         roundCorrect.put(currentRound, true);
         endRound();
@@ -172,7 +175,7 @@ public class Game {
      * Method that is called when the user has gotten the wrong answer twice.
      */
     private void loseRound() {
-        gameData.addRound(currentRound, false, receivedAnswer + "", pronunciation.getPronunciation(currentEquation.answer())+ "", currentEquation.toString(), currentAttempt);
+        gameData.addRound(currentRound, false, receivedAnswer + "", pronunciation.getPronunciation(currentQuestion.answer())+ "", currentQuestion.toString(), currentAttempt);
         level.answerWrong();
         roundCorrect.put(currentRound, false);
         endRound();
@@ -184,7 +187,7 @@ public class Game {
     private void endRound() {
         currentAttempt = 1;
         currentRound++;
-        currentEquation = equationFactory.generate();
+        currentQuestion = questionFactory.generate();
         level.setRoundColour(roundCorrect);
         if (currentRound <= totalRounds) {
             level.nextLevel();
@@ -234,11 +237,11 @@ public class Game {
     }
 
     /**
-     * Gets the game type essentially referring to which equation factory was used.
+     * Gets the game type essentially referring to which question factory was used.
      * @return
      */
     public String gameTypeName() {
-        return equationFactory.asString();
+        return questionFactory.asString();
     }
 
     /**
@@ -269,7 +272,7 @@ public class Game {
      * Gets the question that the user will be asked in a String form.
      * @return
      */
-    public String equationText() {
-        return currentEquation.toString();
+    public String questionText() {
+        return currentQuestion.toString();
     }
 }

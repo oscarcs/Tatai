@@ -13,40 +13,54 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="575.0" styleClass="normalBackground" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.play_quiz.PlayQuiz">
-   <stylesheets>
-      <URL value="@level.css" />
-      <URL value="@../style.css" />
-   </stylesheets>
-   <center>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <center>
-            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
-                     <children>
-                        <Text fx:id="receivedAnswerText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Button fx:id="recordButton" mnemonicParsing="false" onAction="#recordHit" text="Record">
-                           <HBox.margin>
-                              <Insets right="20.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button fx:id="continueButton" mnemonicParsing="false" onAction="#continueHit" text="Continue" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-         </center>
-      </BorderPane>
-   </center>
+<BorderPane 
+    maxHeight="-Infinity" 
+    maxWidth="-Infinity" 
+    minHeight="-Infinity" 
+    minWidth="-Infinity" 
+    prefHeight="500.0" 
+    prefWidth="575.0" 
+    styleClass="normalBackground" 
+    xmlns="http://javafx.com/javafx/8.0.111" 
+    xmlns:fx="http://javafx.com/fxml/1" 
+    fx:controller="views.play_quiz.PlayQuiz"
+>
+    <stylesheets>
+        <URL value="@../style.css" />
+    </stylesheets>
+    <center>
+        <BorderPane 
+            prefHeight="200.0" 
+            prefWidth="200.0" 
+            BorderPane.alignment="CENTER"
+        >
+            <center>
+                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                            <children>
+                            <Text fx:id="receivedAnswerText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                <font>
+                                    <Font size="19.0" />
+                                </font>
+                            </Text>
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                            <Button fx:id="recordButton" mnemonicParsing="false" onAction="#recordHit" text="Record">
+                                <HBox.margin>
+                                    <Insets right="20.0" />
+                                </HBox.margin>
+                            </Button>
+                            <Button fx:id="continueButton" mnemonicParsing="false" onAction="#continueHit" text="Continue" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </center>
+        </BorderPane>
+    </center>
    <top>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -55,7 +69,7 @@
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
                         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Question" />
-                        <Text fx:id="equationText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                        <Text fx:id="questionText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
                            <font>
                               <Font size="42.0" />
                            </font>

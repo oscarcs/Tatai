@@ -37,16 +37,16 @@ public class GameData implements Serializable{
      * @param correct
      * @param userAnswer
      * @param correctAnswer
-     * @param equation
+     * @param question
      * @param attempts
      */
-    public void addRound(int roundNumber, boolean correct, String userAnswer, String correctAnswer, String equation, int attempts) {
+    public void addRound(int roundNumber, boolean correct, String userAnswer, String correctAnswer, String question, int attempts) {
         totalRounds++;
         if (correct) {
             score++;
         }
         scoreAsPercentage = (((double)score)/((double)totalRounds)) * 100;
-        rounds.add(new RoundData(roundNumber, correct, userAnswer, correctAnswer, equation, attempts));
+        rounds.add(new RoundData(roundNumber, correct, userAnswer, correctAnswer, question, attempts));
     }
 
     /**
