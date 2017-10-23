@@ -31,7 +31,7 @@ public class Level implements Initializable {
 	Circle circle;
 
 	@FXML
-	Button nextQuestionButton, recordButton;
+	Button recordButton, playButton, nextQuestionButton;
 
 	@FXML
 	Text questionText, answerStatus, receivedAnswerText;
@@ -51,6 +51,7 @@ public class Level implements Initializable {
 	public void setGame(Game game) {
 		this.game = game;
 		game.setLevel(this);
+		
 		questionText.setText(game.questionText());
 		attemptText.setText("Attempt " + game.getCurrentAttempt());
 		answerStatus.setText("");
@@ -76,6 +77,7 @@ public class Level implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		nextQuestionButton.setDisable(true);
+		playButton.setDisable(true);
 
 		progressBar = new HashMap<Integer, Rectangle>();
 		progressBar.put(1, r1);
@@ -97,10 +99,29 @@ public class Level implements Initializable {
 	public void recordHit() {
 		recordButton.setDisable(true);
 		nextQuestionButton.setDisable(true);
-		
-		game.record();
+		circle.setFill(Color.YELLOW);
 
-		game.winRound();
+		game.record();
+	}
+
+	/**
+	 * When the user presses the record button.
+	 */
+	@FXML
+	public void playHit() {
+		game.play();
+	}
+
+	/**
+	 * Called when 'next question' button is pressed.
+	 */
+	@FXML
+	public void nextQuestionHit() {
+		// Create a new level and pass the game into it.
+		LevelView levelView = new LevelView();
+		MainContainer.instance().changeCenter(levelView);
+		Level level = (Level) levelView.controller();
+		level.setGame(game);
 	}
 
 	/**
@@ -109,6 +130,7 @@ public class Level implements Initializable {
 	public void recordingDone() {
 
 		recordButton.setDisable(false);
+		playButton.setDisable(false);
 
 		game.process();
 	}
@@ -136,6 +158,7 @@ public class Level implements Initializable {
 		answerStatus.setText("Correct");
 		answerStatus.setFill(Color.GREEN);
 		circle.setFill(Color.GREEN);
+
 		receivedAnswerText.setText("We received: " + game.getReceivedAnswer());
 	}
 
@@ -146,24 +169,12 @@ public class Level implements Initializable {
 		answerStatus.setText("Incorrect");
 		answerStatus.setFill(Color.RED);
 		circle.setFill(Color.RED);
+		
 		receivedAnswerText.setText("We received: " + game.getReceivedAnswer());
 	}
 
 	/**
-	 * Called when 'next question' button is pressed.
-	 */
-	@FXML
-	public void nextQuestionHit() {
-		// Create a new level and pass the game into it.
-		LevelView levelView = new LevelView();
-		MainContainer.instance().changeCenter(levelView);
-		Level level = (Level) levelView.controller();
-		level.setGame(game);
-
-	}
-
-	/**
-	 * When the user is allowed to go on the next user this method is called.
+	 * When the user is allowed to go on the next question this method is called.
 	 */
 	public void nextLevel() {
 		nextQuestionButton.setDisable(false);

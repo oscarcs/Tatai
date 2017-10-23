@@ -73,7 +73,7 @@ public class Game {
             String fullFile = new String(data, "UTF-8");
             String[] fileLines = fullFile.split("\n");
 
-            // Remove the "sil" and the first two lines and the last line (see the for loop parameters).
+            // Remove the "sil" and the first two lines and the last line
             for (int i = 2; i < fileLines.length - 1; i++) {
                 if (!fileLines[i].equals("sil")) {
                     wordsSpoken.add(fileLines[i]);
@@ -86,10 +86,15 @@ public class Game {
     }
 
     /**
-     * Process that is called by the Controller when the user presses the record button, on finishing it will call the Controller's recordingDone() function.
+     * Process that is called by the Controller when the user presses the record button,
+     * on finishing it will call the Controller's recordingDone() function.
      */
     public void record() {
-        Service<ProcessOutput> recordService = serviceFactory.makeService(SOUND_DIR,SpeechRecognitionServiceFactory.RECORD, new EventHandler<WorkerStateEvent>() {
+        Service<ProcessOutput> recordService = serviceFactory.makeService(
+            SOUND_DIR,
+            SpeechRecognitionServiceFactory.RECORD, 
+            new EventHandler<WorkerStateEvent>()
+        {
             @Override
             public void handle(WorkerStateEvent event) {
                 level.recordingDone();
@@ -99,10 +104,32 @@ public class Game {
     }
 
     /**
-     * Process that called by the Controller, it will parse the sound file "foo.wav" and create a MLF file. On finishing it will called processingDone() on 'this'.
+     * Play the current recording.
+     */
+    public void play() {
+        Service<ProcessOutput> recordService = serviceFactory.makeService(
+            SOUND_DIR,
+            SpeechRecognitionServiceFactory.PLAY, 
+            new EventHandler<WorkerStateEvent>()
+        {
+            @Override
+            public void handle(WorkerStateEvent event) {
+
+            }
+        });
+        recordService.start();
+    }
+
+    /**
+     * Process that called by the controller. It will parse the sound file "foo.wav" 
+     * and create a MLF file. On finishing it will call processingDone().
      */
     public void process() {
-        Service<ProcessOutput> processService = serviceFactory.makeService(SOUND_DIR,SpeechRecognitionServiceFactory.PROCESS, new EventHandler<WorkerStateEvent>() {
+        Service<ProcessOutput> processService = serviceFactory.makeService(
+            SOUND_DIR,
+            SpeechRecognitionServiceFactory.PROCESS, 
+            new EventHandler<WorkerStateEvent>() 
+        {
             @Override
             public void handle(WorkerStateEvent event) {
                 processingDone();
@@ -120,9 +147,11 @@ public class Game {
         boolean answerCorrect = checkAnswer();
         if (answerCorrect) {
             winRound();
-        } else if (currentAttempt >= 2) {
+        } 
+        else if (currentAttempt >= 2) {
             loseRound();
-        } else {
+        } 
+        else {
             currentAttempt++;
             level.failedAttempt();
         }
@@ -165,18 +194,35 @@ public class Game {
      */
     public void winRound() {
         score++;
-        gameData.addRound(currentRound, true, receivedAnswer + "", pronunciation.getPronunciation(currentQuestion.answer())+ "", currentQuestion.toString(), currentAttempt);
+
+        gameData.addRound(
+            currentRound, 
+            true, 
+            receivedAnswer + "", 
+            pronunciation.getPronunciation(currentQuestion.answer())+ "", 
+            currentQuestion.toString(), 
+            currentAttempt
+        );
+        
         level.answerCorrect();
         roundCorrect.put(currentRound, true);
         endRound();
-
     }
 
     /**
      * Method that is called when the user has gotten the wrong answer twice.
      */
     private void loseRound() {
-        gameData.addRound(currentRound, false, receivedAnswer + "", pronunciation.getPronunciation(currentQuestion.answer())+ "", currentQuestion.toString(), currentAttempt);
+        
+        gameData.addRound(
+            currentRound, 
+            false, 
+            receivedAnswer + "", 
+            pronunciation.getPronunciation(currentQuestion.answer())+ "", 
+            currentQuestion.toString(), 
+            currentAttempt
+        );
+
         level.answerWrong();
         roundCorrect.put(currentRound, false);
         endRound();
@@ -190,6 +236,7 @@ public class Game {
         currentRound++;
         currentQuestion = questionFactory.generate();
         level.setRoundColour(roundCorrect);
+        
         if (currentRound <= totalRounds) {
             level.nextLevel();
         } else {
@@ -205,8 +252,6 @@ public class Game {
     	level.setRoundColour(roundCorrect);
     }
     
-    
-
     /**
      * Gets the current round number.
      * @return

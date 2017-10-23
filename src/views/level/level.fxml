@@ -159,6 +159,15 @@
                         </HBox.margin>
                     </Button>
                     <Button 
+                        fx:id="playButton" 
+                        onAction="#playHit" 
+                        text="Play"
+                    >
+                        <HBox.margin>
+                            <Insets right="20.0" />
+                        </HBox.margin>
+                    </Button>
+                    <Button 
                         fx:id="nextQuestionButton" 
                         onAction="#nextQuestionHit" 
                         text="Next Question" 

@@ -26,7 +26,8 @@ public abstract class View {
     public Node view() {
         try {
             return loader.load();
-        } catch (IOException e) {
+        } 
+        catch (IOException e) {
             e.printStackTrace();
         }
         return null;

@@ -5,31 +5,50 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="575.0" styleClass="normalBackWithPic" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.welcome.Welcome">
-   <children>
-      <VBox alignment="CENTER" layoutX="108.0" layoutY="6.0" prefHeight="407.0" prefWidth="360.0" spacing="20.0">
-         <children>
-            <Label alignment="CENTER" text="Welcome to Tatai!" textFill="WHITE">
-               <font>
-                  <Font size="31.0" />
-               </font>
-            </Label>
-            <Label fx:id="name" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Label fx:id="text1" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="text2" alignment="CENTER" contentDisplay="CENTER" text="Label" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
-   </children>
+<AnchorPane 
+    maxHeight="-Infinity"
+    maxWidth="-Infinity" 
+    minHeight="-Infinity" 
+    minWidth="-Infinity"
+    styleClass="normalBackWithPic" 
+    stylesheets="@../style.css" 
+    xmlns="http://javafx.com/javafx/8.0.111" 
+    xmlns:fx="http://javafx.com/fxml/1" 
+    fx:controller="views.welcome.Welcome"
+>
+    <children>
+        <VBox alignment="CENTER" spacing="20.0">
+            <children>
+                <Label 
+                    fx:id="name" 
+                    alignment="CENTER" 
+                    text="Welcome to Tatai" 
+                    styleClass="heading3"
+                />
+                <!--
+                <Label 
+                    fx:id="name" 
+                    alignment="CENTER" 
+                    contentDisplay="CENTER" 
+                    text="Label" 
+                    styleClass="heading3"
+                />
+                <Label 
+                    fx:id="text1" 
+                    alignment="CENTER" 
+                    contentDisplay="CENTER" 
+                    text="Label" 
+                    styleClass="heading3"
+                />
+                <Label 
+                    fx:id="text2" 
+                    alignment="CENTER" 
+                    contentDisplay="CENTER" 
+                    text="Label"
+                    styleClass="heading3"
+                />
+                -->
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>

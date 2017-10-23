@@ -1,51 +1,80 @@
-/* 
-    New colour scheme:
-    Dark: #232021
-    Red: #FF544F
-    Yellow: #F7FF58
-    Blue: #A9CBB7
-    Light: #EFECCA
-*/
+.root {
+    -color-accent: #FF544F;
+    -color-minor-accent: #F7FF58;
+    -color-background: #EFECCA;
+    -color-neutral: #C9C595;
+    -color-text: #302C2D;
+}
     
 /* Overall background for the app */
 .normalBackground {
-    -fx-background-color: #232021;
+    -fx-background-color: -color-background;
 }
 
 /* Background color for the left-hand menu */ 
 .menuBackground {
-    -fx-background-color: #232021;
-    /* -fx-background-color: green; */
-    -fx-border-width: 0 1 0 0;
-    -fx-border-color: #d8d8d8;
-}
-
-.lightGrayBorder {
-    -fx-border-color: #c9cacc;
-    -fx-border-width: 1px;
-}
-
-.lightGreenBorder {
-    -fx-border-color: #A9CBB7;
-    -fx-border-width: 1px;
+    -fx-background-color: -color-background;
+    -fx-border-insets: 1px; /* Fix for 'disappearing borders' problem */
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: -color-accent;
 }
 
 .normalBackWithPic {
-	-fx-background-color: #232021;
+	-fx-background-color: -color-background;
 	/* -fx-background-image: url("/resources/tatai_background.jpg"); */
     -fx-background-position: center center;	
     -fx-background-size: 575 500;
   	-fx-background-repeat: stretch;   
 }
 
-.numberBtn {
-
-}
-
+/* Tatai! title text */
 .titleText {
-    -fx-fill: #FF322B;
+    -fx-fill: -color-accent;
     -fx-font-size: 25px;
     -fx-font-weight: bold;
+}
+
+/* Box containing the Tatai! title */
+.titleBox {
+    -fx-alignment: center;
+    -fx-padding: 5 10 5 10;
+    /* -fx-border-width: 0 1 0 0;     */
+    /* -fx-border-color: #FF322B;     */
+}
+
+/* ___________________________ HEADING RULES ___________________________ */
+
+.headingBox {
+    -fx-padding: 15 15 30 15;    
+}
+
+.heading2 {
+    -fx-fill: -color-text;    
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+}
+
+.heading3 {
+    -fx-fill: -color-text;    
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+/* ___________________________ BUTTON RULES ___________________________ */
+
+/* Narrow button of fixed width */
+.narrowButton {
+    -fx-pref-width: 120;
+}
+
+/* Medium button of fixed width */
+.mediumButton {
+    -fx-pref-width: 200;
+}
+
+/* Wide button of fixed width */
+.wideButton {
+    -fx-pref-width: 275;
 }
 
 /* Button in the left-hand main menu */
@@ -53,67 +82,61 @@
    -fx-pref-width: 200;
    -fx-pref-height: 50;
    -fx-background-radius: 0px;
-   -fx-background-color: #232021 !important;
-   -fx-text-fill: #FF322B !important;
-   -fx-font-size: 16px !important;
+   -fx-background-color: -color-background !important;
+   -fx-text-fill: -color-accent !important;
+   -fx-font-size: 14px !important;
 }
 
 .menuButton:hover {
-    -fx-background-color: #161f2b;
-}
-
-/* Top button of the buttons in the left-hand menu */
-.topButton {
-    -fx-border-width: 1 0 1 0;
+    /* -fx-text-fill: -color-neutral !important; */
+    -fx-background-color: -color-neutral !important;
 }
 
 /* Main button class */
 .button {
     -fx-background-radius: 0px;
-    -fx-background-color: #A9CBB7;
-    -fx-text-fill: #232021;
+    -fx-background-color: -color-accent;
+    -fx-text-fill: -color-text;
 }
 
 .button:hover {
-    -fx-background-color: #161f2b;
+    -fx-background-color: -color-neutral;
 }
 
 /* ___________________________ COMBO BOX RULES ___________________________ */
 
 .combo-box .list-cell
 {
-    -fx-background-color: #232021;
-    -fx-text-fill: white;
+    -fx-background-color: -color-background;
+    -fx-text-fill: -color-text;
     -fx-padding: 3 0 2 7;
     -fx-cell-size: 2em;
 }
 
 .combo-box-popup .list-view
 {
-    -fx-background-color: #232021;
+    -fx-background-color: -color-neutral;
     -fx-background-insets: 0, 1;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
+    /* -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 ); */
 }
 
 .combo-box-popup .list-view .list-cell
 {
     -fx-padding: 4 0 4 5;
-
-    /* No alternate highlighting */
-    -fx-background-color: #232021;
+    -fx-background-color: -color-neutral;
 }
 
 .combo-box-popup .list-view .list-cell:filled:selected, 
 .combo-box-popup .list-view .list-cell:filled:selected:hover
 {
     -fx-background: -fx-accent;
-    -fx-background-color: #232021;
+    -fx-background-color: #EFECCA;
     -fx-text-fill: #A9CBB7;
 }
 
 .combo-box-popup .list-view .list-cell:filled:hover
 {
-    -fx-background-color: #232021;
+    -fx-background-color: #EFECCA;
     -fx-text-fill: #A9CBB7;
 }
 
@@ -127,16 +150,16 @@
 
 .combo-box-base:hover
 {
-    -fx-background-color: #232021;
+    -fx-background-color: #EFECCA;
 }
 
 .combo-box-base:showing
 {
-    -fx-background-color: #232021;
+    -fx-background-color: #EFECCA;
 }
 
 .combo-box-base:focused {
-    -fx-background-color: #A9CBB7;
+    -fx-background-color: -color-accent;
     -fx-background-radius: 0;
     -fx-background-insets: -1.4, 0, 1, 2;
 }

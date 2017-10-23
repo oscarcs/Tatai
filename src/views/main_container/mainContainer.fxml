@@ -29,15 +29,13 @@
         <URL value="@../style.css" />
     </stylesheets>
     
-    <left>
-        <VBox 
-            prefHeight="200.0" 
-            prefWidth="125.0" 
+    <top>
+        <HBox
             styleClass="menuBackground" 
             BorderPane.alignment="CENTER"
         >
             <children>
-                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                <VBox styleClass="titleBox">
                     <children>
                         <Text 
                             styleClass="titleText" 
@@ -46,76 +44,75 @@
                             text="Tātai!"
                         />
                     </children>
-                </HBox>
-                <HBox prefHeight="187.0" prefWidth="125.0">
+                </VBox>
+                <VBox>
                     <children>
-                        <GridPane prefHeight="173.0" prefWidth="125.0">
+                        <GridPane>
+                            <rowConstraints>
+                                <RowConstraints 
+                                    vgrow="SOMETIMES" 
+                                    minHeight="10.0" 
+                                    prefHeight="60.0" 
+                                />
+                            </rowConstraints>
                             
                             <columnConstraints>
-                                <ColumnConstraints 
-                                    hgrow="SOMETIMES" 
-                                    minWidth="10.0" 
-                                    prefWidth="100.0" 
-                                />
+                                <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
+                                <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
+                                <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
+                                <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
+                                <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
+                                <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
                             </columnConstraints>
-                            
-                            <rowConstraints>
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            </rowConstraints>
 
                             <children>
                                 <Button 
                                     fx:id="playButton" 
                                     onAction="#playHit" 
-                                    styleClass="menuButton, topButton" 
-                                    GridPane.rowIndex="0"
+                                    styleClass="menuButton" 
+                                    GridPane.columnIndex="0"
                                     text="Play"
                                 />
                                 <Button 
                                     fx:id="dashboardButton" 
                                     onAction="#dashboardHit" 
                                     styleClass="menuButton" 
-                                    GridPane.rowIndex="1"
+                                    GridPane.columnIndex="1"
                                     text="Dashboard" 
                                 />
                                 <Button 
                                     fx:id="quizButton"
                                     onAction="#quizHit" 
                                     styleClass="menuButton" 
-                                    GridPane.rowIndex="2" 
+                                    GridPane.columnIndex="2" 
                                     text="Quiz"
                                 /> 
                                 <Button 
                                     fx:id="practiceButton"
                                     onAction="#practiceHit" 
                                     styleClass="menuButton" 
-                                    GridPane.rowIndex="3" 
+                                    GridPane.columnIndex="3" 
                                     text="Practice"
                                 /> 
                                 <Button 
                                     fx:id="helpButton" 
                                     onAction="#helpHit" 
                                     styleClass="menuButton" 
-                                    GridPane.rowIndex="4"
+                                    GridPane.columnIndex="4"
                                     text="Help" 
                                 />
                                 <Button 
                                     fx:id="logoutButton" 
                                     onAction="#logoutHit"
                                     styleClass="menuButton" 
-                                    GridPane.rowIndex="5"
+                                    GridPane.columnIndex="5"
                                     text="Logout" 
                                 />
                             </children>
                         </GridPane>
                     </children>
-                </HBox>
+                </VBox>
             </children>
-        </VBox>
-    </left>
+        </HBox>
+    </top>
 </BorderPane>
