@@ -169,6 +169,7 @@ public class Game {
         level.answerCorrect();
         roundCorrect.put(currentRound, true);
         endRound();
+
     }
 
     /**
@@ -203,6 +204,8 @@ public class Game {
     public void setColour() {
     	level.setRoundColour(roundCorrect);
     }
+    
+    
 
     /**
      * Gets the current round number.
