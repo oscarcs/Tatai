@@ -25,50 +25,57 @@
         <URL value="@../style.css" />
     </stylesheets>
     <center>
-        <VBox alignment="CENTER" BorderPane.alignment="CENTER" spacing="30">
+        <HBox alignment="CENTER" BorderPane.alignment="CENTER" spacing="60">
             <children>
-                <HBox alignment="CENTER" styleClass="headingBox">
+                <VBox>
                     <children>
-                        <Text styleClass="heading3" text="Game Mode" />
+                        <HBox alignment="CENTER" styleClass="headingBox">
+                            <children>
+                                <Text styleClass="heading3" text="Game Mode" />
+                            </children>
+                        </HBox>
+                        
+                        <HBox alignment="CENTER" >
+                            <children>
+                                <ComboBox 
+                                    fx:id="gameModeBox" 
+                                    onAction="#gameModeChange" 
+                                />
+                            </children>
+                        </HBox>
                     </children>
-                </HBox>
-                
-                <HBox alignment="CENTER" >
+                </VBox>
+                <VBox>
                     <children>
-                        <ComboBox 
-                            fx:id="gameModeBox" 
-                            onAction="#gameModeChange" 
-                        />
+                        <HBox alignment="BOTTOM_CENTER" styleClass="headingBox">
+                            <children>
+                                <Text styleClass="heading3" text="Difficulty" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" spacing="30">
+                            <children>
+                                <RadioButton 
+                                    fx:id="tenButton" 
+                                    onAction="#tenHit" 
+                                    text="1 - 9" 
+                                />                        
+                                <RadioButton 
+                                    fx:id="hundredButton" 
+                                    onAction="#hundredHit" 
+                                    text="10 - 99" 
+                                />
+                            </children>
+                        </HBox>
                     </children>
-                </HBox>
-                
-                <HBox alignment="BOTTOM_CENTER" styleClass="headingBox">
-                    <children>
-                        <Text styleClass="heading3" text="Difficulty" />
-                    </children>
-                </HBox>
-            
-                <HBox alignment="CENTER" spacing="30">
-                    <children>
-                        <RadioButton 
-                            fx:id="tenButton" 
-                            onAction="#tenHit" 
-                            text="0 - 10" 
-                        />                        
-                        <RadioButton 
-                            fx:id="hundredButton" 
-                            onAction="#hundredHit" 
-                            text="0 - 100" 
-                        />
-                    </children>
-                </HBox>
-               
-                <HBox alignment="CENTER">
-                    <children>
-                        <Button onAction="#playHit" text="Play" />
-                    </children>
-                </HBox>
-         </children>
-      </VBox>
-   </center>
+                </VBox>
+            </children>
+        </HBox>
+    </center>
+    <bottom>
+        <HBox alignment="BOTTOM_CENTER" styleClass="topSpacingBox">
+            <children>
+                <Button onAction="#playHit" text="Play" />
+            </children>
+        </HBox>
+    </bottom>
 </BorderPane>

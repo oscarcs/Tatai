@@ -36,14 +36,6 @@
         <VBox BorderPane.alignment="CENTER">
             <children>
                 <HBox alignment="CENTER">
-                    <children>
-                        <Text 
-                            fx:id="receivedAnswerText"  
-                            text="Text"
-                        />
-                    </children>
-                </HBox>
-                <HBox alignment="CENTER">
                     <GridPane>
                         <columnConstraints>
                             <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
@@ -69,6 +61,14 @@
                         </children>
                     </GridPane>
                 </HBox>
+                <HBox alignment="CENTER">
+                    <children>
+                        <Text 
+                            fx:id="receivedAnswerText"  
+                            text="Text"
+                        />
+                    </children>
+                </HBox>
             </children>
         </VBox>
     </top>
@@ -78,44 +78,45 @@
     -->
     <center>
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
-        <children>
-            <HBox alignment="CENTER">
+        <children>        
+            <StackPane alignment="CENTER" styleClass="circleBox">
                 <children>
-                    <StackPane alignment="CENTER">
-                        <children>
-                            <Circle 
-                                fill="#A9CBB7"
-                                fx:id="circle" 
-                                radius="75"
-                            />
-                            <Text 
-                                fx:id="questionText" 
-                                text="Text"
-                            />
-                        </children>
-                    </StackPane>
+                    <Circle 
+                        fill="#A9CBB7"
+                        fx:id="circle" 
+                        radius="75"
+                    />
+                    <Text 
+                        styleClass="headingCircle"
+                        fx:id="questionText" 
+                        text="Text"
+                    />
                 </children>
-            </HBox>
-            <HBox alignment="CENTER" spacing="20">
+            </StackPane>
+            <HBox alignment="CENTER" spacing="20" prefWidth="300" styleClass="buttonsBox">
                 <children>
                     <Button 
                         fx:id="recordButton" 
                         onAction="#recordHit" 
+                        styleClass="mediumButton" 
                         text="Record"
                     />
                     <Button 
                         fx:id="playButton" 
-                        onAction="#playHit" 
+                        onAction="#playHit"
+                        styleClass="mediumButton" 
                         text="Play"
                     />
                     <Button 
                         fx:id="nextQuestionButton" 
                         onAction="#nextQuestionHit" 
+                        styleClass="mediumButton"   
                         text="Next Question" 
                     />
                 </children>
             </HBox>
         </children>
+
         <BorderPane.margin>
             <Insets top="30.0" />
         </BorderPane.margin>

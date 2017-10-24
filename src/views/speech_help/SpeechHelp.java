@@ -6,18 +6,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.ResourceBundle;
-
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+
 import views.help.HelpView;
 import views.main_container.MainContainer;
 
-
-public class SpeechHelp implements Initializable{
+/** 
+ * Controller for speechHelp, which allows the user to hear example pronunciations for numbers.
+ */
+public class SpeechHelp implements Initializable {
 
 	private HashMap<String, File> soundFile;
 	
@@ -26,7 +28,28 @@ public class SpeechHelp implements Initializable{
 	
 	@FXML
 	Button help;
+
+	@FXML
+	TextArea text;
 	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+		soundFile = new HashMap<String, File>();
+		File voiceDir = new File("NumberRecordings");
+		for (File f : voiceDir.listFiles()) {
+			soundFile.put(f.getName(), f);
+		}
+		
+		// Set the explanatory text:
+		text.setText(
+			"All numbers from 11 onwards follow a basic pattern. For example to say twenty-two, " +
+			"simply say 'rua tekau', which means 20, and then 'mā rua'; 'rua tekau mā rua'. " +
+			"So all you have to do is learn the numbers from 1 - 10 and then the words for " +
+			"10, 20, 30, 40 and so on. For example: 30  is 'ono tekau' and 55 is 'rima tekau mā whā'"
+		);
+	}
+
 	@FXML
 	public void b1hit() {
 		playSound(soundFile.get("tahi.wav"));
@@ -87,36 +110,21 @@ public class SpeechHelp implements Initializable{
 		playSound(soundFile.get("54.wav"));
 	}
 	
-	
-	
-	
 	@FXML
 	public void helpHit() {
 		MainContainer.instance().changeCenter(new HelpView());
 	}
 	
-	
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		
-		soundFile = new HashMap<String, File>();
-		
-		File voiceDir = new File("NumberRecordings");
-		
-		for (File f : voiceDir.listFiles()) {
-			soundFile.put(f.getName(), f);
-		}
-		
-		
-	}
-	
+	/**
+	 * Play a sound.
+	 */
 	private void playSound(File sound) {
-		
 		try {
 			Clip clip = AudioSystem.getClip();
 			clip.open(AudioSystem.getAudioInputStream(sound));
 			clip.start();
-		}catch(Exception e) {
+		}
+		catch(Exception e) {
 			e.printStackTrace();
 		}
 	}

@@ -14,7 +14,7 @@
 /* Background color for the left-hand menu */ 
 .menuBackground {
     -fx-background-color: -color-background;
-    -fx-border-insets: 1px; /* Fix for 'disappearing borders' problem */
+    /* -fx-border-insets: 1; Fix for 'disappearing borders' problem */
     -fx-border-width: 0 0 1 0;
     -fx-border-color: -color-accent;
 }
@@ -30,9 +30,11 @@
 /* Tatai! title text */
 .titleText {
     -fx-fill: -color-accent;
-    -fx-font-size: 25px;
+    -fx-font-size: 25;
     -fx-font-weight: bold;
 }
+
+/* ___________________________ BOX RULES ___________________________ */
 
 /* Box containing the Tatai! title */
 .titleBox {
@@ -42,21 +44,43 @@
     /* -fx-border-color: #FF322B;     */
 }
 
-/* ___________________________ HEADING RULES ___________________________ */
+.topSpacingBox {
+    -fx-padding: 60 0 0 0;
+}
+
+.leftSpacingBox {
+    -fx-padding: 0 0 0 30;
+}
+
+.circleBox {
+    -fx-padding: 20 0 40 0;
+}
+
+.buttonsBox {
+    -fx-padding: 0 0 30 0;
+}
 
 .headingBox {
     -fx-padding: 15 15 30 15;    
 }
 
+/* ___________________________ HEADING RULES ___________________________ */
+
 .heading2 {
     -fx-fill: -color-text;    
-    -fx-font-size: 25px;
+    -fx-font-size: 25;
     -fx-font-weight: bold;
 }
 
 .heading3 {
     -fx-fill: -color-text;    
-    -fx-font-size: 20px;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+.headingCircle {
+    -fx-fill: -color-background;    
+    -fx-font-size: 45px;
     -fx-font-weight: bold;
 }
 
@@ -81,10 +105,10 @@
 .menuButton {
    -fx-pref-width: 200;
    -fx-pref-height: 50;
-   -fx-background-radius: 0px;
+   -fx-background-radius: 0;
    -fx-background-color: -color-background !important;
    -fx-text-fill: -color-accent !important;
-   -fx-font-size: 14px !important;
+   -fx-font-size: 14 !important;
 }
 
 .menuButton:hover {
@@ -94,13 +118,18 @@
 
 /* Main button class */
 .button {
-    -fx-background-radius: 0px;
-    -fx-background-color: -color-accent;
+    -fx-background-radius: 0;
+    -fx-background-color: -color-neutral;
     -fx-text-fill: -color-text;
+    -fx-padding: 10
 }
 
 .button:hover {
-    -fx-background-color: -color-neutral;
+    -fx-background-color: -color-accent;
+}
+
+.button:focused {
+    -fx-background-color: -color-accent;
 }
 
 /* ___________________________ COMBO BOX RULES ___________________________ */
@@ -115,7 +144,7 @@
 
 .combo-box-popup .list-view
 {
-    -fx-background-color: -color-neutral;
+    -fx-background-color: -color-accent;
     -fx-background-insets: 0, 1;
     /* -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 ); */
 }
@@ -123,45 +152,35 @@
 .combo-box-popup .list-view .list-cell
 {
     -fx-padding: 4 0 4 5;
-    -fx-background-color: -color-neutral;
+    -fx-background-color: -color-background;
 }
 
 .combo-box-popup .list-view .list-cell:filled:selected, 
-.combo-box-popup .list-view .list-cell:filled:selected:hover
-{
-    -fx-background: -fx-accent;
-    -fx-background-color: #EFECCA;
-    -fx-text-fill: #A9CBB7;
-}
-
+.combo-box-popup .list-view .list-cell:filled:selected:hover,
 .combo-box-popup .list-view .list-cell:filled:hover
 {
+    /* -fx-background: -fx-accent; */
+    -fx-background-color: -color-neutral;
+    -fx-text-fill: -color-text;
+}
+
+/*
+{
     -fx-background-color: #EFECCA;
     -fx-text-fill: #A9CBB7;
 }
+*/
 
 .combo-box-base
 {
-    -fx-background-color: #A9CBB7;
+    -fx-background-color: -color-neutral;
     -fx-background-radius: 0;
-    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-insets: -1.4, 0, 1, 2;
     -fx-padding: 0;
-}
-
-.combo-box-base:hover
-{
-    -fx-background-color: #EFECCA;
-}
-
-.combo-box-base:showing
-{
-    -fx-background-color: #EFECCA;
 }
 
 .combo-box-base:focused {
     -fx-background-color: -color-accent;
-    -fx-background-radius: 0;
-    -fx-background-insets: -1.4, 0, 1, 2;
 }
 
 .combo-box-base:disabled {
@@ -171,13 +190,13 @@
 /* ___________________________ RADIO BUTTON RULES ___________________________ */
 
 .radio-button .radio {
-    -fx-border-width: 3px;
+    -fx-border-width: 3;
     -fx-border-color: -color-text;
     -fx-border-insets: -2;
     -fx-background-color: -color-background;
     -fx-background-image: null;
-    -fx-border-radius: 15px;
-    -fx-padding: 4px;
+    -fx-border-radius: 15;
+    -fx-padding: 4;
 }
 .radio-button:selected .radio {
     -fx-background-color: -color-accent;
@@ -185,8 +204,8 @@
 }
 
 .radio-button .dot {
-    -fx-background-radius: 15px;
-    -fx-padding: 8px;
+    -fx-background-radius: 15;
+    -fx-padding: 8;
     -fx-background-color: transparent;
 }
 
@@ -259,4 +278,23 @@
 .table-view > .virtual-flow > .scroll-bar > .increment-button,
 .table-view > .virtual-flow > .scroll-bar > .decrement-button {
     -fx-opacity: 0;
+}
+
+/* ___________________________ TEXTAREA RULES ___________________________ */
+
+.text-area {
+    -fx-wrap-text: true;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-width: 3;
+    -fx-border-color: -color-accent;    
+}
+
+.text-area .content{
+    -fx-background-color: -color-background;
+    -fx-text-fill: -color-text;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-width: 0;
 }

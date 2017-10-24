@@ -18,7 +18,7 @@ import views.end_game_screen.EndGameScreenView;
 import views.main_container.MainContainer;
 
 /**
- * Methods that represents a level of the game. Controller for the level view.
+ * Class for the main game screen in the application.
  */
 public class Level implements Initializable {
 
@@ -57,16 +57,8 @@ public class Level implements Initializable {
 		answerStatus.setText("");
 		receivedAnswerText.setText("We received: ");
 
-		progressBar.get(3).setFill(Color.RED);
-		r1.setFill(Color.RED);
-		game.setColour();
-
 		roundData = game.getRoundData();
 		this.setRoundColour(roundData);
-
-		// setRoundColour(game.roundCorrect);
-		System.out.println(game.getCurrentRound());
-		System.out.println(game.roundCorrect.size() + " elements");
 	}
 
 	/**

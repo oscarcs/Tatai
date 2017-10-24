@@ -75,7 +75,7 @@ public class EndGameScreen implements Initializable{
         tableView.getSortOrder().add(roundNumberColumn);
 
        // Save the game to the user profile.
-        MainContainer.instance().addGame(game.gameData());
+        MainContainer.instance().addGame(game.getGameData());
     }
 
     /**
@@ -83,7 +83,7 @@ public class EndGameScreen implements Initializable{
      * @return
      */
     private ObservableList<RoundData> gameRounds() {
-        return FXCollections.observableArrayList(game.gameData().rounds());
+        return FXCollections.observableArrayList(game.getGameData().rounds());
     }
 
     /**

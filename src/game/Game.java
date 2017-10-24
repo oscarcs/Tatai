@@ -244,14 +244,13 @@ public class Game {
         }
     }
     
-    public HashMap<Integer,Boolean> getRoundData(){
+    /**
+     * 
+     */
+    public HashMap<Integer,Boolean> getRoundData() {
     	return roundCorrect;
     }
-    
-    public void setColour() {
-    	level.setRoundColour(roundCorrect);
-    }
-    
+
     /**
      * Gets the current round number.
      * @return
@@ -280,7 +279,7 @@ public class Game {
      * Get the GameData which is the saved data regarding how the user did on this game.
      * @return
      */
-    public GameData gameData() {
+    public GameData getGameData() {
         return gameData;
     }
 
