@@ -16,86 +16,54 @@
       maxWidth="-Infinity" 
       minHeight="-Infinity" 
       minWidth="-Infinity" 
-      prefHeight="500.0" 
-      prefWidth="575.0" 
       styleClass="normalBackground" 
-      xmlns="http://javafx.com/javafx/8.0.111" 
+      xmlns="http://javafx.com/javafx/8.0.60" 
       xmlns:fx="http://javafx.com/fxml/1" 
       fx:controller="views.game_menu.GameMenu"
 >
     <stylesheets>
-        <URL value="@gameMenu.css" />
         <URL value="@../style.css" />
     </stylesheets>
     <center>
-        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER" spacing="30">
             <children>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                <HBox alignment="CENTER" styleClass="headingBox">
                     <children>
-                        <Text 
-                            fill="WHITE" 
-                            strokeType="OUTSIDE" 
-                            strokeWidth="0.0" 
-                            text="Select a Game Mode"
-                        >
-                            <font>
-                                <Font size="33.0" />
-                            </font>
-                        </Text>
+                        <Text styleClass="heading3" text="Game Mode" />
                     </children>
                 </HBox>
                 
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                <HBox alignment="CENTER" >
                     <children>
                         <ComboBox 
                             fx:id="gameModeBox" 
                             onAction="#gameModeChange" 
-                            prefWidth="300.0" 
                         />
                     </children>
                 </HBox>
                 
-                <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
+                <HBox alignment="BOTTOM_CENTER" styleClass="headingBox">
                     <children>
-                        <Text 
-                            fill="WHITE" 
-                            strokeType="OUTSIDE" 
-                            strokeWidth="0.0" 
-                            text="Select a Max Number"
-                        >
-                            <font>
-                                <Font size="33.0" />
-                            </font>
-                        </Text>
+                        <Text styleClass="heading3" text="Difficulty" />
                     </children>
                 </HBox>
             
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                <HBox alignment="CENTER" spacing="30">
                     <children>
                         <RadioButton 
                             fx:id="tenButton" 
                             onAction="#tenHit" 
-                            text="10" 
-                            textFill="WHITE"
-                        >
-                            <HBox.margin>
-                                <Insets right="50.0" />
-                            </HBox.margin>
-                        </RadioButton>
-                        
+                            text="0 - 10" 
+                        />                        
                         <RadioButton 
                             fx:id="hundredButton" 
                             onAction="#hundredHit" 
-                            text="100" 
-                            textFill="WHITE"
-                        >
-                            <HBox.margin>
-                                <Insets left="50.0" />
-                            </HBox.margin>
-                        </RadioButton>
+                            text="0 - 100" 
+                        />
                     </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               
+                <HBox alignment="CENTER">
                     <children>
                         <Button onAction="#playHit" text="Play" />
                     </children>

@@ -168,12 +168,95 @@
     -fx-opacity: .4;
 }
 
-/* ___________________________ PROGRESS BAR RULES ___________________________ */
+/* ___________________________ RADIO BUTTON RULES ___________________________ */
+
+.radio-button .radio {
+    -fx-border-width: 3px;
+    -fx-border-color: -color-text;
+    -fx-border-insets: -2;
+    -fx-background-color: -color-background;
+    -fx-background-image: null;
+    -fx-border-radius: 15px;
+    -fx-padding: 4px;
+}
+.radio-button:selected .radio {
+    -fx-background-color: -color-accent;
+    -fx-background-image: null;
+}
+
+.radio-button .dot {
+    -fx-background-radius: 15px;
+    -fx-padding: 8px;
+    -fx-background-color: transparent;
+}
+
+/* ___________________________ GAME SCREEN RULES ___________________________ */
+
+.questionText {
+    
+}
 
 .progressBar {
-	-fx-fill: #014b78;
-    -fx-arc-width: 5px;
-    -fx-arc-height: 5px;
-    -fx-stroke-type: inside;
-    -fx-stroke: #000000;
+    -fx-fill: -color-neutral;
+    /* -fx-arc-width: 5px; */
+    /* -fx-arc-height: 5px; */
+    -fx-stroke-type: outside;
+    -fx-stroke: -color-text;
+}
+
+/* ___________________________ TABLE RULES ___________________________ */
+
+.table-view {
+    -fx-background-color: -color-neutral;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -color-accent;
+}
+
+.table-view .column-header-background .label {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: white;
+}
+
+.table-row-cell {
+    -fx-background-color: -color-neutral;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-border-color: -color-text;
+    -fx-table-cell-border-color: -color-text;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:odd {
+    -fx-background-color: -color-background;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: -color-accent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+.table-view > .virtual-flow > .scroll-bar:vertical,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track-background,
+.table-view > .virtual-flow > .scroll-bar:horizontal,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view > .virtual-flow > .scroll-bar > .increment-button,
+.table-view > .virtual-flow > .scroll-bar > .decrement-button {
+    -fx-opacity: 0;
 }

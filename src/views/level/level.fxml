@@ -16,116 +16,72 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane 
-  maxHeight="-Infinity" 
-  maxWidth="-Infinity" 
-  minHeight="-Infinity" 
-  minWidth="-Infinity" 
-  prefHeight="500.0" 
-  prefWidth="575.0" 
-  styleClass="normalBackground" 
-  xmlns="http://javafx.com/javafx/8.0.111" 
-  xmlns:fx="http://javafx.com/fxml/1" 
-  fx:controller="views.level.Level"
+    maxHeight="-Infinity" 
+    maxWidth="-Infinity" 
+    minHeight="-Infinity" 
+    minWidth="-Infinity"
+    styleClass="normalBackground" 
+    xmlns="http://javafx.com/javafx/8.0.60" 
+    xmlns:fx="http://javafx.com/fxml/1" 
+    fx:controller="views.level.Level"
 >
     <stylesheets>
         <URL value="@../style.css" />
     </stylesheets>
     
     <!--
-    
         TOP PANE
-
     -->
     <top>
-        <BorderPane prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <center>
-                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER">
                     <children>
-                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
-                            <children>
-                                <Text 
-                                    fx:id="receivedAnswerText" 
-                                    fill="WHITE" 
-                                    strokeType="OUTSIDE" 
-                                    strokeWidth="0.0" 
-                                    text="Text"
-                                >
-                                    <font>
-                                        <Font size="19.0" />
-                                    </font>
-                                </Text>
-                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                            <GridPane prefWidth="575.0">
-                                <children>
-                                    <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
-                                        <children>
-                                            <Text 
-                                                fx:id="attemptText" 
-                                                fill="WHITE" 
-                                                strokeType="OUTSIDE" 
-                                                strokeWidth="0.0" 
-                                                text="Text"
-                                            >
-                                                <font>
-                                                    <Font size="25.0" />
-                                                </font>
-                                            </Text>
-                                        </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1">
-                                        <children>
-                                            <Text 
-                                                fill="WHITE" 
-                                                strokeType="OUTSIDE" 
-                                                strokeWidth="0.0" 
-                                                text="Status: "
-                                            >
-                                                <font>
-                                                    <Font size="25.0" />
-                                                </font>
-                                            </Text>
-                                            <Text 
-                                                fx:id="answerStatus" 
-                                                fill="WHITE" 
-                                                strokeType="OUTSIDE" 
-                                                strokeWidth="0.0" 
-                                                text="Text"
-                                            >
-                                                <font>
-                                                    <Font size="25.0" />
-                                                </font>
-                                            </Text>
-                                        </children>
-                                    </HBox>
-                                </children>
-                                <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                            </GridPane>
-                        </HBox>
+                        <Text 
+                            fx:id="receivedAnswerText"  
+                            text="Text"
+                        />
                     </children>
-                </VBox>
-            </center>
-        </BorderPane>
+                </HBox>
+                <HBox alignment="CENTER">
+                    <GridPane>
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
+                            <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
+                        </columnConstraints>
+                        
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+
+                        <children>
+                            <HBox alignment="CENTER" GridPane.columnIndex="0">
+                                <children>
+                                    <Text fx:id="attemptText" text="Text" />
+                                </children>
+                            </HBox>
+                            <HBox alignment="CENTER" GridPane.columnIndex="1">
+                                <children>
+                                    <Text text="Status: " />
+                                    <Text fx:id="answerStatus" text="Text" />
+                                </children>
+                            </HBox>
+                        </children>
+                    </GridPane>
+                </HBox>
+            </children>
+        </VBox>
     </top>
 
     <!--
-    
         CENTRE PANE
-    
     -->
     <center>
-        <VBox alignment="CENTER" prefHeight="300.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+        <VBox alignment="CENTER" BorderPane.alignment="CENTER">
         <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER">
                 <children>
-                    <StackPane alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                    <StackPane alignment="CENTER">
                         <children>
                             <Circle 
                                 fill="#A9CBB7"
@@ -134,39 +90,24 @@
                             />
                             <Text 
                                 fx:id="questionText" 
-                                fill="WHITE" 
-                                strokeType="OUTSIDE" 
-                                strokeWidth="0.0" 
                                 text="Text"
-                            >
-                                <font>
-                                    <Font size="42.0" />
-                                </font>
-                            </Text>
+                            />
                         </children>
                     </StackPane>
                 </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" spacing="20">
                 <children>
                     <Button 
                         fx:id="recordButton" 
                         onAction="#recordHit" 
                         text="Record"
-                    >
-                        <HBox.margin>
-                            <Insets right="20.0" />
-                        </HBox.margin>
-                    </Button>
+                    />
                     <Button 
                         fx:id="playButton" 
                         onAction="#playHit" 
                         text="Play"
-                    >
-                        <HBox.margin>
-                            <Insets right="20.0" />
-                        </HBox.margin>
-                    </Button>
+                    />
                     <Button 
                         fx:id="nextQuestionButton" 
                         onAction="#nextQuestionHit" 
@@ -183,23 +124,22 @@
 
     <bottom>
         <HBox 
-        alignment="CENTER" 
-        prefHeight="100.0" 
-        prefWidth="200.0" 
-        BorderPane.alignment="CENTER"
-    >
-        <children>
-        <Rectangle fx:id="r1" fill="#7d4c4c" height="23.0" width="50.0" stroke="WHITE" styleClass="progressBar"/>
-        <Rectangle fx:id="r2" height="23.0" width="50.0" styleClass="progressBar" />
-        <Rectangle fx:id="r3" height="23.0" width="50.0" styleClass="progressBar" />
-        <Rectangle fx:id="r4" height="23.0" width="50.0" styleClass="progressBar" />
-        <Rectangle fx:id="r5" height="23.0" width="50.0" styleClass="progressBar" />
-        <Rectangle fx:id="r6" height="23.0" width="50.0" styleClass="progressBar" />
-        <Rectangle fx:id="r7" height="23.0" width="50.0" styleClass="progressBar" />
-        <Rectangle fx:id="r8" height="23.0" width="50.0" styleClass="progressBar" />
-        <Rectangle fx:id="r9" height="23.0" width="50.0" styleClass="progressBar" />
-        <Rectangle fx:id="r10" height="23.0" width="50.0" styleClass="progressBar" />
-        </children>
+            alignment="CENTER"
+            BorderPane.alignment="CENTER"
+        >
+            <children>
+            <!-- @@TODO: make this cleaner if possible -->
+            <Rectangle height="23.0" width="50.0" fx:id="r1"  styleClass="progressBar" />
+            <Rectangle height="23.0" width="50.0" fx:id="r2"  styleClass="progressBar" />
+            <Rectangle height="23.0" width="50.0" fx:id="r3"  styleClass="progressBar" />
+            <Rectangle height="23.0" width="50.0" fx:id="r4"  styleClass="progressBar" />
+            <Rectangle height="23.0" width="50.0" fx:id="r5"  styleClass="progressBar" />
+            <Rectangle height="23.0" width="50.0" fx:id="r6"  styleClass="progressBar" />
+            <Rectangle height="23.0" width="50.0" fx:id="r7"  styleClass="progressBar" />
+            <Rectangle height="23.0" width="50.0" fx:id="r8"  styleClass="progressBar" />
+            <Rectangle height="23.0" width="50.0" fx:id="r9"  styleClass="progressBar" />
+            <Rectangle height="23.0" width="50.0" fx:id="r10" styleClass="progressBar" />
+            </children>
         </HBox>
     </bottom>
 </BorderPane>

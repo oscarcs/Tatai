@@ -1,19 +1,20 @@
 package views.user_dashboard;
 
+import java.time.LocalDate;
+import javafx.stage.Stage;
+import javafx.fxml.FXML;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.text.Text;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import game.GameData;
 import game.User;
@@ -21,15 +22,14 @@ import views.game_info.GameInfo;
 import views.game_info.GameInfoView;
 import views.main_container.MainContainer;
 
-
-import java.time.LocalDate;
-
 public class UserDashboard {
 
 	@FXML
 	TableView<GameData> tableView;
+	
 	@FXML
 	Text headerText, descriptionText;
+	
 	private User user;
 
 	/**
@@ -49,7 +49,7 @@ public class UserDashboard {
 		// Get the user.
 		user = MainContainer.instance().getUser();
 
-		headerText.setText("Hi, " + user.getUsername());
+		headerText.setText("Data for " + user.getUsername());
 		descriptionText.setText("You can double click on a game to see its details!");
 
 		// Create Columns
@@ -86,12 +86,12 @@ public class UserDashboard {
 			row.setOnMouseClicked(event -> {
 				if (event.getClickCount() > 1 && !row.isEmpty()) {
 					GameData gameData = row.getItem();
-					Stage stage = new Stage();
-					stage.setTitle(gameData.getTime().toString());
 					GameInfoView gameInfoView = new GameInfoView();
-					Scene gameInfoScene = new Scene((Parent)gameInfoView.view());
-					GameInfo gameInfo = (GameInfo)gameInfoView.controller();
+					Scene gameInfoScene = new Scene((Parent) gameInfoView.view());
+					GameInfo gameInfo = (GameInfo) gameInfoView.controller();
 					gameInfo.setGameData(gameData);
+					
+					Stage stage = new Stage();
 					stage.setTitle("Game on " + gameData.getTime());
 					stage.setScene(gameInfoScene);
 					stage.show();
