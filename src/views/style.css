@@ -84,6 +84,11 @@
     -fx-font-weight: bold;
 }
 
+.headingTextField {    
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
 /* ___________________________ BUTTON RULES ___________________________ */
 
 /* Narrow button of fixed width */
@@ -243,7 +248,7 @@
 }
 
 .table-view .table-cell {
-    -fx-text-fill: white;
+    -fx-text-fill: -color-text;
 }
 
 .table-row-cell {
@@ -255,7 +260,7 @@
 }
 
 .table-row-cell:odd {
-    -fx-background-color: -color-background;
+    -fx-background-color: -color-neutral;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em; /* 0 */
 }

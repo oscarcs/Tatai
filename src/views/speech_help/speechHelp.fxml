@@ -46,57 +46,33 @@
     </right>
 
     <left>
-        <VBox>
+        <VBox alignment="CENTER">
             <children>
-                <GridPane alignment="CENTER">  
-                    <columnConstraints>
-                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES"/>
-                        <ColumnConstraints hgrow="SOMETIMES" />
-                        <ColumnConstraints hgrow="SOMETIMES" />
-                        <ColumnConstraints hgrow="SOMETIMES" />
-                    </columnConstraints>
-                    
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                    
-                    <children>
-                        <Button fx:id="b1"  onAction="#b1hit" text="1" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                        <Button fx:id="b2"  onAction="#b2hit" text="2" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                        <Button fx:id="b3"  onAction="#b3hit" text="3" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                        <Button fx:id="b4"  onAction="#b4hit" text="4" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                        <Button fx:id="b5"  onAction="#b5hit" text="5" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                        <Button fx:id="b6"  onAction="#b6hit" text="6" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-                        <Button fx:id="b7"  onAction="#b7hit" text="7" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-                        <Button fx:id="b8"  onAction="#b8hit" text="8" GridPane.columnIndex="0" GridPane.rowIndex="7" /> 
-                        <Button fx:id="b9"  onAction="#b9hit" text="9" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-                        <Button fx:id="b10" onAction="#b10hit" text="10" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-                        <Label text="tahi"  GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                        <Label text="rua"   GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label text="toru"  GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="whā"   GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label text="rima"  GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label text="ono"   GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label text="whitu" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <Label text="waru"  GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                        <Label text="iwa"   GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                        <Label text="tekau" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                    </children>
-                </GridPane>
-                
-                <Button fx:id="b60" layoutX="200.0" layoutY="346.0" onAction="#b60hit" text="60" />
-                <Button fx:id="b54" layoutX="200.0" layoutY="377.0" onAction="#b54hit" text="54" />
+                <Button fx:id="b1"  styleClass="narrowButton" onAction="#b1hit" text="1 - 'tahi'" />
+                <Button fx:id="b2"  styleClass="narrowButton" onAction="#b2hit" text="2 - 'rua'" />
+                <Button fx:id="b3"  styleClass="narrowButton" onAction="#b3hit" text="3 - 'toru'" />
+                <Button fx:id="b4"  styleClass="narrowButton" onAction="#b4hit" text="4 - 'whā'" />
+                <Button fx:id="b5"  styleClass="narrowButton" onAction="#b5hit" text="5 - 'rima'" />
+                <Button fx:id="b6"  styleClass="narrowButton" onAction="#b6hit" text="6 - 'ono'" />
             </children>
         </VBox>
-
     </left>
 
-    <bottom>
+    <center>
         <VBox alignment="CENTER">
+            <children>
+                <Button fx:id="b7"  styleClass="narrowButton" onAction="#b7hit" text="7 - 'whitu'" />
+                <Button fx:id="b8"  styleClass="narrowButton" onAction="#b8hit" text="8 - 'waru'" /> 
+                <Button fx:id="b9"  styleClass="narrowButton" onAction="#b9hit" text="9 - 'iwa'" />
+                <Button fx:id="b10" styleClass="narrowButton" onAction="#b10hit" text="10 - 'tekau'"/>
+                <Button fx:id="b60" styleClass="narrowButton" onAction="#b60hit" text="60" />
+                <Button fx:id="b54" styleClass="narrowButton" onAction="#b54hit" text="54" />
+            </children>
+        </VBox>
+    </center>
+
+    <bottom>
+        <VBox alignment="CENTER" styleClass="topSpacingBox">
             <children>
                 <Button 
                     fx:id="help" 

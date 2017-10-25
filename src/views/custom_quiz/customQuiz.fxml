@@ -1,31 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="575.0" styleClass="normalBackground" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.custom_quiz.CustomQuiz">
-   <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="163.0" layoutY="93.0" prefHeight="68.0" prefWidth="251.0" text="Custom Quiz" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="34.0" />
-         </font>
-      </Label>
-      <HBox alignment="CENTER" layoutX="125.0" layoutY="270.0" prefHeight="100.0" prefWidth="327.0" spacing="20.0">
-         <children>
-            <Button fx:id="playBtn" mnemonicParsing="false" onAction="#playHit" prefWidth="80.0" text="Play" />
-            <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#deleteHit" prefWidth="80.0" text="Delete" />
-            <Button fx:id="newBtn" mnemonicParsing="false" onAction="#newBtnHit" prefWidth="80.0" text="New" />
-         </children>
-      </HBox>
-      <ComboBox fx:id="quizBox" layoutX="170.0" layoutY="206.0" prefHeight="32.0" prefWidth="235.0" />
-   </children>
-   <stylesheets>
-      <URL value="@../style.css" />
-      <URL value="@../login_page/loginPage.css" />
-   </stylesheets>
-</AnchorPane>
+<BorderPane 
+    maxHeight="-Infinity" 
+    maxWidth="-Infinity"
+    minHeight="-Infinity" 
+    minWidth="-Infinity"
+    styleClass="normalBackground" 
+    xmlns="http://javafx.com/javafx/8.0.60" 
+    xmlns:fx="http://javafx.com/fxml/1" 
+    fx:controller="views.custom_quiz.CustomQuiz"
+>
+    <stylesheets>
+        <URL value="@../style.css" />
+    </stylesheets>
+
+    <center>
+        <VBox 
+            alignment="CENTER" 
+            spacing="30"
+            prefHeight="200" 
+            prefWidth="300"
+        >
+            <children>
+                <HBox alignment="CENTER" styleClass="headingBox">
+                    <children>
+                        <Label text="Custom Quiz" styleClass="heading3" />
+                    </children>
+                </HBox>
+
+                <HBox alignment="CENTER">
+                    <children>
+                        <ComboBox
+                            fx:id="quizBox"
+                            prefWidth="10000" 
+                            promptText="Select a quiz..."   
+                        />
+                    </children>
+                </HBox>
+
+                <HBox alignment="CENTER" spacing="10">
+                    <children>
+                        <Button 
+                            styleClass="narrowButton" 
+                            fx:id="playBtn" 
+                            onAction="#playHit" 
+                            text="Play" 
+                        />
+                        <Button 
+                            styleClass="narrowButton" 
+                            fx:id="deleteBtn" 
+                            onAction="#deleteHit" 
+                            text="Delete" 
+                        />
+                        <Button 
+                            styleClass="narrowButton" 
+                            fx:id="newBtn" 
+                            onAction="#newBtnHit" 
+                            text="New" 
+                        />
+                    </children>
+                </HBox>
+
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

@@ -43,8 +43,7 @@
                     <children>
                         <ComboBox 
                             fx:id="usersBox" 
-                            prefWidth="10000" 
-                            styleClass="usersBox"
+                            prefWidth="10000"
                             promptText="Select a user..."
                         />
                     </children>

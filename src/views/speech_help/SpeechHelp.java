@@ -43,8 +43,8 @@ public class SpeechHelp implements Initializable {
 		
 		// Set the explanatory text:
 		text.setText(
-			"All numbers from 11 onwards follow a basic pattern. For example to say twenty-two, " +
-			"simply say 'rua tekau', which means 20, and then 'mā rua'; 'rua tekau mā rua'. " +
+			"All numbers from 11 onwards follow a basic pattern. For example, to say twenty-two, " +
+			"simply say 'rua tekau', which means 20, and then 'mā rua', '2'	 -- 'rua tekau mā rua'. " +
 			"So all you have to do is learn the numbers from 1 - 10 and then the words for " +
 			"10, 20, 30, 40 and so on. For example: 30  is 'ono tekau' and 55 is 'rima tekau mā whā'"
 		);
@@ -124,7 +124,7 @@ public class SpeechHelp implements Initializable {
 			clip.open(AudioSystem.getAudioInputStream(sound));
 			clip.start();
 		}
-		catch(Exception e) {
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

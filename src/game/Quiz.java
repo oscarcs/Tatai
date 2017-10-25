@@ -1,7 +1,6 @@
 package game;
 
 import java.util.HashMap;
-
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
@@ -22,7 +21,6 @@ public class Quiz {
 		totalQuestions = 10;
 		currentQuestion = 1;
 		data = new QuizData(name);
-
 	}
 	
 	public void nextQuizNum() {
@@ -40,9 +38,7 @@ public class Quiz {
 	public void addQuiz(SingleQuiz question) {
 		data.addQues(question);
 	}
-
 	
-
 	public int getCurrentQuizNum() {
 		return currentQuestion;
 	}
@@ -53,48 +49,69 @@ public class Quiz {
 
 	public boolean checkValid(int first, int second, String operation) {
 
-		// System.out.println(firstNum.getText() + operation.getText() +
-		// secNum.getText());
+		boolean valid = true;
+		int result = 0;
 
-		if (operation.equals("/")) {
-			if (first % second != 0) {
-				return false;
-			} else {
-				return true;
-			}
-		} else {
-			ScriptEngineManager mgr = new ScriptEngineManager();
-			ScriptEngine engine = mgr.getEngineByName("JavaScript");
-			int result = 0;
-			try {
-				result = (int) engine.eval(first + operation + second);
-			} catch (ScriptException e) {
-				e.printStackTrace();
-			}
-			if (result > 99 || result <= 0) {
-				return false;
-			} else {
-				return true;
-			}
+		switch (operation) {
+			case "+":
+				result = first + second;
+				break;
+
+			case "-":
+				result = first - second;
+				break;
+
+			case "/":
+				valid = first % second == 0; 
+				result = first / second;
+				break;
+
+			case "*":
+				result = first * second;
+				break;
 		}
 
+		if (result > 99 || result <= 0) {
+			valid = false;
+		}
+
+		return valid;
 	}
 
 	public SingleQuiz getQuestion(int first, int second, String operation) {
 
-		ScriptEngineManager mgr = new ScriptEngineManager();
-		ScriptEngine engine = mgr.getEngineByName("JavaScript");
 		int result = 0;
-		try {
-			result = (int) engine.eval(first + operation + second);
-		} catch (ScriptException e) {
-			e.printStackTrace();
+		String operationString = "";
+
+		switch (operation) {
+			case "+":
+				result = first + second;
+				operationString = " + ";
+				break;
+
+			case "-":
+				result = first - second;
+				operationString = " − ";
+				break;
+
+			case "/":
+				result = first / second;
+				operationString = " ÷ ";
+				break;
+
+			case "*":
+				result = first * second;
+				operationString = " × ";
+				break;
 		}
 
-		SingleQuiz question = new SingleQuiz(currentQuestion, first + operation + second, result);
+		SingleQuiz question = new SingleQuiz(
+			currentQuestion, 
+			first + operationString + second, 
+			result
+		);
 
 		return question;
-
 	}
 
 }
