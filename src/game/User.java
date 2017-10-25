@@ -49,6 +49,19 @@ public class User implements Serializable{
 		return username;
 	}
 
+	
+	public int getScore() {
+		int score = 0;
+		if(games.size()==0) {
+			return 0;
+		}else {
+			for(GameData data : games) {
+				score = data.getScore() + score;
+			}
+			return score;
+		}
+	}
+	
 	/**
 	 * Serializes user to a file that is of their username.
 	 */

@@ -172,7 +172,7 @@ public class Game {
     /**
      * Method that is called when the user has gotten the wrong answer twice.
      */
-    private void loseRound() {
+    public void loseRound() {
         gameData.addRound(currentRound, false, receivedAnswer + "", pronunciation.getPronunciation(currentEquation.answer())+ "", currentEquation.toString(), currentAttempt);
         level.answerWrong();
         roundCorrect.put(currentRound, false);

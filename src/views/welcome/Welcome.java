@@ -15,7 +15,7 @@ import javafx.scene.control.Label;
 public class Welcome implements Initializable{
 
 	@FXML
-	Label name, text1, text2;
+	Label name, text1, text2, score;
 	
 	private User user;
 	private LocalDate date;
@@ -24,6 +24,7 @@ public class Welcome implements Initializable{
 	
 	public void setUp(User user) {
 		name.setText(user.getUsername());
+		score.setText("Score: " + user.getScore());
 
 		date = LocalDate.now();
 		ArrayList<LocalDate> userGameDate = new ArrayList<LocalDate>();
