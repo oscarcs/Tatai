@@ -19,6 +19,8 @@
     xmlns="http://javafx.com/javafx/8.0.60" 
     xmlns:fx="http://javafx.com/fxml/1" 
     fx:controller="views.login_page.LoginPage"
+    prefHeight="450"
+    prefWidth="750"
 >
     <stylesheets>
         <URL value="@../style.css" />
@@ -26,10 +28,12 @@
     <center>
         <VBox 
             alignment="CENTER" 
-            prefHeight="200" 
-            prefWidth="300" 
+            prefHeight="300" 
+            prefWidth="350" 
+            maxWidth="350"
             BorderPane.alignment="CENTER"
             spacing="30"
+            styleClass="bottomSpacingBig"
         >
             <children>
                 <HBox styleClass="headingBox" alignment="CENTER" >

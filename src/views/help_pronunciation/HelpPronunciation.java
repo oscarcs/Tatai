@@ -43,6 +43,7 @@ public class HelpPronunciation implements Initializable {
 			soundFile.put(f.getName(), f);
 		}
 
+		text.setFont(new Font("System", 16.5));
 		// Set the explanatory text:
 		text.setText("All numbers from 11 onwards follow a basic pattern. For example, to say twenty-two, "
 				+ "simply say 'rua tekau', which means 20, and then 'mā rua', which means and two, therefore becomes 'rua tekau mā rua'. "

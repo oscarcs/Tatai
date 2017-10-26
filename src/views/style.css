@@ -24,7 +24,7 @@
 	-fx-background-color: -color-background;
     -fx-background-image: url("/resources/tatai_menu.png"); 
     -fx-background-position: center center;	
-    -fx-background-size: 700 440;
+    -fx-background-size: 750 450;
   	-fx-background-repeat: stretch;   
 }
 
@@ -58,7 +58,7 @@
 }
 
 .leftSpacingBox {
-    -fx-padding: 0 0 0 30;
+    -fx-padding: 0 0 0 50;
 }   
 
 .circleBox {
@@ -86,7 +86,7 @@
 .heading2 {
     -fx-fill: -color-text;    
     -fx-text-fill: -color-text;    
-    -fx-font-size: 25;
+    -fx-font-size: 35;
     -fx-font-weight: bold;
 }
 
@@ -113,19 +113,22 @@
 /* Narrow button of fixed width */
 .narrowButton {
     -fx-pref-width: 120;
-    -fx-background-radius: 5;    
+    -fx-background-radius: 5; 
+    -fx-font-weight: bold;   
 }
 
 /* Medium button of fixed width */
 .mediumButton {
     -fx-pref-width: 200;
     -fx-background-radius: 5;
+    -fx-font-weight: bold;
 }
 
 /* Wide button of fixed width */
 .wideButton {
     -fx-pref-width: 275;
     -fx-background-radius: 5;
+    -fx-font-weight: bold;
 }
 
 /* Button in the top main menu */
@@ -138,6 +141,7 @@
    -fx-font-size: 14 !important;
    -fx-font-weight: bold;
    -fx-padding: 10 25 10 25 !important;
+   
 }
 
 .menuButton:hover {
@@ -151,6 +155,7 @@
     -fx-background-color: -color-neutral;
     -fx-text-fill: -color-text;
     -fx-padding: 10;
+    -fx-font-weight: bold;
 }
 
 .button:hover {
