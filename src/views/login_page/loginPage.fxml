@@ -26,20 +26,20 @@
     <center>
         <VBox 
             alignment="CENTER" 
-            prefHeight="200" 
-            prefWidth="300" 
+            prefHeight="350" 
+            prefWidth="350" 
             BorderPane.alignment="CENTER"
-            spacing="30"
+            spacing="50"
         >
             <children>
                 <!-- @@TODO: title class -->
-                <HBox styleClass="headingBox" alignment="CENTER">
+                <HBox styleClass="headingBox" alignment="CENTER" >
                     <children>
                         <Text styleClass="heading2" text="Login" />
                     </children>
                 </HBox>
 
-                <HBox alignment="CENTER">
+                <HBox alignment="CENTER" >
                     <children>
                         <ComboBox 
                             fx:id="usersBox" 

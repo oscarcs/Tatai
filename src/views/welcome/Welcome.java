@@ -33,7 +33,7 @@ public class Welcome implements Initializable {
 		// Greet the user.
 		name.setText("Welcome to Tatai, " + user.getUsername() + "!");
 
-		/*
+		
 		date = LocalDate.now();
 		ArrayList<LocalDate> userGameDate = new ArrayList<LocalDate>();
 		
@@ -57,6 +57,6 @@ public class Welcome implements Initializable {
 			}
 		
 		}
-		*/
+		
 	}
 }

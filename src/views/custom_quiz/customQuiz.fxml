@@ -27,13 +27,13 @@
         <VBox 
             alignment="CENTER" 
             spacing="30"
-            prefHeight="200" 
-            prefWidth="300"
+            prefHeight="300" 
+            prefWidth="400"
         >
             <children>
                 <HBox alignment="CENTER" styleClass="headingBox">
                     <children>
-                        <Label text="Custom Quiz" styleClass="heading3" />
+                        <Label text="Custom Quiz" styleClass="heading2" />
                     </children>
                 </HBox>
 

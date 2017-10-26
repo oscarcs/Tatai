@@ -15,23 +15,18 @@
     xmlns="http://javafx.com/javafx/8.0.60" 
     xmlns:fx="http://javafx.com/fxml/1" 
     fx:controller="views.welcome.Welcome"
+
 >
     <children>
         <VBox alignment="CENTER" spacing="20.0">
             <children>
-                <Label 
-                    fx:id="name" 
-                    alignment="CENTER" 
-                    text="Welcome to Tatai" 
-                    styleClass="heading3"
-                />
-                <!--
+               
                 <Label 
                     fx:id="name" 
                     alignment="CENTER" 
                     contentDisplay="CENTER" 
                     text="Label" 
-                    styleClass="heading3"
+                    styleClass="heading2"
                 />
                 <Label 
                     fx:id="text1" 
@@ -47,7 +42,7 @@
                     text="Label"
                     styleClass="heading3"
                 />
-                -->
+                
             </children>
         </VBox>
     </children>

@@ -74,7 +74,7 @@
     <bottom>
         <HBox alignment="BOTTOM_CENTER" styleClass="topSpacingBox">
             <children>
-                <Button onAction="#playHit" text="Play" />
+                <Button onAction="#playHit" text="Play" styleClass="narrowButton"/>
             </children>
         </HBox>
     </bottom>
