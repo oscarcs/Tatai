@@ -10,7 +10,7 @@ public class PracticeQuestionFactory extends QuestionFactory {
 	/**
 	 * Constructor.
 	 */
-	public QuizQuestionFactory(Question question) {
+	public PracticeQuestionFactory(Question question) {
         this.question = question;
 	}
 

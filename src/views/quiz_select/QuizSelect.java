@@ -137,15 +137,6 @@ public class QuizSelect implements Initializable {
         Level level = (Level) levelView.controller();
         game.setLevel(level);
         level.setGame(game);
-
-		/*
-		QuizGame quizGame = new QuizGame(quiz);
-		PlayQuizView quizView = new PlayQuizView();
-		MainContainer.instance().changeCenter(quizView);
-		PlayQuiz playQuiz = (PlayQuiz) quizView.controller();
-		playQuiz.setQuizGame(quizGame);
-		quizGame.setPlayQuiz(playQuiz);
-		*/
 	}
 
 	@FXML

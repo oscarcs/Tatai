@@ -2,9 +2,6 @@ package views.quiz_create;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.beans.value.ChangeListener;

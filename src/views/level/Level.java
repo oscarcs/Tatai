@@ -13,8 +13,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.paint.Color;
 
 import game.Game;
-import views.end_game_screen.EndGameScreen;
-import views.end_game_screen.EndGameScreenView;
+import views.game_end.GameEnd;
+import views.game_end.GameEndView;
 import views.main_container.MainContainer;
 
 /**
@@ -177,10 +177,10 @@ public class Level implements Initializable {
 	 */
 	public void endGame() {
 		// Create a end game screen and pass the game into it.
-		EndGameScreenView endGameScreenView = new EndGameScreenView();
-		MainContainer.instance().changeCenter(endGameScreenView);
-		EndGameScreen endGameScreen = (EndGameScreen) endGameScreenView.controller();
-		endGameScreen.setGame(game);
+		GameEndView gameEndView = new GameEndView();
+		MainContainer.instance().changeCenter(gameEndView);
+		GameEnd gameEnd = (GameEnd) gameEndView.controller();
+		gameEnd.setGame(game);
 	}
 
 	public void setRoundColour(HashMap<Integer,Boolean> data) {

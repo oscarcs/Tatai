@@ -1,4 +1,4 @@
-package views.end_game_screen;
+package views.game_end;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,9 +16,9 @@ import game.RoundData;
 import views.main_container.MainContainer;
 
 /**
- * Controller for the EndGameScreenView, is used at the end of a game showing the user how they did.
+ * Controller used at the end of a game to show the user how they did.
  */
-public class EndGameScreen implements Initializable{
+public class GameEnd implements Initializable {
 
     @FXML
     Text scoreText, infoText, titleText;
@@ -27,6 +27,16 @@ public class EndGameScreen implements Initializable{
     TableView<RoundData> tableView;
 
     private Game game;
+
+    /**
+     * Initialize.
+     * @param location
+     * @param resources
+     */
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // ...
+    }
 
     /**
      * Method that is called when the game has been set.
@@ -39,42 +49,54 @@ public class EndGameScreen implements Initializable{
 
         //Create Columns for the Table
         TableColumn<RoundData, Integer> roundNumberColumn = new TableColumn<>("Round Number");
-        roundNumberColumn.setMaxWidth(100);
         roundNumberColumn.setCellValueFactory(new PropertyValueFactory<>("roundNumber"));
 
         TableColumn<RoundData, Integer> correctColumn = new TableColumn<>("Correct");
-        correctColumn.setMaxWidth(100);
         correctColumn.setCellValueFactory(new PropertyValueFactory<>("correct"));
 
         TableColumn<RoundData, String> userAnswerColumn = new TableColumn<>("You Answered");
-        userAnswerColumn.setMaxWidth(100);
         userAnswerColumn.setCellValueFactory(new PropertyValueFactory<>("userAnswer"));
 
         TableColumn<RoundData, String> actualAnswerColumn = new TableColumn<>("Actual Answer ");
-        actualAnswerColumn.setMaxWidth(100);
         actualAnswerColumn.setCellValueFactory(new PropertyValueFactory<>("correctAnswer"));
 
         TableColumn<RoundData, String> questionColumn = new TableColumn<>("Question: ");
-        questionColumn.setMaxWidth(100);
         questionColumn.setCellValueFactory(new PropertyValueFactory<>("question"));
 
         TableColumn<RoundData, Integer> attemptsColumn = new TableColumn<>("Attempts");
-        attemptsColumn.setMaxWidth(100);
         attemptsColumn.setCellValueFactory(new PropertyValueFactory<>("attempts"));
 
+        roundNumberColumn.setMaxWidth(100);
+        correctColumn.setMaxWidth(100);
+        userAnswerColumn.setMaxWidth(100);
+        actualAnswerColumn.setMaxWidth(100);
+        questionColumn.setMaxWidth(100);
+        attemptsColumn.setMaxWidth(100);
+
         tableView.setItems(gameRounds());
-        tableView.getColumns().addAll(roundNumberColumn, correctColumn, userAnswerColumn, actualAnswerColumn, questionColumn, attemptsColumn);
+        tableView.getColumns().addAll(
+            roundNumberColumn, 
+            correctColumn, 
+            userAnswerColumn, 
+            actualAnswerColumn, 
+            questionColumn, 
+            attemptsColumn
+        );
 
         // If the user is now legible for level two tell them.
         if (!MainContainer.instance().getUser().canPlayLevelTwo(game.gameTypeName()) &&
-                game.getScore() >= 8) {
-            infoText.setText(" You've gotten above 80% for the first time, you can now play with numbers up to 100!");
+            game.getScore() >= 8
+        ) {
+            infoText.setText(
+                "You've gotten above 80% for the first time, " + 
+                "you can now play with numbers up to 100!"
+            );
         }
 
-       // Sort by round number.
+        // Sort by round number.
         tableView.getSortOrder().add(roundNumberColumn);
 
-       // Save the game to the user profile.
+        // Save the game to the user profile.
         MainContainer.instance().addGame(game.getGameData());
     }
 
@@ -84,15 +106,5 @@ public class EndGameScreen implements Initializable{
      */
     private ObservableList<RoundData> gameRounds() {
         return FXCollections.observableArrayList(game.getGameData().rounds());
-    }
-
-    /**
-     * Things that are done as soon as the Controller is created.
-     * @param location
-     * @param resources
-     */
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
     }
 }
