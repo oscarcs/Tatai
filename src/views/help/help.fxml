@@ -64,7 +64,7 @@
                     fx:id="practice" 
                     onAction="#setPractice" 
                     styleClass="narrowButton" 
-                    text="Practisc" 
+                    text="Practice" 
                 />
             </children>
         </VBox>

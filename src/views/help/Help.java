@@ -33,7 +33,7 @@ public class Help implements Initializable {
 	@FXML
 	public void setOverview() {
 		text.setText(
-			"TÄtai! is an app to help young adults learn MÄori numbers."
+			"T¨¡tai! is an app to help young adults learn M¨¡ori numbers."
 		);
 	}
 

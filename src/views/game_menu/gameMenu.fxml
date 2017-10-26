@@ -63,7 +63,7 @@
                                 <RadioButton 
                                     fx:id="hundredButton" 
                                     onAction="#hundredHit" 
-                                    text="10 - 99" 
+                                    text="1 - 99" 
                                 />
                             </children>
                         </HBox>

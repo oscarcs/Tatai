@@ -46,10 +46,10 @@ public class SpeechHelp implements Initializable {
 		// Set the explanatory text:
 		text.setFont(new Font("System", 16.5));
 		text.setText("All numbers from 11 onwards follow a basic pattern. For example, to say twenty-two, "
-				+ "simply say 'rua tekau', which means 20, and then 'm훮 rua', which means and two, therefore becomes 'rua tekau m훮 rua'. "
+				+ "simply say 'rua tekau', which means 20, and then 'mÆ rua', which means and two, therefore becomes 'rua tekau mÆ rua'. "
 				+ "So all you have to do is learn the numbers from 1 - 10 and then the words for "
 				+ "10, 20, 30, 40 and so on.\n"
-				+ " For example: 60  is 'ono tekau' and 54 is 'rima tekau m훮 wh훮'");
+				+ " For example: 60  is 'ono tekau' and 54 is 'rima tekau mÆ whÆ'");
 	}
 
 	@FXML
