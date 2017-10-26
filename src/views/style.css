@@ -1,7 +1,7 @@
 .root {
-    -color-accent: #FF544F;
+    -color-accent: #c0392b;
     -color-minor-accent: #F7FF58;
-    -color-background: #b3b6b7;
+    -color-background: #808b96;
     -color-neutral: #000000;
     -color-text: #FFFFFF;
 }
@@ -95,7 +95,7 @@
 
 .headingCircle {
     -fx-fill: -color-background;    
-    -fx-font-size: 45px;
+    -fx-font-size: 60px;
     -fx-font-weight: bold;
 }
 
