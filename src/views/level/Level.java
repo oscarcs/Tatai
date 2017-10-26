@@ -109,6 +109,7 @@ public class Level implements Initializable {
 	 */
 	@FXML
 	public void nextQuestionHit() {
+		game.removeSound();
 		// Create a new level and pass the game into it.
 		LevelView levelView = new LevelView();
 		MainContainer.instance().changeCenter(levelView);

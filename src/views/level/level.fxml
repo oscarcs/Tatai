@@ -50,12 +50,12 @@
                         <children>
                             <HBox alignment="CENTER" GridPane.columnIndex="0">
                                 <children>
-                                    <Text fx:id="attemptText" text="Text" />
+                                    <Text fx:id="attemptText" text="Text" styleClass="questionText" />
                                 </children>
                             </HBox>
                             <HBox alignment="CENTER" GridPane.columnIndex="1">
                                 <children>
-                                    <Text fx:id="answerStatus" text="Text" />
+                                    <Text fx:id="answerStatus" text="Text" styleClass="questionText"/>
                                 </children>
                             </HBox>
                         </children>
@@ -66,6 +66,7 @@
                         <Text 
                             fx:id="receivedAnswerText"  
                             text="Text"
+                            styleClass="questionText"
                         />
                     </children>
                 </HBox>

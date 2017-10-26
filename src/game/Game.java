@@ -165,16 +165,23 @@ public class Game {
             level.failedAttempt();
         }
 
-        // Delete the created files.
+      
+
+        // Tell the controller that processing is now done.
+        level.processingDone();
+    }
+    
+    /**
+     * remove the foo.wav file after use
+     */
+    public void removeSound() {
+    	  // Delete the created files.
         File soundDir = new File(SOUND_DIR);
         for (File file : soundDir.listFiles()) {
             if (file.getName().equals(RECOUT_FILE) || file.getName().equals(SOUND_FILE)) {
                 file.delete();
             }
         }
-
-        // Tell the controller that processing is now done.
-        level.processingDone();
     }
 
     /**

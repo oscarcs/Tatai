@@ -239,7 +239,8 @@
 /* ___________________________ GAME SCREEN RULES ___________________________ */
 
 .questionText {
-    
+    -fx-font-size: 18;
+    -fx-fill: -color-text;
 }
 
 .progressBar {
