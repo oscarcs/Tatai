@@ -11,15 +11,18 @@ import views.main_container.MainContainerView;
 public class Main extends Application {
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public void start(Stage stage) throws Exception {
 		Parent root = (Parent) new MainContainerView().view();
 
-		primaryStage.setTitle("Tatai!");
-		primaryStage.setScene(new Scene(root));
+		stage.setTitle("Tatai!");
+		stage.setMinWidth(750);
+		stage.setMinHeight(500);
+
+		stage.setScene(new Scene(root));
 
 		// Load the icon.
-		primaryStage.getIcons().add(new Image("resources/maori.png"));
-		primaryStage.show();
+		stage.getIcons().add(new Image("resources/maori.png"));
+		stage.show();
 	}
 
 	public static void main(String[] args) {

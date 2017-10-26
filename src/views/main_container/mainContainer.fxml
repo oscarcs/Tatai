@@ -15,11 +15,11 @@
 <BorderPane 
     fx:id="borderPane" 
     maxHeight="-Infinity" 
-    maxWidth="-Infinity" 
-    minHeight="-Infinity" 
-    minWidth="-Infinity" 
+    maxWidth="-Infinity"
+    minHeight="500.0" 
+    minWidth="750.0" 
     prefHeight="500.0" 
-    prefWidth="700.0" 
+    prefWidth="750.0" 
     styleClass="normalBackground" 
     xmlns="http://javafx.com/javafx/8.0.60" 
     xmlns:fx="http://javafx.com/fxml/1" 
@@ -45,73 +45,58 @@
                         />
                     </children>
                 </VBox>
-                <VBox>
+                <HBox>
                     <children>
-                        <GridPane>
-                            <rowConstraints>
-                                <RowConstraints 
-                                    vgrow="SOMETIMES" 
-                                    minHeight="10.0" 
-                                    prefHeight="60.0" 
-                                />
-                            </rowConstraints>
-                            
-                            <columnConstraints>
-                                <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
-                                <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
-                                <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
-                                <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
-                                <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
-                                <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
-                            </columnConstraints>
-
-                            <children>
-                                <Button 
-                                    fx:id="dashboardButton" 
-                                    onAction="#dashboardHit" 
-                                    styleClass="menuButton" 
-                                    GridPane.columnIndex="0"
-                                    text="Dashboard" 
-                                />
-                                <Button 
-                                    fx:id="playButton" 
-                                    onAction="#playHit" 
-                                    styleClass="menuButton" 
-                                    GridPane.columnIndex="1"
-                                    text="Play"
-                                />
-                                <Button 
-                                    fx:id="quizButton"
-                                    onAction="#quizHit" 
-                                    styleClass="menuButton" 
-                                    GridPane.columnIndex="2" 
-                                    text="Quiz"
-                                /> 
-                                <Button 
-                                    fx:id="practiceButton"
-                                    onAction="#practiceHit" 
-                                    styleClass="menuButton" 
-                                    GridPane.columnIndex="3" 
-                                    text="Practice"
-                                /> 
-                                <Button 
-                                    fx:id="helpButton" 
-                                    onAction="#helpHit" 
-                                    styleClass="menuButton" 
-                                    GridPane.columnIndex="4"
-                                    text="Help" 
-                                />
-                                <Button 
-                                    fx:id="logoutButton" 
-                                    onAction="#logoutHit"
-                                    styleClass="menuButton" 
-                                    GridPane.columnIndex="5"
-                                    text="Logout" 
-                                />
-                            </children>
-                        </GridPane>
+                        <Button 
+                            fx:id="dashboardButton" 
+                            onAction="#dashboardHit"
+                            style="-fx-text-fill: -color-accent !important;" 
+                            styleClass="menuButton" 
+                            GridPane.columnIndex="0"
+                            text="Dashboard" 
+                        />
+                        <Button 
+                            fx:id="playButton" 
+                            onAction="#playHit" 
+                            style="-fx-text-fill: -color-accent !important;" 
+                            styleClass="menuButton" 
+                            GridPane.columnIndex="1"
+                            text="Play"
+                        />
+                        <Button 
+                            fx:id="quizButton"
+                            onAction="#quizHit" 
+                            style="-fx-text-fill: -color-accent !important;" 
+                            styleClass="menuButton" 
+                            GridPane.columnIndex="2" 
+                            text="Quiz"
+                        /> 
+                        <Button 
+                            fx:id="practiceButton"
+                            onAction="#practiceHit" 
+                            style="-fx-text-fill: -color-accent !important;" 
+                            styleClass="menuButton" 
+                            GridPane.columnIndex="3" 
+                            text="Practice"
+                        /> 
+                        <Button 
+                            fx:id="helpButton" 
+                            onAction="#helpHit" 
+                            style="-fx-text-fill: -color-accent !important;" 
+                            styleClass="menuButton" 
+                            GridPane.columnIndex="4"
+                            text="Help" 
+                        />
+                        <Button 
+                            fx:id="logoutButton" 
+                            onAction="#logoutHit"
+                            style="-fx-text-fill: -color-accent !important;" 
+                            styleClass="menuButton" 
+                            GridPane.columnIndex="5"
+                            text="Logout" 
+                        />
                     </children>
-                </VBox>
+                </HBox>
             </children>
         </HBox>
     </top>
