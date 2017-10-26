@@ -59,24 +59,9 @@
         </HBox>
     </center>
     <bottom>
-        <HBox 
-            alignment="CENTER" 
-            prefHeight="100.0" 
-            prefWidth="200.0" 
-            BorderPane.alignment="CENTER"
-        >
+        <HBox alignment="CENTER" BorderPane.alignment="CENTER">
             <children>
-                <Text 
-                    fx:id="scoreText" 
-                    fill="WHITE" 
-                    strokeType="OUTSIDE" 
-                    strokeWidth="0.0" 
-                    text="Text"
-                >
-                    <font>
-                        <Font size="28.0" />
-                    </font>
-                </Text>
+                <Text fx:id="scoreText" text="Text" />
             </children>
         </HBox>
     </bottom>

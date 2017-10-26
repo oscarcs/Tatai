@@ -71,7 +71,7 @@
     </center>
 
     <bottom>
-        <VBox alignment="CENTER" >
+        <VBox alignment="CENTER" styleClass="topSpacingBox">
             <children>
                 <Button 
                     fx:id="help" 

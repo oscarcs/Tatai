@@ -45,11 +45,11 @@
             <children>
                 <Text fx:id="descriptionText" text="Text" />
                 <Button 
-                            fx:id="chart" 
-                            onAction="#chartHit" 
-                            text="Chart"
-                            styleClass="narrowButton" 
-                        />
+                    fx:id="chart" 
+                    onAction="#chartHit" 
+                    text="Chart"
+                    styleClass="narrowButton" 
+                />
             </children>
         </HBox>
     </bottom>

@@ -18,7 +18,7 @@ import game.User;
 public class Welcome implements Initializable {
 
 	@FXML
-	Label name, text1, text2;
+	Label greeting, text1, text2;
 	
 	private User user;
 	private LocalDate date;
@@ -32,7 +32,7 @@ public class Welcome implements Initializable {
 	public void setUp(User user) {
 		
 		// Greet the user.
-		name.setText(user.getUsername() + " !");
+		greeting.setText("Welcome to Tātai!, " + user.getUsername() + ".");
 
 		
 		date = LocalDate.now();
@@ -40,7 +40,7 @@ public class Welcome implements Initializable {
 		
 		if (user.getGames().size() == 0) {
 			text1.setText("How are you doing today?");
-			text2.setText("Let's get started, shall we?");
+			text2.setText("Shall we get started?");
 		} 
 		else {
 			for (GameData data : user.getGames()) {

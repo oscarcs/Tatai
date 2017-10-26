@@ -28,7 +28,7 @@
     <top>
         <HBox alignment="CENTER" styleClass="headingBox">
             <children>
-                <Label text="Help" styleClass="heading2" />
+                <Label text="Help" styleClass="heading3" />
             </children>
         </HBox>
     </top>
@@ -71,7 +71,7 @@
     </left>
 
     <center>
-        <VBox styleClass="leftAndTopSpacingBox">        
+        <VBox styleClass="leftSpacingBox">        
             <children>
                 <TextArea 
                     fx:id="text" 
@@ -87,7 +87,12 @@
     <bottom>
         <VBox alignment="CENTER" styleClass="topSpacingBox">
             <children>
-                <Button fx:id="pronunciation" onAction="#setPronunciation" text="Pronunciation" styleClass="mediumButton" />
+                <Button 
+                    fx:id="pronunciation" 
+                    onAction="#setPronunciation" 
+                    text="Pronunciation" 
+                    styleClass="mediumButton" 
+                />
             </children>
         </VBox>
     </bottom>

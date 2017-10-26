@@ -24,8 +24,6 @@ public class Help implements Initializable {
 	@Override
 	public void initialize(java.net.URL location, ResourceBundle resources) {
 		text.setEditable(false);
-		text.setFont(new Font("System", 18));
-
 
 		setOverview();
 	}
@@ -33,7 +31,7 @@ public class Help implements Initializable {
 	@FXML
 	public void setOverview() {
 		text.setText(
-			"T��tai! is an app to help young adults learn Māori numbers."
+			"Tātai! is an app to help young adults learn Māori numbers."
 		);
 	}
 
