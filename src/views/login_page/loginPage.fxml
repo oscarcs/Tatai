@@ -15,10 +15,12 @@
     maxWidth="-Infinity" 
     minHeight="-Infinity" 
     minWidth="-Infinity" 
-    styleClass="normalBackground" 
+    styleClass="normalBackWithPic" 
     xmlns="http://javafx.com/javafx/8.0.60" 
     xmlns:fx="http://javafx.com/fxml/1" 
     fx:controller="views.login_page.LoginPage"
+    prefHeight="440" 
+    prefWidth="700" 
 >
     <stylesheets>
         <URL value="@../style.css" />
@@ -26,8 +28,8 @@
     <center>
         <VBox 
             alignment="CENTER" 
-            prefHeight="350" 
-            prefWidth="350" 
+
+            maxWidth="350" 
             BorderPane.alignment="CENTER"
             spacing="50"
         >
