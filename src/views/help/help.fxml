@@ -18,6 +18,8 @@
     xmlns="http://javafx.com/javafx/8.0.60" 
     xmlns:fx="http://javafx.com/fxml/1" 
     fx:controller="views.help.Help"
+    prefHeight="400"
+    prefWidth="600"
 >
     <stylesheets>
         <URL value="@../style.css" />
@@ -26,7 +28,7 @@
     <top>
         <HBox alignment="CENTER" styleClass="headingBox">
             <children>
-                <Label text="Help" styleClass="heading3" />
+                <Label text="Help" styleClass="heading2" />
             </children>
         </HBox>
     </top>
@@ -69,12 +71,14 @@
     </left>
 
     <center>
-        <VBox styleClass="leftSpacingBox">        
+        <VBox styleClass="leftAndTopSpacingBox">        
             <children>
                 <TextArea 
                     fx:id="text" 
                     text="Text" 
-                    prefWidth="350"
+                    maxWidth="470"
+                    maxHeight="240"
+                    minHeight="240"
                 />
             </children>
         </VBox>

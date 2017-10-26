@@ -24,6 +24,8 @@ public class Help implements Initializable {
 	@Override
 	public void initialize(java.net.URL location, ResourceBundle resources) {
 		text.setEditable(false);
+		text.setFont(new Font("System", 18));
+
 
 		setOverview();
 	}

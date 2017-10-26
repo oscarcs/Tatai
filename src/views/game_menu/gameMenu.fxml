@@ -20,6 +20,7 @@
       xmlns="http://javafx.com/javafx/8.0.60" 
       xmlns:fx="http://javafx.com/fxml/1" 
       fx:controller="views.game_menu.GameMenu"
+
 >
     <stylesheets>
         <URL value="@../style.css" />
