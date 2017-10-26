@@ -27,7 +27,7 @@
     
 >
     <stylesheets>
-        <URL value="@../style.css" />
+        <!-- <URL value="@../style.css" /> -->
     </stylesheets>
     
     <!--
@@ -100,19 +100,19 @@
                         fx:id="recordButton" 
                         onAction="#recordHit" 
                         styleClass="mediumButton" 
-                        text="Record"
+                        text="Record ⏺"
                     />
                     <Button 
                         fx:id="playButton" 
                         onAction="#playHit"
                         styleClass="mediumButton" 
-                        text="Play"
+                        text="Play ▶️"
                     />
                     <Button 
                         fx:id="nextQuestionButton" 
                         onAction="#nextQuestionHit" 
                         styleClass="mediumButton"   
-                        text="Next Question" 
+                        text="Next Question ⏩" 
                     />
                 </children>
             </HBox>

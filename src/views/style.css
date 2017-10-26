@@ -248,7 +248,7 @@
     /* -fx-arc-width: 5px; */
     /* -fx-arc-height: 5px; */
     -fx-stroke-type: outside;
-    -fx-stroke: -color-text;
+    -fx-stroke: -color-neutral;
 }
 
 /* ___________________________ TABLE RULES ___________________________ */

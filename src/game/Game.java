@@ -26,11 +26,8 @@ public class Game {
     public static final String RECOUT_FILE = "recout.mlf";
     public static final String SOUND_DIR = ".";
     
-    //
     private QuestionFactory questionFactory;
-    //
     private int currentRound;
-    // 
     private Pronunciation pronunciation;
     private Question currentQuestion;
     private int score = 0;
@@ -165,8 +162,6 @@ public class Game {
             level.failedAttempt();
         }
 
-      
-
         // Tell the controller that processing is now done.
         level.processingDone();
     }
@@ -262,7 +257,7 @@ public class Game {
     }
     
     /**
-     * 
+     *  Get the current round data.
      */
     public HashMap<Integer,Boolean> getRoundData() {
     	return roundCorrect;

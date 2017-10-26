@@ -44,24 +44,6 @@ public class Level implements Initializable {
 	private HashMap<Integer, Boolean> roundData;
 
 	/**
-	 * Method that is called to set the game model to this level.
-	 * 
-	 * @param game
-	 */
-	public void setGame(Game game) {
-		this.game = game;
-		game.setLevel(this);
-
-		questionText.setText(game.questionText());
-		attemptText.setText("Attempt " + game.getCurrentAttempt());
-		answerStatus.setText("Waiting");
-		receivedAnswerText.setText("We received: ");
-
-		roundData = game.getRoundData();
-		this.setRoundColour(roundData);
-	}
-
-	/**
 	 * Initialize this scene.
 	 * 
 	 * @param location
@@ -86,11 +68,31 @@ public class Level implements Initializable {
 	}
 
 	/**
+	 * Method that is called to set the game model to this level.
+	 * 
+	 * @param game
+	 */
+	public void setGame(Game game) {
+		this.game = game;
+		game.setLevel(this);
+
+		questionText.setText(game.questionText());
+		attemptText.setText("Attempt " + game.getCurrentAttempt());
+		answerStatus.setText("Waiting");
+		receivedAnswerText.setText("We received: ");
+
+		setRoundColour(game.getRoundData());
+	}
+
+	/**
 	 * When the user presses the record button.
 	 */
 	@FXML
 	public void recordHit() {
 		recordButton.setDisable(true);
+		playButton.setDisable(true);
+		answerStatus.setText("Waiting");
+		answerStatus.setFill(Color.WHITE);
 		nextQuestionButton.setDisable(true);
 		circle.setFill(Color.YELLOW);
 
@@ -111,6 +113,7 @@ public class Level implements Initializable {
 	@FXML
 	public void nextQuestionHit() {
 		game.removeSound();
+
 		// Create a new level and pass the game into it.
 		LevelView levelView = new LevelView();
 		MainContainer.instance().changeCenter(levelView);
@@ -133,6 +136,7 @@ public class Level implements Initializable {
 	 * When processing is completed this method is called.
 	 */
 	public void processingDone() {
+		//...
 	}
 
 	/**
@@ -161,8 +165,8 @@ public class Level implements Initializable {
 	 */
 	public void answerWrong() {
 		answerStatus.setText("Incorrect");
-		answerStatus.setFill(Color.RED);
-		circle.setFill(Color.RED);
+		answerStatus.setFill(Color.web("#55c1ff"));
+		circle.setFill(Color.web("#55c1ff"));
 
 		receivedAnswerText.setText("We received: " + game.getReceivedAnswer());
 	}
@@ -186,23 +190,17 @@ public class Level implements Initializable {
 	}
 
 	/**
-	 * set up the colour of the progress bar depend on the game data the user is
-	 * currently playing
-	 * 
-	 * @param data
-	 *            the user currently playing data
+	 * Change the state of the progress bar to reflect the current state.
+	 * @param data the user currently playing data
 	 */
 	public void setRoundColour(HashMap<Integer, Boolean> data) {
 
-		System.out.println(Collections.singletonList(data));
-
-		for (int i = 1; i <= data.size(); i++) {
+		for (int i = 1; i <= data.size(); i++) {			
 			if (data.get(i)) {
-				progressBar.get(i).setFill(Color.web("#55c1ff"));
-				System.out.println("green");
-			} else {
-				progressBar.get(i).setFill(Color.web("#ff5b5b"));
-				System.out.println("red");
+				progressBar.get(i).setStyle("-fx-fill: #55c1ff;");
+			} 
+			else {
+				progressBar.get(i).setStyle("-fx-fill: #d32c33;");
 			}
 		}
 
