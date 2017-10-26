@@ -1,52 +1,33 @@
 package game;
 
-import java.util.HashMap;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.Set;
+import java.util.LinkedHashSet;
 
-import numbers.Question;
-import numbers.Operator;
-import views.make_quiz.MakeQuiz;
+import question.Question;
+import question.Operator;
+import views.main_container.MainContainer;
 
-public class Quiz {
+/**
+ * Function representing the data of a quiz.
+ */
+public class Quiz implements Serializable {
 
-	private int totalQuestions;
-	private int currentQuestion;
-	private QuizData data;
-	private MakeQuiz quiz;
+	private String name;
+	private Set<Question> questions;
 
 	public Quiz(String name) {
-		totalQuestions = 10;
-		currentQuestion = 1;
-		data = new QuizData(name);
-	}
-	
-	public void nextQuizNum() {
-		currentQuestion++;
+		this.name = name;
+		this.questions = new LinkedHashSet<Question>();
 	}
 
-	public QuizData getQuizData() {
-		return data;
-	}
-
-	public void setQuizfile(QuizData data) {
-		this.data = data;
-	}
-
-	public void addQuiz(SingleQuiz question) {
-		data.addQues(question);
-	}
-	
-	public int getCurrentQuizNum() {
-		return currentQuestion;
-	}
-
-	public void setQuiz(MakeQuiz quiz) {
-		this.quiz = quiz;
-	}
-
-	public boolean checkValid(int first, int second, Operator operator) {
+	/**
+	 * Check that a given question is valid.
+	 */
+	public boolean checkQuestion(int first, int second, Operator operator) {
 
 		boolean valid = true;
 		int result = operator.getResult(first, second);
@@ -62,16 +43,84 @@ public class Quiz {
 		return valid;
 	}
 
-	public SingleQuiz getQuestion(int first, int second, Operator operator) {
+	/**
+	 * Create a question from component parts.
+	 */
+	public Question createQuestion(int first, int second, Operator operator) {
 
-		int result = operator.getResult(first, second);
-
-		SingleQuiz question = new SingleQuiz(
-			currentQuestion, 
-			first + " " + operator.toString() + " " + second, 
-			result
-		);
-
-		return question;
+		if (checkQuestion(first, second, operator)) {
+			int result = operator.getResult(first, second);
+			String questionText = first + " " + operator.toString() + " " + second;
+			
+			return new Question(questionText, result);
+		}
+		return null;
 	}
+
+	/**
+	 * Add a question to the quiz.
+	 */
+	public void addQuestion(int first, int second, Operator operator) {
+		Question question = createQuestion(first, second, operator);
+		addQuestion(question);
+	}
+
+	/**
+	 * Add a question to the quiz.
+	 */
+	public void addQuestion(Question question) {
+		questions.add(question);
+	}
+
+	/**
+	 * Get an individual question by question number.
+	 */
+	public Question getQuestion(int num) {
+		int idx = 0;
+		for (Question q : getQuestions()) {
+			if (idx == num - 1) {
+				return q;
+			}
+			idx++;
+		}
+		return null;
+	}
+
+	/**
+	 * Get a set containting all of the questions in this quiz.
+	 */
+	public Set<Question> getQuestions() {
+		return questions;
+	}
+
+	/**
+	 * Get the total number of questions.
+	 */
+	public int getTotalQuestions() {
+		return questions.size();
+	}
+
+	/**
+	 * Get the name of this quiz.
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * Serialize this quiz.
+	 */
+	public void save() {
+		try {
+			ObjectOutputStream objectOutputStream = new ObjectOutputStream(
+				new FileOutputStream(MainContainer.QUIZ_DIRECTORY + name)
+			);
+			objectOutputStream.writeObject(this);
+			objectOutputStream.close();
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

@@ -1,4 +1,4 @@
-package views.make_quiz;
+package views.quiz_create;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,30 +18,28 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import game.Quiz;
-import game.SingleQuiz;
-import numbers.Question;
-import numbers.Operator;
-import views.end_quiz.EndQuiz;
-import views.end_quiz.EndQuizView;
+import question.Question;
+import question.Operator;
 import views.main_container.MainContainer;
 
 /**
  * Controller class for 'New Quiz' screen.
  */
-public class MakeQuiz implements Initializable {
+public class QuizCreate implements Initializable {
 
+	private static final int QUIZ_LENGTH = 10;
+
+	// The Quiz object that we're creating.
 	private Quiz quiz;
 
 	@FXML
 	Button previousBtn, nextBtn;
-
 	@FXML
 	TextField firstNum, secondNum, operation;
-
 	@FXML
 	Label questionNum;
 
-@Override
+	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
 		// Numeric listener. Called when one of the numeric fields is changed.
@@ -97,23 +95,37 @@ public class MakeQuiz implements Initializable {
 
 		int first = Integer.parseInt(firstNum.getText());
 		int second = Integer.parseInt(secondNum.getText());
-		Operator operator = Operator.valueOf(operation.getText());
+
+		Operator operator = null;
+		switch (operation.getText()) {
+			case "+":
+				operator = Operator.ADD;
+				break;
+			case "-":
+				operator = Operator.SUBTRACT;
+				break;
+			case "*":
+				operator = Operator.MULTIPLY;
+				break;
+			case "/":
+				operator = Operator.DIVIDE;
+				break;
+		}
 		
-		if (quiz.checkValid(first, second, operator)) {
+		if (quiz.checkQuestion(first, second, operator)) {
 
-			quiz.addQuiz(quiz.getQuestion(first, second, operator));
+			quiz.addQuestion(first, second, operator);
 
-			if (quiz.getCurrentQuizNum() < quiz.getQuizData().getTotalQues()) {
-				quiz.nextQuizNum();
-				MakeQuizView quizView = new MakeQuizView();
+			if (quiz.getTotalQuestions() < QUIZ_LENGTH) {
+				QuizCreateView quizView = new QuizCreateView();
 				MainContainer.instance().changeCenter(quizView);
-				MakeQuiz makeQuiz = (MakeQuiz) quizView.controller();
-				makeQuiz.setQuiz(quiz);
+				QuizCreate quizCreate = (QuizCreate) quizView.controller();
+				quizCreate.setQuiz(quiz);
 			} 
 			else {
-				EndQuizView endView = new EndQuizView();
+				QuizCreateEndView endView = new QuizCreateEndView();
 				MainContainer.instance().changeCenter(endView);
-				EndQuiz endQuiz = (EndQuiz) endView.controller();
+				QuizCreateEnd endQuiz = (QuizCreateEnd) endView.controller();
 				endQuiz.setQuiz(quiz);
 			}
 		}
@@ -143,6 +155,6 @@ public class MakeQuiz implements Initializable {
 
 	public void setQuiz(Quiz quiz) {
 		this.quiz = quiz;
-		questionNum.setText("Question " + quiz.getCurrentQuizNum());
+		questionNum.setText("Question " + (quiz.getTotalQuestions() + 1));
 	}
 }

@@ -12,9 +12,9 @@ import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
 
 import processes.ProcessOutput;
-import numbers.Question;
-import numbers.QuestionFactory;
-import numbers.Pronunciation;
+import question.Question;
+import question.QuestionFactory;
+import question.Pronunciation;
 import views.level.Level;
 
 /**
@@ -189,7 +189,7 @@ public class Game {
             System.out.println(line);
         }
         receivedAnswer = userAnswer;
-        String answer = pronunciation.getPronunciation(currentQuestion.answer());
+        String answer = pronunciation.getPronunciation(currentQuestion.getAnswer());
         List<String> answers = Arrays.asList(answer.split(" "));
         
         if (lines.containsAll(answers)) {
@@ -208,7 +208,7 @@ public class Game {
             currentRound, 
             true, 
             receivedAnswer + "", 
-            pronunciation.getPronunciation(currentQuestion.answer())+ "", 
+            pronunciation.getPronunciation(currentQuestion.getAnswer())+ "", 
             currentQuestion.toString(), 
             currentAttempt
         );
@@ -227,7 +227,7 @@ public class Game {
             currentRound, 
             false, 
             receivedAnswer + "", 
-            pronunciation.getPronunciation(currentQuestion.answer()), 
+            pronunciation.getPronunciation(currentQuestion.getAnswer()), 
             currentQuestion.toString(), 
             currentAttempt
         );

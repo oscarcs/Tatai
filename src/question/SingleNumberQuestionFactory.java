@@ -1,4 +1,4 @@
-package numbers;
+package question;
 
 /**
  * Creates questions that are just a single number.

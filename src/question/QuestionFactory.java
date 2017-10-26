@@ -1,4 +1,4 @@
-package numbers;
+package question;
 
 import java.util.Random;
 

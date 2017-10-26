@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Font;
 import views.main_container.MainContainer;
-import views.speech_help.SpeechHelpView;
+import views.help_pronunciation.HelpPronunciationView;
 
 public class Help implements Initializable {
 
@@ -70,6 +70,6 @@ public class Help implements Initializable {
 
 	@FXML
 	public void setPronunciation() {
-		MainContainer.instance().changeCenter(new SpeechHelpView());
+		MainContainer.instance().changeCenter(new HelpPronunciationView());
 	}
 }

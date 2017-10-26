@@ -17,7 +17,7 @@
     stylesheets="@../style.css" 
     xmlns="http://javafx.com/javafx/8.0.60" 
     xmlns:fx="http://javafx.com/fxml/1" 
-    fx:controller="views.end_quiz.EndQuiz"
+    fx:controller="views.quiz_create.QuizCreateEnd"
 >
     <center>
         <VBox spacing="30">

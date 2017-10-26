@@ -1,4 +1,4 @@
-package views.speech_help;
+package views.help_pronunciation;
 
 import java.io.File;
 import java.net.URL;
@@ -19,7 +19,7 @@ import views.main_container.MainContainer;
 /** 
  * Controller for speechHelp, which allows the user to hear example pronunciations for numbers.
  */
-public class SpeechHelp implements Initializable {
+public class HelpPronunciation implements Initializable {
 
 	private HashMap<String, File> soundFile;
 	

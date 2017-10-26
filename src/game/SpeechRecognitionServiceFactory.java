@@ -3,7 +3,7 @@ package game;
 import processes.ServiceFactory;
 
 /**
- * Object that abstracts HTK framework
+ * Abstract the command line tools and the HTK framework.
  */
 public class SpeechRecognitionServiceFactory extends ServiceFactory {
     public static final String PLAY = "play";
@@ -11,7 +11,7 @@ public class SpeechRecognitionServiceFactory extends ServiceFactory {
     public static final String PROCESS = "process";
 
     /**
-     * Default Constructor, automatically adds all the useful bash commands.
+     * Contructor. Add the commands we need.
      */
     public SpeechRecognitionServiceFactory() {
         super();

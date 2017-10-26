@@ -5,7 +5,8 @@ import java.io.Serializable;
 /**
  * This class represents a saved round.
  */
-public class RoundData implements Comparable<RoundData>, Serializable{
+public class RoundData implements Comparable<RoundData>, Serializable {
+    
     private int roundNumber;
     private boolean correct;
     private String userAnswer;
@@ -14,22 +15,22 @@ public class RoundData implements Comparable<RoundData>, Serializable{
     private String question;
 
     /**
-     * Constructor that includes all the parameters that are needed to comprehensively save all the data from a round.
-     * @param roundNumber
-     * @param correct
-     * @param userAnswer
-     * @param correctAnswer
-     * @param question
-     * @param attempts
+     * Constructor.
      */
-    public RoundData(int roundNumber, boolean correct, String userAnswer, String correctAnswer, String question, int attempts) {
+    public RoundData(
+        int roundNumber, 
+        boolean correct, 
+        String userAnswer, 
+        String correctAnswer, 
+        String question, 
+        int attempts
+    ) {
         this.roundNumber = roundNumber;
         this.correct = correct;
         this.userAnswer = userAnswer;
         this.correctAnswer = correctAnswer;
         this.question = question;
         this.attempts = attempts;
-
     }
 
     /**

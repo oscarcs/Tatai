@@ -19,7 +19,7 @@
   styleClass="normalBackground" 
   xmlns="http://javafx.com/javafx/8.0.60" 
   xmlns:fx="http://javafx.com/fxml/1" 
-  fx:controller="views.speech_help.SpeechHelp"
+  fx:controller="views.help_pronunciation.HelpPronunciation"
 >
     <stylesheets>
         <URL value="@../style.css" />

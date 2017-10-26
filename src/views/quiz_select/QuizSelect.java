@@ -1,4 +1,4 @@
-package views.custom_quiz;
+package views.quiz_select;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,19 +25,18 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
 
+import game.Game;
 import game.Quiz;
-import game.QuizData;
-import game.QuizGame;
 import game.User;
+import question.QuizQuestionFactory;
 import views.main_container.MainContainer;
-import views.make_quiz.MakeQuiz;
-import views.make_quiz.MakeQuizView;
-import views.play_quiz.PlayQuiz;
-import views.play_quiz.PlayQuizView;
+import views.quiz_create.QuizCreate;
+import views.quiz_create.QuizCreateView;
+import views.level.Level;
+import views.level.LevelView;
 
-public class CustomQuiz implements Initializable {
+public class QuizSelect implements Initializable {
 
-	private QuizData quizData;
 	private Quiz quiz;
 
 	@FXML
@@ -83,16 +82,13 @@ public class CustomQuiz implements Initializable {
 
 			// If there has been a string passed in (user didn't cancel) then pass the user
 			// to the mainContainer.
-			quizData = new QuizData(result.get());
 			quiz = new Quiz(result.get());
 
-			MakeQuizView quizView = new MakeQuizView();
+			QuizCreateView quizView = new QuizCreateView();
 			MainContainer.instance().changeCenter(quizView);
-			MakeQuiz makeQuiz = (MakeQuiz) quizView.controller();
+			QuizCreate quizCreate = (QuizCreate) quizView.controller();
 			
-			quiz.setQuiz(makeQuiz);
-			quiz.setQuizfile(quizData);
-			makeQuiz.setQuiz(quiz);
+			quizCreate.setQuiz(quiz);
 		}
 
 	}
@@ -112,12 +108,13 @@ public class CustomQuiz implements Initializable {
 		}
 		
 		String quizName = quizBox.getSelectionModel().getSelectedItem();
-		QuizData quizData = null;
+		Quiz quiz = null;
+
 		try {
 			ObjectInputStream objectInputStream = new ObjectInputStream(
 				new FileInputStream(MainContainer.QUIZ_DIRECTORY + quizName)
 			);
-			quizData = (QuizData) objectInputStream.readObject();
+			quiz = (Quiz) objectInputStream.readObject();
 			objectInputStream.close();
 		} 
 		catch (IOException e) {
@@ -127,12 +124,28 @@ public class CustomQuiz implements Initializable {
 			e.printStackTrace();
 		}
 		
-		QuizGame quizGame = new QuizGame(quizData);
+        // Retrieve the selected question factory and set the range on it.
+        QuizQuestionFactory questionFactory = new QuizQuestionFactory(quiz);
+        
+        // Create the game model:
+        Game game = new Game(questionFactory, 10);
+
+        // Create a new level and set it as the view.
+        LevelView levelView = new LevelView();
+        MainContainer.instance().changeCenter(levelView);
+
+        Level level = (Level) levelView.controller();
+        game.setLevel(level);
+        level.setGame(game);
+
+		/*
+		QuizGame quizGame = new QuizGame(quiz);
 		PlayQuizView quizView = new PlayQuizView();
 		MainContainer.instance().changeCenter(quizView);
 		PlayQuiz playQuiz = (PlayQuiz) quizView.controller();
 		playQuiz.setQuizGame(quizGame);
 		quizGame.setPlayQuiz(playQuiz);
+		*/
 	}
 
 	@FXML

@@ -7,10 +7,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.layout.BorderPane;
 
 import game.GameData;
-import game.QuizData;
 import game.User;
 import views.View;
-import views.custom_quiz.CustomQuizView;
+import views.quiz_select.QuizSelectView;
 import views.game_menu.GameMenuView;
 import views.help.HelpView;
 import views.login_page.LoginPage;
@@ -80,7 +79,7 @@ public class MainContainer {
 
     @FXML
     public void quizHit() {
-    	borderPane.setCenter(new CustomQuizView().view());
+    	borderPane.setCenter(new QuizSelectView().view());
     }
 
     @FXML
