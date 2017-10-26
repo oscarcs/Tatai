@@ -41,6 +41,15 @@ public class User implements Serializable{
 		return games;
 	}
 
+	public int getScore() {
+		int score = 0;
+		for(GameData data: games) {
+			score = score + data.getScore();
+		}
+		return score;
+	}
+	
+	
 	/**
 	 * Returns the username of a user.
 	 * @return

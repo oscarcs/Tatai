@@ -31,6 +31,7 @@ public class LoginPage implements Initializable {
 
 	/**
 	 * Sets a main menu controller to set user information to.
+	 * 
 	 * @param mainContainer
 	 */
 	public void setMenu(MainContainer mainContainer) {
@@ -47,26 +48,26 @@ public class LoginPage implements Initializable {
 		dialog.setTitle("Create a new User");
 		dialog.setHeaderText("Create a new User:");
 		dialog.setContentText("Please enter your username:");
-		
+
 		Optional<String> result = dialog.showAndWait();
 		if (result.isPresent()) {
 			if (users.contains(result.get()) || result.get().equals("")) {
-				
+
 				// Create an alert to tell the use that the username is invalid.
 				Alert alert = new Alert(Alert.AlertType.WARNING);
 				alert.setTitle("Username invalid!");
 				alert.setHeaderText("Please enter a different username!");
-				alert.setContentText("This username already exists or the box is empty, " + 
-					"please enter a different one!");
+				alert.setContentText(
+						"This username already exists or the box is empty, " + "please enter a different one!");
 				alert.showAndWait();
 				return;
 			}
 
-			// If there has been a string passed in i.e. the user didn't cancel, 
+			// If there has been a string passed in i.e. the user didn't cancel,
 			// then pass the user to the mainContainer.
 			User user = new User(result.get());
 			mainContainer.setUser(user);
-			
+
 			WelcomeView welcomeView = new WelcomeView();
 			MainContainer.instance().changeCenter(welcomeView);
 			Welcome welcome = (Welcome) welcomeView.controller();
@@ -80,9 +81,8 @@ public class LoginPage implements Initializable {
 	@FXML
 	public void loginHit() {
 		// If client hasn't selected a user.
-		if (usersBox.getSelectionModel().getSelectedItem() == null ||
-			usersBox.getSelectionModel().getSelectedItem().equals("")) 
-		{
+		if (usersBox.getSelectionModel().getSelectedItem() == null
+				|| usersBox.getSelectionModel().getSelectedItem().equals("")) {
 			Alert alert = new Alert(Alert.AlertType.WARNING);
 			alert.setTitle("No user selected!");
 			alert.setHeaderText("Please select a user!");
@@ -94,29 +94,26 @@ public class LoginPage implements Initializable {
 		// If the user has selected an account:
 		String username = usersBox.getSelectionModel().getSelectedItem();
 		User user = null;
-		
+
 		// Create the user object by parsing the output serialization file.
 		try {
 			ObjectInputStream objectInputStream = new ObjectInputStream(
-				new FileInputStream(MainContainer.USERS_DIRECTORY + username)
-			);
+					new FileInputStream(MainContainer.USERS_DIRECTORY + username));
 			user = (User) objectInputStream.readObject();
 			objectInputStream.close();
-		} 
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
-		} 
-		catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
 		// Set the user in the main program GUI state
 		mainContainer.setUser(user);
-		
+
 		// Move to the welcome screen
 		WelcomeView welcomeView = new WelcomeView();
 		MainContainer.instance().changeCenter(welcomeView);
-		Welcome welcome = (Welcome)welcomeView.controller();
+		Welcome welcome = (Welcome) welcomeView.controller();
 		welcome.setUp(user);
 	}
 
@@ -126,9 +123,8 @@ public class LoginPage implements Initializable {
 	@FXML
 	public void deleteHit() {
 		// If no user was selected.
-		if (usersBox.getSelectionModel().getSelectedItem() == null || 
-			usersBox.getSelectionModel().getSelectedItem().equals("")) 
-		{
+		if (usersBox.getSelectionModel().getSelectedItem() == null
+				|| usersBox.getSelectionModel().getSelectedItem().equals("")) {
 			Alert alert = new Alert(Alert.AlertType.WARNING);
 			alert.setTitle("No user selected!");
 			alert.setHeaderText("Please select a user!");
@@ -145,16 +141,16 @@ public class LoginPage implements Initializable {
 		alert.setTitle("Warning");
 		alert.setHeaderText("Deleting User");
 		alert.setContentText("Are you sure you want to delete the user " + username + " ?");
-		
+
 		// Set the buttons:
 		ButtonType typeYes = new ButtonType("Yes", ButtonData.YES);
 		ButtonType typeNo = new ButtonType("No", ButtonData.CANCEL_CLOSE);
 		alert.getButtonTypes().setAll(typeYes, typeNo);
-		
+
 		// Open the alert:
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == typeYes) {
-			
+
 			// Delete file if user presses yes.
 			File fileToDelete = new File(MainContainer.USERS_DIRECTORY + username);
 			usersBox.getItems().remove(fileToDelete.getName());
@@ -164,6 +160,7 @@ public class LoginPage implements Initializable {
 
 	/**
 	 * Check if the required directories exist and load the users into the ComboBox.
+	 * 
 	 * @param location
 	 * @param resources
 	 */
@@ -174,13 +171,18 @@ public class LoginPage implements Initializable {
 		if (!usersDir.exists()) {
 			usersDir.mkdir();
 		}
-		
+
 		// Sound directory:
 		File soundDir = new File(Game.SOUND_DIR);
 		if (!soundDir.exists()) {
 			soundDir.mkdir();
 		}
-		
+		// Quiz directory:
+		File quizDir = new File("quiz");
+		if (!quizDir.exists()) {
+			quizDir.mkdir();
+		}
+
 		// Load in the users:
 		users = new ArrayList<>();
 		File[] usersFiles = usersDir.listFiles();

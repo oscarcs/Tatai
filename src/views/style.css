@@ -1,36 +1,39 @@
 .root {
-    -color-accent: #FF544F;
+    -color-accent: #c0392b;
     -color-minor-accent: #F7FF58;
-    -color-background: #EFECCA;
-    -color-neutral: #C9C595;
-    -color-text: #302C2D;
+    -color-background: #808b96;
+    -color-neutral: #000000;
+    -color-text: #FFFFFF;
 }
     
 /* Overall background for the app */
 .normalBackground {
     -fx-background-color: -color-background;
+    
+    
 }
 
 /* Background color for the left-hand menu */ 
 .menuBackground {
     -fx-background-color: -color-background;
     /* -fx-border-insets: 1; Fix for 'disappearing borders' problem */
-    -fx-border-width: 0 0 1 0;
+    -fx-border-width: 0 0 3 0;
     -fx-border-color: -color-accent;
+
 }
 
 .normalBackWithPic {
 	-fx-background-color: -color-background;
-	/* -fx-background-image: url("/resources/tatai_background.jpg"); */
+	 -fx-background-image: url("/resources/tatai_menu.png"); 
     -fx-background-position: center center;	
-    -fx-background-size: 575 500;
+    -fx-background-size: 700 440;
   	-fx-background-repeat: stretch;   
 }
 
 /* Tatai! title text */
 .titleText {
     -fx-fill: -color-accent;
-    -fx-font-size: 25;
+    -fx-font-size: 30;
     -fx-font-weight: bold;
 }
 
@@ -52,6 +55,10 @@
     -fx-padding: 0 0 0 30;
 }
 
+.leftAndTopSpacingBox {
+    -fx-padding: 30 0 0 30;
+}
+
 .circleBox {
     -fx-padding: 20 0 40 0;
 }
@@ -60,15 +67,23 @@
     -fx-padding: 0 0 30 0;
 }
 
+.bottomSpacing {
+    -fx-padding: 0 0 10 0;
+}
+
+.bottomSpacingBig {
+    -fx-padding: 0 0 50 0;
+}
+
 .headingBox {
-    -fx-padding: 15 15 30 15;    
+    -fx-padding: 15 15 15 15;    
 }
 
 /* ___________________________ HEADING RULES ___________________________ */
 
 .heading2 {
     -fx-fill: -color-text;    
-    -fx-font-size: 25;
+    -fx-font-size: 45;
     -fx-font-weight: bold;
 }
 
@@ -80,7 +95,7 @@
 
 .headingCircle {
     -fx-fill: -color-background;    
-    -fx-font-size: 45px;
+    -fx-font-size: 60px;
     -fx-font-weight: bold;
 }
 
@@ -93,27 +108,37 @@
 
 /* Narrow button of fixed width */
 .narrowButton {
-    -fx-pref-width: 120;
+    -fx-pref-width: 90;
+    -fx-background-radius: 5;
+    -fx-font-weight: bold;
+    
 }
 
 /* Medium button of fixed width */
 .mediumButton {
-    -fx-pref-width: 200;
+    -fx-pref-width: 120;
+    -fx-background-radius: 5;
+    -fx-font-weight: bold;
+    
 }
 
 /* Wide button of fixed width */
 .wideButton {
     -fx-pref-width: 275;
+    -fx-background-radius: 5;
+    -fx-font-weight: bold;
+
 }
 
 /* Button in the left-hand main menu */
 .menuButton {
    -fx-pref-width: 200;
    -fx-pref-height: 50;
-   -fx-background-radius: 0;
+   -fx-background-radius: 5;
    -fx-background-color: -color-background !important;
    -fx-text-fill: -color-accent !important;
    -fx-font-size: 14 !important;
+   -fx-font-weight: bold;
 }
 
 .menuButton:hover {
@@ -123,10 +148,11 @@
 
 /* Main button class */
 .button {
-    -fx-background-radius: 0;
+    -fx-background-radius: 5;
     -fx-background-color: -color-neutral;
     -fx-text-fill: -color-text;
     -fx-padding: 10
+    
 }
 
 .button:hover {
@@ -149,9 +175,9 @@
 
 .combo-box-popup .list-view
 {
-    -fx-background-color: -color-accent;
+    -fx-background-color: -color-neutral;
     -fx-background-insets: 0, 1;
-    /* -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 ); */
+    /*\ -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 ); */
 }
 
 .combo-box-popup .list-view .list-cell
@@ -183,11 +209,11 @@
     -fx-background-insets: -1.4, 0, 1, 2;
     -fx-padding: 0;
 }
-
+/* 
 .combo-box-base:focused {
     -fx-background-color: -color-accent;
 }
-
+*/
 .combo-box-base:disabled {
     -fx-opacity: .4;
 }

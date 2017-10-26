@@ -18,6 +18,8 @@
     xmlns="http://javafx.com/javafx/8.0.60" 
     xmlns:fx="http://javafx.com/fxml/1" 
     fx:controller="views.help.Help"
+    prefHeight="400"
+    prefWidth="600"
 >
     <stylesheets>
         <URL value="@../style.css" />
@@ -26,7 +28,7 @@
     <top>
         <HBox alignment="CENTER" styleClass="headingBox">
             <children>
-                <Label text="Help" styleClass="heading3" />
+                <Label text="Help" styleClass="heading2" />
             </children>
         </HBox>
     </top>
@@ -62,19 +64,21 @@
                     fx:id="practice" 
                     onAction="#setPractice" 
                     styleClass="narrowButton" 
-                    text="Practisc" 
+                    text="Practice" 
                 />
             </children>
         </VBox>
     </left>
 
     <center>
-        <VBox styleClass="leftSpacingBox">        
+        <VBox styleClass="leftAndTopSpacingBox">        
             <children>
                 <TextArea 
                     fx:id="text" 
                     text="Text" 
-                    prefWidth="300"
+                    maxWidth="470"
+                    maxHeight="240"
+                    minHeight="240"
                 />
             </children>
         </VBox>
@@ -83,7 +87,7 @@
     <bottom>
         <VBox alignment="CENTER" styleClass="topSpacingBox">
             <children>
-                <Button fx:id="pronunciation" onAction="#setPronunciation" text="Pronunciation" />
+                <Button fx:id="pronunciation" onAction="#setPronunciation" text="Pronunciation" styleClass="mediumButton" />
             </children>
         </VBox>
     </bottom>

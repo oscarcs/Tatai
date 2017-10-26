@@ -24,6 +24,7 @@
     xmlns="http://javafx.com/javafx/8.0.60" 
     xmlns:fx="http://javafx.com/fxml/1" 
     fx:controller="views.level.Level"
+    
 >
     <stylesheets>
         <URL value="@../style.css" />
@@ -81,7 +82,7 @@
             <StackPane alignment="CENTER" styleClass="circleBox">
                 <children>
                     <Circle 
-                        fill="#A9CBB7"
+                        fill="#21618c"
                         fx:id="circle" 
                         radius="75"
                     />

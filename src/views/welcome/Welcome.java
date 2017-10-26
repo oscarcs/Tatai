@@ -26,14 +26,15 @@ public class Welcome implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+		
 	}
 
 	public void setUp(User user) {
 		
 		// Greet the user.
-		name.setText("Welcome to Tatai, " + user.getUsername() + "!");
+		name.setText(user.getUsername() + " !");
 
-		/*
+		
 		date = LocalDate.now();
 		ArrayList<LocalDate> userGameDate = new ArrayList<LocalDate>();
 		
@@ -57,6 +58,6 @@ public class Welcome implements Initializable {
 			}
 		
 		}
-		*/
+		
 	}
 }

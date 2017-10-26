@@ -20,6 +20,7 @@
       xmlns="http://javafx.com/javafx/8.0.60" 
       xmlns:fx="http://javafx.com/fxml/1" 
       fx:controller="views.game_menu.GameMenu"
+
 >
     <stylesheets>
         <URL value="@../style.css" />
@@ -62,7 +63,7 @@
                                 <RadioButton 
                                     fx:id="hundredButton" 
                                     onAction="#hundredHit" 
-                                    text="10 - 99" 
+                                    text="1 - 99" 
                                 />
                             </children>
                         </HBox>
@@ -74,7 +75,7 @@
     <bottom>
         <HBox alignment="BOTTOM_CENTER" styleClass="topSpacingBox">
             <children>
-                <Button onAction="#playHit" text="Play" />
+                <Button onAction="#playHit" text="Play" styleClass="narrowButton"/>
             </children>
         </HBox>
     </bottom>

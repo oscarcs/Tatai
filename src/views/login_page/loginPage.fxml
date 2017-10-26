@@ -15,10 +15,12 @@
     maxWidth="-Infinity" 
     minHeight="-Infinity" 
     minWidth="-Infinity" 
-    styleClass="normalBackground" 
+    styleClass="normalBackWithPic" 
     xmlns="http://javafx.com/javafx/8.0.60" 
     xmlns:fx="http://javafx.com/fxml/1" 
     fx:controller="views.login_page.LoginPage"
+    prefHeight="440" 
+    prefWidth="700" 
 >
     <stylesheets>
         <URL value="@../style.css" />
@@ -26,20 +28,21 @@
     <center>
         <VBox 
             alignment="CENTER" 
-            prefHeight="200" 
-            prefWidth="300" 
+
+            maxWidth="350" 
             BorderPane.alignment="CENTER"
-            spacing="30"
+            spacing="50"
+            styleClass="bottomSpacingBig"
         >
             <children>
                 <!-- @@TODO: title class -->
-                <HBox styleClass="headingBox" alignment="CENTER">
+                <HBox styleClass="headingBox" alignment="CENTER" >
                     <children>
                         <Text styleClass="heading2" text="Login" />
                     </children>
                 </HBox>
 
-                <HBox alignment="CENTER">
+                <HBox alignment="CENTER" >
                     <children>
                         <ComboBox 
                             fx:id="usersBox" 
