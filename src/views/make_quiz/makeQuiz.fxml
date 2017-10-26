@@ -25,12 +25,12 @@
             <children>
                 <HBox alignment="CENTER" styleClass="headingBox">
                     <children>
-                        <Label styleClass="heading3" text="Create New Quiz"/>
+                        <Label styleClass="heading2" text="Create New Quiz"/>
                     </children>
                 </HBox>
                 <HBox alignment="CENTER">
                     <children>
-                        <Label fx:id="questionNum" text="Label" />
+                        <Label fx:id="questionNum" text="Label" styleClass="heading3" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER" spacing="20.0">
