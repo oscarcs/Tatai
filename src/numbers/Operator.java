@@ -4,34 +4,66 @@ package numbers;
  * Maths operators
  */
 public enum Operator {
-	MULTIPLY(1, "*"), ADD(2, "+"), MINUS(3, "-"), DIVIDE(4, "/");
+	ADD("+"), 
+	SUBTRACT("-"), 
+	MULTIPLY("*"), 
+	DIVIDE("/");
 
-	private final int seed;
-	private final String rep;
+	private final String op;
 
 	/**
-	 * @param seed
-	 *            This is useful for random operator generation using random number
-	 *            generation
-	 * @param rep
-	 *            Used as toString();
+	 * @param op The operator in Java operator form.
 	 */
-	Operator(int seed, String rep) {
-		this.rep = rep;
-		this.seed = seed;
+	Operator(String op) {
+		this.op = op;
 	}
 
+	/**
+	 * Return the operator as a 'java-style' operator.
+	 */
+	public String getOp() {
+		return op;
+	}
+
+	/**
+	 * Perform the actual calculation.
+	 */
+	public int getResult(int a, int b)
+	{
+		switch (op) {
+			case "+":
+				return a + b;
+
+			case "-":
+				return a - b;
+
+			case "*":
+				return a * b;
+
+			case "/":
+				return a / b;
+		}
+		return a;
+	}
+
+	/**
+	 * Return the operator as a 'display' string, using the correct unicode character.
+	 */
 	@Override
 	public String toString() {
-		return rep;
-	}
+		switch (op) {
+			case "+":
+				return "+";
 
-	/**
-	 * Returns the seed useful for random operator generation.
-	 * 
-	 * @return
-	 */
-	public int getSeed() {
-		return seed;
+			case "-":
+				return "−";
+
+			case "*":
+				return "×";
+
+			case "/":
+				return "÷";
+		}
+		return "";
 	}
 }

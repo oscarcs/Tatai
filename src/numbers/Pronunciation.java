@@ -27,27 +27,27 @@ public class Pronunciation {
 	}
 
 	/**
-	 * Returns the maori string pronunciation representation of the number
-	 * 
-	 * @param number
-	 *            Number that will be converted pronunciation representation.
+	 * Returns the number written in Maori words.
+	 * @param number Number that will be converted pronunciation representation.
 	 * @return
 	 */
 	public String getPronunciation(int number) {
+		// If is 10 or less we can just return the map value.
 		if (number <= 10) {
-			// If is 10 or less we can just return the map value.
 			text = numberMap.get(number);
-		} else if (number <= 19) {
-			// If number is from 10 - 19 we return "tekau maa" and the map value.
+		} 
+		// If number is from 10 - 19 we return "tekau maa" and the map value.
+		else if (number <= 19) {
 			text = "tekau maa " + numberMap.get(number % 10);
-		} else {
-			// We split the number into digits and return an answer based off that.
+		} 
+		// We split the number into digits and return an answer based off that.
+		else {
 			int[] num = this.splitNum(number);
 			if (num[1] == 0) {
 				text = numberMap.get(num[0]) + " tekau";
-			} else {
+			} 
+			else {
 				text = numberMap.get(num[0]) + " tekau maa " + numberMap.get(num[1]);
-
 			}
 		}
 		return text;
@@ -68,6 +68,5 @@ public class Pronunciation {
 		splitNumber[1] = number % 10;
 
 		return splitNumber;
-
 	}
 }

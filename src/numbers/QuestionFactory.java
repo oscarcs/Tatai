@@ -1,27 +1,52 @@
 package numbers;
 
+import java.util.Random;
+
 /**
  * 
  */
-public interface QuestionFactory {
+public abstract class QuestionFactory {
+
+	// Maximum and minimum values for each question:
+	protected int min = 1;
+	protected int max = 9;
 
 	/**
 	 * Generate a question
 	 */
-	Question generate();
-
-	/**
-	 * String representation, essentially "game type".
-	 */
-	String asString();
-
-	/**
-	 * The upper limit of the range of values to generate.
-	 */
-	void setMax(int max);
+	public abstract Question generate();
 
 	/**
 	 * The lower limit of the range of values to generate.
 	 */
-	void setMin(int min);
+	public void setMin(int min) {
+		this.min = min;
+	}
+
+	/**
+	 * The upper limit of the range of values to generate.
+	 */
+	public void setMax(int max) {
+		this.max = max;
+	}
+
+	/**
+	 * Randomly generate a number within a range.
+	 * @param min Minimum value
+	 * @param max Maximum value
+	 * @return Random number.
+	 */
+	public int randomNumber(int min, int max) {
+		if (min > max) {
+			throw new IllegalArgumentException(
+				"max must be greater than min, max: " + max + "min :" + min
+			);
+		} 
+		else if (min == max) {
+			return min;
+		}
+
+		Random r = new Random();
+		return r.nextInt((max - min) + 1) + min;
+	}
 }

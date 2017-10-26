@@ -54,7 +54,6 @@
                             </HBox>
                             <HBox alignment="CENTER" GridPane.columnIndex="1">
                                 <children>
-                                    <Text text="Status: " />
                                     <Text fx:id="answerStatus" text="Text" />
                                 </children>
                             </HBox>

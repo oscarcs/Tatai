@@ -54,7 +54,7 @@ public class Level implements Initializable {
 		
 		questionText.setText(game.questionText());
 		attemptText.setText("Attempt " + game.getCurrentAttempt());
-		answerStatus.setText("");
+		answerStatus.setText("Waiting");
 		receivedAnswerText.setText("We received: ");
 
 		roundData = game.getRoundData();

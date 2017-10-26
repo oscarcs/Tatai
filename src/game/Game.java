@@ -26,8 +26,11 @@ public class Game {
     public static final String RECOUT_FILE = "recout.mlf";
     public static final String SOUND_DIR = ".";
     
+    //
     private QuestionFactory questionFactory;
+    //
     private int currentRound;
+    // 
     private Pronunciation pronunciation;
     private Question currentQuestion;
     private int score = 0;
@@ -41,15 +44,15 @@ public class Game {
 
     /**
      * Constructor.
-     * @param questionFactory
-     * @param rounds How many rounds the game will be.
+     * @param questionFactory The source of questions.
+     * @param rounds Number of rounds in the game.
      */
     public Game(QuestionFactory questionFactory, int rounds) {
         this.questionFactory = questionFactory;
         this.currentRound = 1;
         this.currentAttempt = 1;
         this.totalRounds = rounds;
-        this.gameData = new GameData(questionFactory.asString(), rounds);
+        this.gameData = new GameData(questionFactory.toString(), rounds);
         this.roundCorrect = new HashMap<Integer, Boolean>();
         
         pronunciation = new Pronunciation();
@@ -64,24 +67,30 @@ public class Game {
     public ArrayList<String> mlfToString() {
         ArrayList<String> wordsSpoken = new ArrayList<>();
         try {
-            // Read the recout file
+            // Set up to read the file
             File recoutFile = new File(SOUND_DIR + "/" + RECOUT_FILE);
-            FileInputStream fileInputStream = new FileInputStream(recoutFile);
             byte[] data = new byte[(int) recoutFile.length()];
+
+            // Read the file
+            FileInputStream fileInputStream = new FileInputStream(recoutFile);
             fileInputStream.read(data);
             fileInputStream.close();
+            
+            // Create a utf-8 string and split by line:
             String fullFile = new String(data, "UTF-8");
             String[] fileLines = fullFile.split("\n");
 
-            // Remove the "sil" and the first two lines and the last line
+            // Remove the "sil", the first two lines, and the last line.
             for (int i = 2; i < fileLines.length - 1; i++) {
                 if (!fileLines[i].equals("sil")) {
                     wordsSpoken.add(fileLines[i]);
                 }
             }
-        } catch (IOException e) {
+        } 
+        catch (IOException e) {
             e.printStackTrace();
         }
+
         return wordsSpoken;
     }
 
@@ -121,8 +130,8 @@ public class Game {
     }
 
     /**
-     * Process that called by the controller. It will parse the sound file "foo.wav" 
-     * and create a MLF file. On finishing it will call processingDone().
+     * Call the backend to process the sound file "foo.wav" and create a MLF file. 
+     * On finishing it will call processingDone().
      */
     public void process() {
         Service<ProcessOutput> processService = serviceFactory.makeService(
@@ -169,7 +178,7 @@ public class Game {
     }
 
     /**
-     * Method that checks the parsed user input against the actual answer and returns whether they got it right or wrong.
+     * Check whether the given answer was correct.
      * @return
      */
     private boolean checkAnswer() {
@@ -182,11 +191,11 @@ public class Game {
         receivedAnswer = userAnswer;
         String answer = pronunciation.getPronunciation(currentQuestion.answer());
         List<String> answers = Arrays.asList(answer.split(" "));
+        
         if (lines.containsAll(answers)) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     /**
@@ -218,7 +227,7 @@ public class Game {
             currentRound, 
             false, 
             receivedAnswer + "", 
-            pronunciation.getPronunciation(currentQuestion.answer())+ "", 
+            pronunciation.getPronunciation(currentQuestion.answer()), 
             currentQuestion.toString(), 
             currentAttempt
         );
@@ -239,7 +248,8 @@ public class Game {
         
         if (currentRound <= totalRounds) {
             level.nextLevel();
-        } else {
+        } 
+        else {
             level.endGame();
         }
     }
@@ -288,7 +298,7 @@ public class Game {
      * @return
      */
     public String gameTypeName() {
-        return questionFactory.asString();
+        return questionFactory.toString();
     }
 
     /**

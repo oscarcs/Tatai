@@ -6,6 +6,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import numbers.Question;
+import numbers.Operator;
 import views.make_quiz.MakeQuiz;
 
 public class Quiz {
@@ -13,8 +14,6 @@ public class Quiz {
 	private int totalQuestions;
 	private int currentQuestion;
 	private QuizData data;
-	private int first, second;
-	private String operation;
 	private MakeQuiz quiz;
 
 	public Quiz(String name) {
@@ -47,28 +46,13 @@ public class Quiz {
 		this.quiz = quiz;
 	}
 
-	public boolean checkValid(int first, int second, String operation) {
+	public boolean checkValid(int first, int second, Operator operator) {
 
 		boolean valid = true;
-		int result = 0;
+		int result = operator.getResult(first, second);
 
-		switch (operation) {
-			case "+":
-				result = first + second;
-				break;
-
-			case "-":
-				result = first - second;
-				break;
-
-			case "/":
-				valid = first % second == 0; 
-				result = first / second;
-				break;
-
-			case "*":
-				result = first * second;
-				break;
+		if (operator == Operator.DIVIDE) {
+			valid = first % second == 0;
 		}
 
 		if (result > 99 || result <= 0) {
@@ -78,40 +62,16 @@ public class Quiz {
 		return valid;
 	}
 
-	public SingleQuiz getQuestion(int first, int second, String operation) {
+	public SingleQuiz getQuestion(int first, int second, Operator operator) {
 
-		int result = 0;
-		String operationString = "";
-
-		switch (operation) {
-			case "+":
-				result = first + second;
-				operationString = " + ";
-				break;
-
-			case "-":
-				result = first - second;
-				operationString = " − ";
-				break;
-
-			case "/":
-				result = first / second;
-				operationString = " ÷ ";
-				break;
-
-			case "*":
-				result = first * second;
-				operationString = " × ";
-				break;
-		}
+		int result = operator.getResult(first, second);
 
 		SingleQuiz question = new SingleQuiz(
 			currentQuestion, 
-			first + operationString + second, 
+			first + " " + operator.toString() + " " + second, 
 			result
 		);
 
 		return question;
 	}
-
 }

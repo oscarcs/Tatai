@@ -20,6 +20,7 @@ import javafx.scene.control.TextField;
 import game.Quiz;
 import game.SingleQuiz;
 import numbers.Question;
+import numbers.Operator;
 import views.end_quiz.EndQuiz;
 import views.end_quiz.EndQuizView;
 import views.main_container.MainContainer;
@@ -51,6 +52,7 @@ public class MakeQuiz implements Initializable {
 				String oldValue, 
 				String newValue
 			) {
+				// Get the calling textfield
 				StringProperty textProperty = (StringProperty) observable;
 				TextField textField = (TextField) textProperty.getBean();
 
@@ -95,11 +97,11 @@ public class MakeQuiz implements Initializable {
 
 		int first = Integer.parseInt(firstNum.getText());
 		int second = Integer.parseInt(secondNum.getText());
-		String operate = operation.getText();
+		Operator operator = Operator.valueOf(operation.getText());
 		
-		if (quiz.checkValid(first, second, operate)) {
+		if (quiz.checkValid(first, second, operator)) {
 
-			quiz.addQuiz(quiz.getQuestion(first, second, operate));
+			quiz.addQuiz(quiz.getQuestion(first, second, operator));
 
 			if (quiz.getCurrentQuizNum() < quiz.getQuizData().getTotalQues()) {
 				quiz.nextQuizNum();
