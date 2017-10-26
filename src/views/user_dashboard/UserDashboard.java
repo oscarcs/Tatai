@@ -1,7 +1,5 @@
 package views.user_dashboard;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -54,19 +52,15 @@ public class UserDashboard {
 
 		@Override
 		public int compare(GameData o1, GameData o2) {
-		return o1.getTime().compareTo(o2.getTime());
+			return o1.getTime().compareTo(o2.getTime());
 		}
-			
-		}
-		
-	public void chartHit() {
-		
-		
 
-		
-		
-		final NumberAxis xAxis = new NumberAxis(1,user.getGames().size(),1);
-		final NumberAxis yAxis = new NumberAxis(0,10,1);
+	}
+
+	public void chartHit() {
+
+		final NumberAxis xAxis = new NumberAxis(1, user.getGames().size(), 1);
+		final NumberAxis yAxis = new NumberAxis(0, 10, 1);
 		xAxis.setLabel("Games");
 		yAxis.setLabel("Scores");
 

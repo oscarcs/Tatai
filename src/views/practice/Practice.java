@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import question.Question;
@@ -22,13 +21,14 @@ import views.level.LevelView;
 
 /**
  * This screen sets up the practice mode.
+ * 
  * @author osim082
  */
 public class Practice implements Initializable {
 
 	@FXML
 	Button startBtn;
-	
+
 	@FXML
 	TextField number;
 
@@ -40,11 +40,7 @@ public class Practice implements Initializable {
 		// Numeric listener. Called when the number field changes.
 		ChangeListener<String> numericListener = new ChangeListener<String>() {
 			@Override
-			public void changed(
-				ObservableValue<? extends String> observable, 
-				String oldValue, 
-				String newValue
-			) {
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 				// Get the calling textfield:
 				StringProperty textProperty = (StringProperty) observable;
 				TextField textField = (TextField) textProperty.getBean();
@@ -57,7 +53,7 @@ public class Practice implements Initializable {
 		};
 
 		// Set the listener for the numeric TextFields:
-		number.textProperty().addListener(numericListener);	
+		number.textProperty().addListener(numericListener);
 	}
 
 	@FXML
@@ -68,15 +64,15 @@ public class Practice implements Initializable {
 		}
 
 		int num = Integer.parseInt(number.getText());
-		
+
 		if (num > 0 && num < 100) {
 
 			// Create the question
 			Question question = new Question(num + "", num);
-			
+
 			// Retrieve the selected question factory and set the range on it.
 			PracticeQuestionFactory questionFactory = new PracticeQuestionFactory(question);
-			
+
 			// Create the game model:
 			Game game = new Game(questionFactory, 10);
 
@@ -87,8 +83,7 @@ public class Practice implements Initializable {
 			Level level = (Level) levelView.controller();
 			game.setLevel(level);
 			level.setGame(game);
-		}
-		else {
+		} else {
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Information Dialog");
 			alert.setHeaderText("Invalid question provided");
@@ -97,14 +92,18 @@ public class Practice implements Initializable {
 		}
 	}
 
+	/**
+	 * set up the limit of the text field
+	 * 
+	 * @param textfield
+	 *            the textfield that need to be set
+	 * @param length
+	 *            maximum number of character can be entered
+	 */
 	private void setTextLimit(TextField textfield, int length) {
 		textfield.textProperty().addListener(new ChangeListener<String>() {
 			@Override
-			public void changed(
-				ObservableValue<? extends String> observable, 
-				String oldValue, 
-				String newValue
-			) {
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
 				if (textfield.getText().length() > length) {
 					textfield.setText(textfield.getText().substring(0, length));
 				}

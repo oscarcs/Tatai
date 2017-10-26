@@ -25,7 +25,7 @@ public class SimpleQuestionFactory extends QuestionFactory {
 	}
 
 	/**
-	 * 
+	 * generate the question according to the operation
 	 */
 	public Question generate() {
 		

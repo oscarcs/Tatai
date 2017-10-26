@@ -51,7 +51,7 @@ public class Level implements Initializable {
 	public void setGame(Game game) {
 		this.game = game;
 		game.setLevel(this);
-		
+
 		questionText.setText(game.questionText());
 		attemptText.setText("Attempt " + game.getCurrentAttempt());
 		answerStatus.setText("Waiting");
@@ -63,6 +63,7 @@ public class Level implements Initializable {
 
 	/**
 	 * Initialize this scene.
+	 * 
 	 * @param location
 	 * @param resources
 	 */
@@ -81,9 +82,9 @@ public class Level implements Initializable {
 		progressBar.put(7, r7);
 		progressBar.put(8, r8);
 		progressBar.put(9, r9);
-		progressBar.put(10, r10);	
+		progressBar.put(10, r10);
 	}
-	
+
 	/**
 	 * When the user presses the record button.
 	 */
@@ -162,7 +163,7 @@ public class Level implements Initializable {
 		answerStatus.setText("Incorrect");
 		answerStatus.setFill(Color.RED);
 		circle.setFill(Color.RED);
-		
+
 		receivedAnswerText.setText("We received: " + game.getReceivedAnswer());
 	}
 
@@ -184,16 +185,22 @@ public class Level implements Initializable {
 		gameEnd.setGame(game);
 	}
 
-	public void setRoundColour(HashMap<Integer,Boolean> data) {
+	/**
+	 * set up the colour of the progress bar depend on the game data the user is
+	 * currently playing
+	 * 
+	 * @param data
+	 *            the user currently playing data
+	 */
+	public void setRoundColour(HashMap<Integer, Boolean> data) {
 
-	    System.out.println(Collections.singletonList(data));
+		System.out.println(Collections.singletonList(data));
 
 		for (int i = 1; i <= data.size(); i++) {
 			if (data.get(i)) {
 				progressBar.get(i).setFill(Color.web("#55c1ff"));
 				System.out.println("green");
-			} 
-			else {
+			} else {
 				progressBar.get(i).setFill(Color.web("#ff5b5b"));
 				System.out.println("red");
 			}

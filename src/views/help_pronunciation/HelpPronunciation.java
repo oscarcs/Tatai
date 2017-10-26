@@ -2,9 +2,7 @@ package views.help_pronunciation;
 
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.ResourceBundle;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -48,9 +46,12 @@ public class HelpPronunciation implements Initializable {
 		text.setText("All numbers from 11 onwards follow a basic pattern. For example, to say twenty-two, "
 				+ "simply say 'rua tekau', which means 20, and then 'mā rua', which means and two, therefore becomes 'rua tekau mā rua'. "
 				+ "So all you have to do is learn the numbers from 1 - 10 and then the words for "
-				+ "10, 20, 30, 40 and so on. \n"
-				+ "For example: 60  is 'ono tekau' and 54 is 'rima tekau mā whā'");
+				+ "10, 20, 30, 40 and so on. \n" + "For example: 60  is 'ono tekau' and 54 is 'rima tekau mā whā'");
 	}
+
+	/*
+	 * the following are the action performed when the number button were clicked
+	 */
 
 	@FXML
 	public void b1hit() {

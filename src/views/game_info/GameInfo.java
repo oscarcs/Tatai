@@ -13,7 +13,6 @@ import javafx.scene.text.Text;
 
 import game.GameData;
 import game.RoundData;
-import views.main_container.MainContainer;
 
 
 /**

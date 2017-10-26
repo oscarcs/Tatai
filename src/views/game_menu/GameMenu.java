@@ -4,8 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import game.Game;
-import game.GameData;
-import game.User;
 import question.QuestionFactory;
 import question.SimpleQuestionFactory;
 import question.SingleNumberQuestionFactory;
@@ -13,7 +11,6 @@ import views.level.Level;
 import views.level.LevelView;
 import views.main_container.MainContainer;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**

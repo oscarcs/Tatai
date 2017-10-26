@@ -10,6 +10,9 @@ public class Pronunciation {
 	private String text;
 	private HashMap<Integer, String> numberMap;
 
+	/**
+	 * constructor, put the 10 numbers in the hashmap
+	 */
 	public Pronunciation() {
 		numberMap = new HashMap<>();
 

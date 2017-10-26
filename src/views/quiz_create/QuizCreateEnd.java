@@ -1,7 +1,6 @@
 package views.quiz_create;
 
 import java.net.URL;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,13 +15,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import game.Quiz;
-import game.RoundData;
 import question.Question;
 import views.quiz_select.QuizSelectView;
 import views.main_container.MainContainer;
 
 /**
- * Controller class for the final 
+ * Controller class for the final
  */
 public class QuizCreateEnd implements Initializable {
 
@@ -30,10 +28,10 @@ public class QuizCreateEnd implements Initializable {
 
 	@FXML
 	Label name;
-	
+
 	@FXML
 	Button save;
-	
+
 	@FXML
 	TableView<Question> table;
 
@@ -42,6 +40,11 @@ public class QuizCreateEnd implements Initializable {
 
 	}
 
+	/**
+	 * setup the view by the data from the quiz
+	 * 
+	 * @param quiz
+	 */
 	public void setQuiz(Quiz quiz) {
 		this.quiz = quiz;
 		name.setText("Questions for: " + quiz.getName());
@@ -50,24 +53,19 @@ public class QuizCreateEnd implements Initializable {
 		TableColumn<Question, Integer> indexColumn = new TableColumn<Question, Integer>("Quiz Number");
 		indexColumn.setCellFactory(col -> {
 			TableCell<Question, Integer> cell = new TableCell<>();
-			cell.textProperty().bind(Bindings.when(cell.emptyProperty())
-				.then("")
-				.otherwise(cell.indexProperty().asString()));
+			cell.textProperty()
+					.bind(Bindings.when(cell.emptyProperty()).then("").otherwise(cell.indexProperty().asString()));
 			return cell;
 		});
 
 		// Add the question column.
 		TableColumn<Question, String> questionColumn = new TableColumn<Question, String>("Question");
-		questionColumn.setCellValueFactory(
-			new PropertyValueFactory<Question, String>("representation")
-		);
+		questionColumn.setCellValueFactory(new PropertyValueFactory<Question, String>("representation"));
 
 		// Add the answer column.
 		TableColumn<Question, Integer> answerColumn = new TableColumn<Question, Integer>("Answer");
-		answerColumn.setCellValueFactory(
-			new PropertyValueFactory<Question, Integer>("answer")
-		);
-		
+		answerColumn.setCellValueFactory(new PropertyValueFactory<Question, Integer>("answer"));
+
 		indexColumn.setMinWidth(100);
 		questionColumn.setMinWidth(100);
 		answerColumn.setMinWidth(100);
@@ -82,6 +80,9 @@ public class QuizCreateEnd implements Initializable {
 		return FXCollections.observableArrayList(quiz.getQuestions());
 	}
 
+	/**
+	 * save the quiz in the folder, and return to the quiz select view
+	 */
 	@FXML
 	public void saveHit() {
 		this.quiz.save();
