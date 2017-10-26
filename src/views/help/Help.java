@@ -13,7 +13,7 @@ import views.speech_help.SpeechHelpView;
 public class Help implements Initializable {
 
 	@FXML
-	Button overview, play, quiz, dashboard;
+	Button overview, play, quiz, dashboard, practice;
 
 	@FXML
 	TextArea text;
@@ -36,6 +36,14 @@ public class Help implements Initializable {
 	}
 
 	@FXML
+	public void setDashboard() {
+		text.setText(
+			"The Dashboard allows you to track your past games. By double-clicking on an entry, " +
+			"you can view more information."
+		);
+	}
+
+	@FXML
 	public void setPlay() {
 		text.setText(
 			"There are two different game types to choose from: single numbers and simple equations. " +
@@ -54,10 +62,9 @@ public class Help implements Initializable {
 	}
 
 	@FXML
-	public void setDashboard() {
+	public void setPractice() {
 		text.setText(
-			"The Dashboard allows you to track your past games. By double-clicking on an entry, " +
-			"you can view more information."
+			"Tātai! allows you to practice individual numbers using the 'Practice' button in the menu."
 		);
 	}
 

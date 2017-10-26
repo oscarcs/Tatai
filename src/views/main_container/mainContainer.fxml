@@ -67,18 +67,18 @@
 
                             <children>
                                 <Button 
-                                    fx:id="playButton" 
-                                    onAction="#playHit" 
-                                    styleClass="menuButton" 
-                                    GridPane.columnIndex="0"
-                                    text="Play"
-                                />
-                                <Button 
                                     fx:id="dashboardButton" 
                                     onAction="#dashboardHit" 
                                     styleClass="menuButton" 
-                                    GridPane.columnIndex="1"
+                                    GridPane.columnIndex="0"
                                     text="Dashboard" 
+                                />
+                                <Button 
+                                    fx:id="playButton" 
+                                    onAction="#playHit" 
+                                    styleClass="menuButton" 
+                                    GridPane.columnIndex="1"
+                                    text="Play"
                                 />
                                 <Button 
                                     fx:id="quizButton"

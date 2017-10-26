@@ -68,14 +68,15 @@ public class MainContainer {
     }
 
     @FXML
+    public void dashboardHit() {
+        borderPane.setCenter(new UserDashboardView().view());
+    }
+
+    @FXML
     public void playHit() {
         borderPane.setCenter(new GameMenuView().view());
     }
 
-    @FXML
-    public void dashboardHit() {
-        borderPane.setCenter(new UserDashboardView().view());
-    }
 
     @FXML
     public void quizHit() {

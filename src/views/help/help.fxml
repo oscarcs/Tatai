@@ -41,6 +41,12 @@
                     text="Overview" 
                 />
                 <Button 
+                    fx:id="dashboard" 
+                    onAction="#setDashboard" 
+                    styleClass="narrowButton" 
+                    text="Dashboard" 
+                />
+                <Button 
                     fx:id="play" 
                     onAction="#setPlay" 
                     styleClass="narrowButton" 
@@ -53,10 +59,10 @@
                     text="Quiz" 
                 />
                 <Button 
-                    fx:id="dashboard" 
-                    onAction="#setDashboard" 
+                    fx:id="practice" 
+                    onAction="#setPractice" 
                     styleClass="narrowButton" 
-                    text="Dashboard" 
+                    text="Practisc" 
                 />
             </children>
         </VBox>
