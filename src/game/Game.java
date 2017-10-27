@@ -10,6 +10,9 @@ import java.util.List;
 import javafx.concurrent.Service;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
+import javafx.util.Duration;
+import javafx.animation.Timeline;
+import javafx.animation.KeyFrame;
 
 import processes.ProcessOutput;
 import question.Question;
@@ -188,7 +191,6 @@ public class Game {
         String userAnswer = "";
         for (String line : lines) {
             userAnswer += " " + line;
-            System.out.println(line);
         }
         receivedAnswer = userAnswer;
         String answer = pronunciation.getPronunciation(currentQuestion.getAnswer());
@@ -217,7 +219,12 @@ public class Game {
         
         level.answerCorrect();
         roundCorrect.put(currentRound, true);
-        endRound();
+
+        // Delay going to the next question until we have given the user feedback:
+        Timeline timeline = new Timeline(new KeyFrame(
+                Duration.millis(2000),
+                ae -> endRound()));
+        timeline.play();
     }
 
     /**
