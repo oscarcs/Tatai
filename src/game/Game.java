@@ -222,7 +222,7 @@ public class Game {
 
         // Delay going to the next question until we have given the user feedback:
         Timeline timeline = new Timeline(new KeyFrame(
-                Duration.millis(2000),
+                Duration.millis(3000),
                 ae -> endRound()));
         timeline.play();
     }

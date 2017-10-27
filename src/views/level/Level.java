@@ -93,7 +93,7 @@ public class Level implements Initializable {
 		playButton.setDisable(true);
 		answerStatus.setText("Waiting");
 		answerStatus.setFill(Color.WHITE);
-		circle.setFill(Color.YELLOW);
+		circle.setFill(Color.web("#F7FF58"));
 
 		game.record();
 	}
@@ -147,8 +147,8 @@ public class Level implements Initializable {
 	 */
 	public void answerCorrect() {
 		answerStatus.setText("Correct");
-		answerStatus.setFill(Color.GREEN);
-		circle.setFill(Color.GREEN);
+		answerStatus.setFill(Color.web("#2BFF52"));
+		circle.setFill(Color.web("#2BFF52"));
 
 		receivedAnswerText.setText("We received: " + game.getReceivedAnswer());
 	}
