@@ -23,9 +23,8 @@
 .normalBackWithPic {
 	-fx-background-color: -color-background;
     -fx-background-image: url("/resources/tatai_menu.png"); 
-    -fx-background-position: center center;	
-    -fx-background-size: 750 450;
-  	-fx-background-repeat: stretch;   
+    -fx-background-position: center bottom;	
+    -fx-background-size: 750 448;
 }
 
 /* Tatai! title text */
