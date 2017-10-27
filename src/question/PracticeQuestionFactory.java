@@ -27,6 +27,6 @@ public class PracticeQuestionFactory extends QuestionFactory {
 	 */
 	@Override
 	public String toString() {
-		return "Practise";
+		return "Practice";
 	}
 }

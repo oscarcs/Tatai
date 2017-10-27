@@ -31,10 +31,10 @@ public class Level implements Initializable {
 	Circle circle;
 
 	@FXML
-	Button recordButton, playButton, nextQuestionButton;
+	Button recordButton, playButton;
 
 	@FXML
-	Text questionText, answerStatus, receivedAnswerText;
+	Text questionText, answerStatus, receivedAnswerText, questionNumberText;
 
 	@FXML
 	Text attemptText, roundText;
@@ -51,7 +51,6 @@ public class Level implements Initializable {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		nextQuestionButton.setDisable(true);
 		playButton.setDisable(true);
 
 		progressBar = new HashMap<Integer, Rectangle>();
@@ -80,6 +79,7 @@ public class Level implements Initializable {
 		attemptText.setText("Attempt " + game.getCurrentAttempt());
 		answerStatus.setText("Waiting");
 		receivedAnswerText.setText("We received: ");
+		questionNumberText.setText("Question " + game.getCurrentRound());
 
 		setRoundColour(game.getRoundData());
 	}
@@ -93,7 +93,6 @@ public class Level implements Initializable {
 		playButton.setDisable(true);
 		answerStatus.setText("Waiting");
 		answerStatus.setFill(Color.WHITE);
-		nextQuestionButton.setDisable(true);
 		circle.setFill(Color.YELLOW);
 
 		game.record();
@@ -112,13 +111,7 @@ public class Level implements Initializable {
 	 */
 	@FXML
 	public void nextQuestionHit() {
-		game.removeSound();
 
-		// Create a new level and pass the game into it.
-		LevelView levelView = new LevelView();
-		MainContainer.instance().changeCenter(levelView);
-		Level level = (Level) levelView.controller();
-		level.setGame(game);
 	}
 
 	/**
@@ -165,17 +158,23 @@ public class Level implements Initializable {
 	 */
 	public void answerWrong() {
 		answerStatus.setText("Incorrect");
-		answerStatus.setFill(Color.web("#55c1ff"));
-		circle.setFill(Color.web("#55c1ff"));
+		answerStatus.setFill(Color.web("#d32c33"));
+		circle.setFill(Color.web("#d32c33"));
 
 		receivedAnswerText.setText("We received: " + game.getReceivedAnswer());
 	}
 
 	/**
-	 * When the user is allowed to go on the next question this method is called.
+	 * Go to the next question automatically.
 	 */
 	public void nextLevel() {
-		nextQuestionButton.setDisable(false);
+		game.removeSound();
+
+		// Create a new level and pass the game into it.
+		LevelView levelView = new LevelView();
+		MainContainer.instance().changeCenter(levelView);
+		Level level = (Level) levelView.controller();
+		level.setGame(game);
 	}
 
 	/**

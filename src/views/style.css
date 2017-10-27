@@ -263,7 +263,7 @@
 
 .table-view .column-header-background .label {
     -fx-background-color: transparent;
-    -fx-text-fill: white;
+    -fx-text-fill: -color-text;
 }
 
 .table-view .column-header {
@@ -277,8 +277,8 @@
 .table-row-cell {
     -fx-background-color: -color-neutral;
     -fx-background-insets: 0, 0 0 1 0;
-    -fx-border-color: -color-text;
-    -fx-table-cell-border-color: -color-text;
+    -fx-border-color: -color-background;
+    -fx-table-cell-border-color: -color-background;
     -fx-padding: 0.0em; /* 0 */
 }
 

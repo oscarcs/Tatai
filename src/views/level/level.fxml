@@ -34,32 +34,18 @@
         TOP PANE
     -->
     <top>
-        <VBox BorderPane.alignment="CENTER">
+        <VBox BorderPane.alignment="CENTER" spacing="5">
             <children>
                 <HBox alignment="CENTER">
-                    <GridPane>
-                        <columnConstraints>
-                            <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
-                            <ColumnConstraints minWidth="10.0" prefWidth="100.0" hgrow="SOMETIMES" />
-                        </columnConstraints>
-                        
-                        <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        </rowConstraints>
-
-                        <children>
-                            <HBox alignment="CENTER" GridPane.columnIndex="0">
-                                <children>
-                                    <Text fx:id="attemptText" text="Text" styleClass="questionText" />
-                                </children>
-                            </HBox>
-                            <HBox alignment="CENTER" GridPane.columnIndex="1">
-                                <children>
-                                    <Text fx:id="answerStatus" text="Text" styleClass="questionText"/>
-                                </children>
-                            </HBox>
-                        </children>
-                    </GridPane>
+                    <children>
+                        <Text fx:id="questionNumberText" text="Text" styleClass="questionText" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" spacing="15">
+                    <children>
+                        <Text fx:id="attemptText" text="Text" styleClass="questionText" />
+                        <Text fx:id="answerStatus" text="Text" styleClass="questionText"/>
+                    </children>
                 </HBox>
                 <HBox alignment="CENTER">
                     <children>
@@ -107,12 +93,6 @@
                         onAction="#playHit"
                         styleClass="mediumButton" 
                         text="Play ▶️"
-                    />
-                    <Button 
-                        fx:id="nextQuestionButton" 
-                        onAction="#nextQuestionHit" 
-                        styleClass="mediumButton"   
-                        text="Next Question ⏩" 
                     />
                 </children>
             </HBox>
