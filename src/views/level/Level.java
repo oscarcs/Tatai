@@ -146,6 +146,8 @@ public class Level implements Initializable {
 	 * When the user answers correct this method is called.
 	 */
 	public void answerCorrect() {
+		recordButton.setDisable(true);
+		playButton.setDisable(true);
 		answerStatus.setText("Correct");
 		answerStatus.setFill(Color.web("#2BFF52"));
 		circle.setFill(Color.web("#2BFF52"));
@@ -196,7 +198,7 @@ public class Level implements Initializable {
 
 		for (int i = 1; i <= data.size(); i++) {			
 			if (data.get(i)) {
-				progressBar.get(i).setStyle("-fx-fill: #55c1ff;");
+				progressBar.get(i).setStyle("-fx-fill: #2BFF52;");
 			} 
 			else {
 				progressBar.get(i).setStyle("-fx-fill: #d32c33;");

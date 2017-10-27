@@ -196,7 +196,7 @@ public class Game {
         String answer = pronunciation.getPronunciation(currentQuestion.getAnswer());
         List<String> answers = Arrays.asList(answer.split(" "));
         
-        if (lines.containsAll(answers)) {
+        if (lines.containsAll(answers) && answers.size() == lines.size()) {
             return true;
         }
         return false;
@@ -222,8 +222,8 @@ public class Game {
 
         // Delay going to the next question until we have given the user feedback:
         Timeline timeline = new Timeline(new KeyFrame(
-                Duration.millis(3000),
-                ae -> endRound()));
+            Duration.millis(2500),
+            ae -> endRound()));
         timeline.play();
     }
 

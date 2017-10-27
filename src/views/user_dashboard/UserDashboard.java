@@ -154,6 +154,7 @@ public class UserDashboard {
 		});
 
 		tableView.getSortOrder().add(dateColumn);
+		tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 	}
 
 }
