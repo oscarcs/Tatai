@@ -2,6 +2,7 @@ package question;
 
 /**
  * Creates questions that are just a single number.
+ * @author szhu842, osim082
  */
 public class SingleNumberQuestionFactory extends QuestionFactory {
 

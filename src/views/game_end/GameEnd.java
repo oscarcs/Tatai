@@ -17,6 +17,7 @@ import views.main_container.MainContainer;
 
 /**
  * Controller used at the end of a game to show the user how they did.
+ * @author szhu842, osim082
  */
 public class GameEnd implements Initializable {
 

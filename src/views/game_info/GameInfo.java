@@ -16,7 +16,8 @@ import game.RoundData;
 
 
 /**
- * Controller of the GameInfo View, it is called when a user double clicks on a game on the user dashboard to see it's details.
+ * Controller for GameInfo. Shows a breakdown of each game.
+ * @author szhu842
  */
 public class GameInfo implements Initializable{
 
@@ -25,6 +26,11 @@ public class GameInfo implements Initializable{
     @FXML
     TableView<RoundData> tableView;
     private GameData gameData;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 
     /**
      * Sets the gameData of the game that is to be displayed.
@@ -66,11 +72,4 @@ public class GameInfo implements Initializable{
     private ObservableList<RoundData> gameRounds() {
         return FXCollections.observableArrayList(gameData.rounds());
     }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
-
-
 }

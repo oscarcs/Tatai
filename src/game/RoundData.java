@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * This class represents a saved round.
+ * @author szhu842, osim082
  */
 public class RoundData implements Comparable<RoundData>, Serializable {
     
@@ -42,9 +43,11 @@ public class RoundData implements Comparable<RoundData>, Serializable {
     public int compareTo(RoundData o) {
         if (roundNumber == o.roundNumber) {
             return 0;
-        } else if (this.roundNumber < o.roundNumber) {
+        } 
+        else if (this.roundNumber < o.roundNumber) {
             return 1;
-        } else {
+        } 
+        else {
             return -1;
         }
     }

@@ -14,8 +14,8 @@ import views.main_container.MainContainer;
 import java.util.HashMap;
 
 /**
- * Controller for the GameMenuView, it is called when the user clicks on Play in the main menu. 
- * It handles creation of the Game model.
+ * GameMenu controller.
+ * @author szhu842, osim082
  */
 public class GameMenu {
 

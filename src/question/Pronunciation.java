@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 /**
  * Used for processing whether the received pronunciation was correct.
+ * @author szhu842, osim082
  */
 public class Pronunciation {
 

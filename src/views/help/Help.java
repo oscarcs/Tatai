@@ -9,6 +9,10 @@ import javafx.scene.text.Font;
 import views.main_container.MainContainer;
 import views.help_pronunciation.HelpPronunciationView;
 
+/**
+ * Help Controller.
+ * @author szhu842, osim082
+ */
 public class Help implements Initializable {
 
 	@FXML

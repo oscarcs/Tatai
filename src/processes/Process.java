@@ -1,37 +1,36 @@
 package processes;
 
 /**
- * This class is made to represent a linux command.
+ * Represents a Linux command.
+ * @author szhu842, osim082
  */
 public class Process {
 
-	private final String CMD;
-	private final String NAME;
+	private final String cmd;
+	private final String name;
 
 	/**
-	 * @param CMD
-	 *            This is the command as a string
-	 * @param NAME
-	 *            This is the chosen name that will refer to the command
+	 * @param cmd Command as a string.
+	 * @param name Name that will refer to the command.
 	 */
-	public Process(String CMD, String NAME) {
-		this.CMD = CMD;
-		this.NAME = NAME;
+	public Process(String cmd, String name) {
+		this.cmd = cmd;
+		this.name = name;
 	}
 
 	/**
+	 * Get the command.
 	 * @return Returns the command line as string.
 	 */
-	public String getCMD() {
-		return CMD;
+	public String getCmd() {
+		return cmd;
 	}
 
 	/**
-	 * Returns the name of the command.
-	 * 
-	 * @return
+	 * Get the name.
+	 * @return Returns the name of the command.
 	 */
-	public String getNAME() {
-		return NAME;
+	public String getName() {
+		return name;
 	}
 }

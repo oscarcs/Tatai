@@ -19,6 +19,7 @@ import views.main_container.MainContainer;
 
 /**
  * Class for the main game screen in the application.
+ * @author szhu842, osim082
  */
 public class Level implements Initializable {
 

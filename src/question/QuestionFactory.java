@@ -3,7 +3,8 @@ package question;
 import java.util.Random;
 
 /**
- * 
+ * Creates questions.
+ * @author szhu842, osim082
  */
 public abstract class QuestionFactory {
 

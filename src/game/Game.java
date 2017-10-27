@@ -21,7 +21,8 @@ import question.Pronunciation;
 import views.level.Level;
 
 /**
- * Class that is the object that represents a Game Model (with respect to MVC).
+ * Class that represents a Game model (in MVC).
+ * @author szhu842, osim082
  */
 public class Game {
 

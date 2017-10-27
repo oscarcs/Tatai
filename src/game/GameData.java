@@ -5,7 +5,8 @@ import java.time.LocalDate;
 import java.util.HashSet;
 
 /**
- * Class that represents the saved data of a completed game.
+ * Represents the saved data of a completed game.
+ * @author szhu842, osim082
  */
 public class GameData implements Serializable{
     private HashSet<RoundData> rounds;
@@ -47,7 +48,10 @@ public class GameData implements Serializable{
         if (correct) {
             score++;
         }
+        
+        // Calculate the score as a %
         scoreAsPercentage = (((double) score) / ((double) totalRounds)) * 100;
+        
         rounds.add(new RoundData(
             roundNumber, 
             correct, 
@@ -59,7 +63,7 @@ public class GameData implements Serializable{
     }
 
     /**
-     * Set's the time field which represents when the game was played. Necessary for TableView and testing purposes.
+     * Sets the 'time' field, which represents when the game was played. 
      * @param time
      */
     public void setTime(LocalDate time) {
@@ -67,7 +71,9 @@ public class GameData implements Serializable{
     }
 
     /**
-     * Returns the game type that was played, it is used when the game checks whether the user is allowed to proceed to level 2 of a given game type.
+     * Returns the game type that was played. 
+     * it is used when the game checks whether the user is allowed to proceed 
+     * to level 2 of a given game type.
      * @return
      */
     public String getGameType() {
@@ -75,7 +81,7 @@ public class GameData implements Serializable{
     }
 
     /**
-     * Set the game type that was played. Necessary for TableView and testing purposes.
+     * Set the game type that was played.
      * @param gameType
      */
     public void setGameType(String gameType) {
@@ -83,7 +89,7 @@ public class GameData implements Serializable{
     }
 
     /**
-     * Get the max number that was selected by the user before the game started. Necessary for TableView and testing purposes.
+     * Get the max number that was selected by the user before the game started. 
      * @return
      */
     public int getMaxNumber() {
@@ -91,7 +97,7 @@ public class GameData implements Serializable{
     }
 
     /**
-     * Set hte maximum number that the game was allowed to ask questions up to. Necessary for TableView and testing purposes.
+     * Set hte maximum number that the game was allowed to ask questions up to. 
      * @param maxNumber
      */
     public void setMaxNumber(int maxNumber) {
@@ -99,7 +105,7 @@ public class GameData implements Serializable{
     }
 
     /**
-     * Gets the individual round data.  Necessary for TableView and testing purposes.
+     * Gets the individual round data.
      * @return
      */
     public HashSet<RoundData> rounds() {
@@ -107,7 +113,7 @@ public class GameData implements Serializable{
     }
 
     /**
-     * Get the total rounds that were played. Necessary for TableView and testing purposes.
+     * Get the total rounds that were played. 
      * @return
      */
     public int getTotalRounds() {
@@ -115,7 +121,7 @@ public class GameData implements Serializable{
     }
 
     /**
-     * Set the field that represents the total rounds that were played. Necessary for TableView and testing purposes.
+     * Set the field that represents the total rounds that were played. 
      * @param totalRounds
      */
     public void setTotalRounds(int totalRounds) {

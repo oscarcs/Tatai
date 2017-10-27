@@ -21,6 +21,7 @@ import views.main_container.MainContainer;
 /**
  * Controller for speechHelp, which allows the user to hear example
  * pronunciations for numbers.
+ * @author szhu842, osim082
  */
 public class HelpPronunciation implements Initializable {
 

@@ -21,6 +21,7 @@ import views.main_container.MainContainer;
 
 /**
  * Controller class for 'New Quiz' screen.
+ * @author szhu842, osim082
  */
 public class QuizCreate implements Initializable {
 

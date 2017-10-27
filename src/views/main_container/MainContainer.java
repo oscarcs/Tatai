@@ -21,6 +21,9 @@ import views.practice.PracticeView;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * Controller for main view.
+ */
 public class MainContainer {
 
     private static MainContainer instance;
@@ -44,7 +47,8 @@ public class MainContainer {
     BorderPane borderPane;
 
     /**
-     * Method called that the start of the initialization. Sets the singleton instance, and disables all buttons (enabled when user logs in).
+     * Method called that the start of the initialization. 
+     * Sets the singleton instance, and disables all buttons (enabled when user logs in).
      */
     @FXML
     public void initialize() {

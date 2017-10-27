@@ -14,6 +14,7 @@ import game.User;
 
 /**
  * This is the 'welcome screen', essentially the home screen of the app.
+ * @author szhu842, osim082
  */
 public class Welcome implements Initializable {
 

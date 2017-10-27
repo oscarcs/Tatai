@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Class that represents a question in the game.
+ * @author osim082
  */
 public class Question implements Serializable {
 	

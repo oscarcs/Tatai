@@ -22,6 +22,10 @@ import views.main_container.MainContainer;
 import views.welcome.Welcome;
 import views.welcome.WelcomeView;
 
+/**
+ * Controller for login page.
+ * @author szhu842, osim082
+ */
 public class LoginPage implements Initializable {
 
 	@FXML

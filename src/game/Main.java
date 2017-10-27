@@ -8,12 +8,17 @@ import javafx.stage.Stage;
 
 import views.main_container.MainContainerView;
 
+/**
+ * Main class.
+ * @author szhu842, osim082
+ */
 public class Main extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
 		Parent root = (Parent) new MainContainerView().view();
 
+		// Set title and size.
 		stage.setTitle("Tatai!");
 		stage.setMinWidth(750);
 		stage.setMinHeight(500);

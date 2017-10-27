@@ -25,6 +25,10 @@ import views.quiz_create.QuizCreateView;
 import views.level.Level;
 import views.level.LevelView;
 
+/**
+ * Quiz selection screen controller.
+ * @author szhu842, osim082
+ */
 public class QuizSelect implements Initializable {
 
 	private Quiz quiz;

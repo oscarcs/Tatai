@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import views.main_container.MainContainer;
 
 /**
- * Object represents a User
+ * Represents a saveable user of the app.
+ * @author szhu842, osim082
  */
 public class User implements Serializable{
 

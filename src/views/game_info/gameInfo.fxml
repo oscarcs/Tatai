@@ -21,7 +21,6 @@
       fx:controller="views.game_info.GameInfo"
 >
     <stylesheets>
-        <URL value="@gameInfo.css" />
         <URL value="@../style.css" />
     </stylesheets>
     <top>
@@ -31,16 +30,10 @@
                 <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0">
                     <children>
                         <Text 
-                            fx:id="titleText" 
-                            fill="WHITE" 
-                            strokeType="OUTSIDE" 
-                            strokeWidth="0.0" 
-                            text="Below is a breakdown of your game!"
-                        >
-                            <font>
-                                <Font size="28.0" />
-                            </font>
-                        </Text>
+                            fx:id="titleText"
+                            styleClass="heading3"
+                            text=""
+                        />
                     </children>
                 </HBox>
             </children>

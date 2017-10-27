@@ -2,6 +2,7 @@ package question;
 
 /**
  * Factory for practising a single question over and over.
+ * @author osim082
  */
 public class PracticeQuestionFactory extends QuestionFactory {
 

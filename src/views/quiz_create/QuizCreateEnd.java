@@ -20,7 +20,8 @@ import views.quiz_select.QuizSelectView;
 import views.main_container.MainContainer;
 
 /**
- * Controller class for the final 
+ * Controller class for the end of quiz creation.
+ * @author szhu842, osim082
  */
 public class QuizCreateEnd implements Initializable {
 

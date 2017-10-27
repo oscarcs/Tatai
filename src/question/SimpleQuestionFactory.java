@@ -3,7 +3,8 @@ package question;
 import java.util.ArrayList;
 
 /**
- * Factory to create simple questions 
+ * Factory to create simple questions.
+ * @author osim082
  */
 public class SimpleQuestionFactory extends QuestionFactory {
 

@@ -4,6 +4,7 @@ import processes.ServiceFactory;
 
 /**
  * Abstract the command line tools and the HTK framework.
+ * @author szhu842, osim082
  */
 public class SpeechRecognitionServiceFactory extends ServiceFactory {
     public static final String PLAY = "play";

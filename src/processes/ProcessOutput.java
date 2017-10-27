@@ -1,14 +1,13 @@
 package processes;
 
 /**
- * Class made to abstract the output of a command line process in linux
+ * Abstract the output of a command-line process in Linux
  */
 public class ProcessOutput {
 	private String stdout, stderr;
 
 	/**
-	 * Returns stdout as String
-	 * 
+	 * Returns stdout as String.
 	 * @return
 	 */
 	public String getStdout() {
@@ -16,8 +15,7 @@ public class ProcessOutput {
 	}
 
 	/**
-	 * Returns stderr as string.
-	 * 
+	 * Returns stderr as String.
 	 * @return
 	 */
 	public String getStderr() {
@@ -25,10 +23,8 @@ public class ProcessOutput {
 	}
 
 	/**
-	 * @param stdout
-	 *            This is the stdout of the process as a string.
-	 * @param stderr
-	 *            This is the stderr of the process as a string.
+	 * @param stdout Stdout of the process as a string.
+	 * @param stderr Stderr of the process as a string.
 	 */
 	public ProcessOutput(String stdout, String stderr) {
 		this.stderr = stderr;

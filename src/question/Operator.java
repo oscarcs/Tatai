@@ -2,6 +2,7 @@ package question;
 
 /**
  * Maths operators
+ * @author osim082
  */
 public enum Operator {
 	ADD("+"), 

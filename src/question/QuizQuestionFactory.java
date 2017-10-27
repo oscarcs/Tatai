@@ -3,7 +3,8 @@ package question;
 import game.Quiz;
 
 /**
- * Use the questions from a saved quiz
+ * Use the questions from a saved quiz.
+ * @author osim082
  */
 public class QuizQuestionFactory extends QuestionFactory {
 

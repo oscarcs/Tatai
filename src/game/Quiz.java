@@ -13,6 +13,7 @@ import views.main_container.MainContainer;
 
 /**
  * Function representing the data of a quiz.
+ * @author szhu842, osim082
  */
 public class Quiz implements Serializable {
 

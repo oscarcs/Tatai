@@ -28,6 +28,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+/**
+ * User dashboard controller.
+ * @author szhu842, osim082
+ */
 public class UserDashboard {
 
 	@FXML

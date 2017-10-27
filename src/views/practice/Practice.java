@@ -21,7 +21,6 @@ import views.level.LevelView;
 
 /**
  * This screen sets up the practice mode.
- * 
  * @author osim082
  */
 public class Practice implements Initializable {
