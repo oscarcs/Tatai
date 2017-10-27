@@ -2,10 +2,14 @@ package views.help_pronunciation;
 
 import java.io.File;
 import java.net.URL;
+import java.net.URI;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.DataLine.Info;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -123,10 +127,15 @@ public class HelpPronunciation implements Initializable {
 	 */
 	private void playSound(File sound) {
 		try {
-			Clip clip = AudioSystem.getClip();
-			clip.open(AudioSystem.getAudioInputStream(sound));
-			clip.start();
-		} catch (Exception e) {
+			URL url = sound.toURI().toURL();
+
+            AudioInputStream inputStream = AudioSystem.getAudioInputStream(url);
+            DataLine.Info info = new DataLine.Info(Clip.class, inputStream.getFormat());
+            Clip clip = (Clip) AudioSystem.getLine(info);
+            clip.open(inputStream);
+            clip.start();
+		} 
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
